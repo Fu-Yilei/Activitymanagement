@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!--  constant name="struts.enable.SlashesInActionNames" value="true"/-->
+	<!--  constant name="struts.configuration.xml.reload" value="true" /-->
+	<package name="default" extends ="struts-default">
+
+		<!-- 显示书 -->
+		<action name = "listbooks" class = "action.Bookmanagement" method = "ListBooks">
+			<result>/BookView.jsp</result>
+		</action>
+		<!-- 删除书 -->
+		<action name = "delete" class = "action.Bookmanagement" method = "DeleteBook">
+			<result>/Success.jsp</result>
+		</action>
+		
+		<action name = "searchbooks" class = "action.Bookmanagement" method = "SearchBooks">
+			<result>/BookView.jsp</result>
+		</action>
+		<!-- 显示细节-->
+		<action name = "details" class = "action.Bookmanagement" method = "ShowDetails">
+			<result>/BookDetail.jsp</result>
+		</action>
+
+</package>
+</struts>
