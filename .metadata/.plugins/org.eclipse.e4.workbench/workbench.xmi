@@ -87,7 +87,7 @@
                   <children xsi:type="advanced:Placeholder" xmi:id="_n0CbcJ9qEearL4HZNihKXQ" elementId="org.eclipse.mylyn.tasks.ui.views.tasks" ref="_n0DDyZ9qEearL4HZNihKXQ"/>
                 </children>
               </children>
-              <children xsi:type="basic:PartStack" xmi:id="_n0CbcZ9qEearL4HZNihKXQ" elementId="bottomRight" containerData="3806" selectedElement="_n0CbeZ9qEearL4HZNihKXQ">
+              <children xsi:type="basic:PartStack" xmi:id="_n0CbcZ9qEearL4HZNihKXQ" elementId="bottomRight" containerData="3806" selectedElement="_n0CbfZ9qEearL4HZNihKXQ">
                 <tags>Git</tags>
                 <tags>active</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_n0Cbcp9qEearL4HZNihKXQ" elementId="org.eclipse.ui.views.AllMarkersView" ref="_n0DDk59qEearL4HZNihKXQ"/>
@@ -296,8 +296,6 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
-      <tags>active</tags>
-      <tags>activeOnClose</tags>
       <menus xmi:id="_n0DDsp9qEearL4HZNihKXQ" elementId="org.eclipse.ui.console.ConsoleView">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -306,7 +304,7 @@
         <tags>menuContribution:popup</tags>
         <tags>popup:org.eclipse.debug.ui.ProcessConsoleType.#ContextMenu</tags>
       </menus>
-      <toolbar xmi:id="_n0DDtJ9qEearL4HZNihKXQ" elementId="org.eclipse.ui.console.ConsoleView"/>
+      <toolbar xmi:id="_n0DDtJ9qEearL4HZNihKXQ" elementId="org.eclipse.ui.console.ConsoleView" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_n0DDw59qEearL4HZNihKXQ" elementId="org.eclipse.ui.views.BookmarkView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Bookmarks" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/eview16/bkmrk_nav.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.ui.internal.views.markers.BookmarksView"/>
@@ -386,6 +384,8 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
       <tags>View</tags>
       <tags>categoryTag:Git</tags>
+      <tags>active</tags>
+      <tags>activeOnClose</tags>
       <menus xmi:id="_n0DD1J9qEearL4HZNihKXQ" elementId="org.eclipse.egit.ui.StagingView">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -429,7 +429,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_n0Dpjp9qEearL4HZNihKXQ" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_zSIk8KCfEeaO28IW-zqAcA" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_n0Ii5p9qEearL4HZNihKXQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_00KkIKC6EeaidugfKol6EA" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_n0Ii5p9qEearL4HZNihKXQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_n0Dpm59qEearL4HZNihKXQ" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -459,7 +459,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_n0Dp759qEearL4HZNihKXQ" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_zSIk-qCfEeaO28IW-zqAcA" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_n0Iii59qEearL4HZNihKXQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_00OOgKC6EeaidugfKol6EA" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_n0Iii59qEearL4HZNihKXQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_n0Dp-p9qEearL4HZNihKXQ" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -3011,7 +3011,7 @@
   <addons xmi:id="_n0IkTJ9qEearL4HZNihKXQ" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_n0IkTZ9qEearL4HZNihKXQ" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_n0IkTp9qEearL4HZNihKXQ" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_IYS0IKimEeS11vbz3f9ezw" elementId="org.eclipse.ui.ide.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_0Kf8EaC6EeaidugfKol6EA" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_n0IkUJ9qEearL4HZNihKXQ" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <categories xmi:id="_n0IkUZ9qEearL4HZNihKXQ" elementId="org.eclipse.team.ui.category.team" name="Team" description="Actions that apply when working with a Team"/>
   <categories xmi:id="_n0IkUp9qEearL4HZNihKXQ" elementId="org.eclipse.ui.category.views" name="Views" description="Commands for opening views"/>
