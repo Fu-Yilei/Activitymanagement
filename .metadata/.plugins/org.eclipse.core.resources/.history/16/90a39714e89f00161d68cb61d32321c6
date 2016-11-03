@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>About</title>
+<link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.min.js"></script>
+<!-- Custom Theme files -->
+<!--theme-style-->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
+<!--//theme-style-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!---->
+<script src="js/bootstrap.min.js"></script>
+<link href='http://fonts.useso.com/css?family=Catamaran:400,100,300,500,700,600,800,900' rel='stylesheet' type='text/css'>
+<link href='http://fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+ <div class="header head1">
+	<div class="container">
+		<div class="head-top">
+			<div class="logo">
+				<a href="index "><img src="images/bo.png" alt="" title="Academic"></a>
+			</div>
+			<div class="login">
+				<ul class="nav-login">
+					<li><a href="#" data-toggle="modal" data-target="#myModal1">Login</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal2">Signup</a></li>
+				</ul>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+		<!-- login -->
+			<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content modal-info">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+						</div>
+						<div class="modal-body modal-spa">
+							<div class="login-grids">
+							
+									<div class="login-right">
+										<form action="#" method="post">
+											<h3>Signin with your account </h3>
+											<input type="text" value="Enter your mobile number or Email" name=" Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your mobile number or Email';}" required="">	
+											<input type="password" value="Password" name="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">	
+											<h4><a href="#">Forgot password</a> / <a href="#">Create new password</a></h4>
+											<div class="single-bottom">
+												<input type="checkbox"  id="brand" value="">
+												<label for="brand"><span></span>Remember Me.</label>
+											</div>
+											<input type="submit" value="SIGNIN" >
+										</form>
+									</div>
+									
+								<p>By logging in you agree to our <span>Terms and Conditions</span> and <span>Privacy Policy</span></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //login -->
+			<!-- signup -->
+			<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content modal-info">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+						</div>
+						<div class="modal-body modal-spa">
+							<div class="login-grids">
+							
+									<div class="login-right">
+										<form action="#" method="post">
+											<h3>Create your account </h3>
+											<input type="text" value="Name" name="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
+											<input type="text" value="Mobile number" name="Mobile number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mobile number';}" required="">
+											<input type="text" value="Email id" name="Email id" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email id';}" required="">	
+											<input type="password" value="Password" name="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">	
+											
+											<input type="submit" value="CREATE ACCOUNT" >
+										</form>
+									</div>
+								
+								<p>By logging in you agree to our <span>Terms and Conditions</span> and <span>Privacy Policy</span></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //signup -->
+	
+			<div class="nav-top">
+			<div class="container">
+				<div class="nav1">
+					<div class="navbar1">
+					<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" >
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+		 
+						</div>
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav cl-effect-8">
+								<li ><a  href="index ">Home </a></li>
+								<li><a class="active" href="about ">About</a></li>
+								<li><a href="gallery ">Portfolio</a></li>
+								<li><a href="typo ">Short Codes</a></li>
+								<li><a href="contact ">Contact</a></li>	
+							</ul>
+						</div><!-- /.navbar-collapse -->
+					</div>
+					<!-- start search-->
+					<ul class="social-ic">
+						<li><a href="#"><i></i></a></li>
+						<li><a href="#"><i class="ic"></i></a></li>
+						<li><a href="#"><i class="ic1"></i></a></li>
+						<li><a href="#"><i class="ic2"></i></a></li>
+					</ul>
+					<div class="clearfix"></div>
+				</div> 
+			</div> 
+		</div> 
+</div> 
+<!-- about -->
+<div class="about">
+				<div class="container">
+				<div class="about-head">
+					<h2>About</h2>
+					<p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+				</div>
+					<div class="about-grids">
+					<div class="col-md-5 about-grid1">
+						
+							<h3 >Nullam velit metus</h3>
+							<div class="about-img">
+								<img src="images/aa.jpg" class="img-responsive" alt="">
+							</div>
+							<h4>Nullam velit metus</h4>
+								<p>Praesent vestibulum aenean noummy gnis dis parturient montes ascetur ridiculus mus. Null dui. Fusce feugiat malesuada odio Praesent vestibulum aenean noummy gnis dis </p>
+							
+						</div>
+						<div class="col-md-7 about-grid">
+							<h3>Lorem ipsum dolor sit amet</h3>
+							<h5>Nullam velit metus tristique id purus eget consequat congue loreml orem ipsum dolor sit amet consectetur adipiscing elit. Praesent vestibulum aenean noummy endrerit mauris.</h5>
+							<p>Nullam velit metus tristique id purus eget consequat congue loreml orem ipsum dolor sit amet consectetur adipiscing elit. Praesent vesti Cum sociis natoque penatibus et magnis dis parturient montes ascetur ridiculus .</p>
+							<div class="about-top">
+								<div class="col-md-6 about-left">
+									<h4>Donec vel</h4>
+									<p>Mauris volutpat mi eu justo mollis rhoncus. Donec vel interdum magna atempus erat.</p>
+								</div>
+								<div class="col-md-6 about-right">
+								<h4>Cum sociis</h4>
+									<p>Mauris volutpat mi eu justo mollis rhoncus. Donec vel interdum magna atempus erat.</p>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="about-top">
+								<div class="col-md-6 about-left">
+									<h4>Lorem Ipsum</h4>
+									<p>Mauris volutpat mi eu justo mollis rhoncus. Donec vel interdum magna atempus erat.</p>
+								</div>
+								<div class="col-md-6 about-right">
+								<h4>Donec vel</h4>
+									<p>Mauris volutpat mi eu justo mollis rhoncus. Donec vel interdum magna atempus erat.</p>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+						
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+<!---->
+<div class="team">
+	<div class="container">
+		<h3 >Our Teachers</h3>
+		<div class="col-md-3 bottom-grid ">
+			<div class="btm-right">
+				<img src="images/tt1.png" alt=" ">
+					<div class="captn">
+						<div class="captn1">
+							<h4>Victoria</h4>
+							
+						</div>
+						<div class="captn2">
+							<a href="#" class="icon_1"></a>
+							<a href="#" class="icon_2"></a>
+							<a href="#" class="icon_3"></a>
+							
+						</div>
+					</div>
+			</div>
+		</div>
+		<div class="col-md-3 bottom-grid ">
+			<div class="btm-right">
+				<img src="images/tt2.png" alt=" ">
+					<div class="captn">
+						<div class="captn1">
+							<h4>Adley</h4>
+							
+						</div>
+						<div class="captn2">
+							<a href="#" class="icon_1"></a>
+							<a href="#" class="icon_2"></a>
+							<a href="#" class="icon_3"></a>
+								
+						</div>
+					</div>
+			</div>
+		</div>
+		<div class="col-md-3 bottom-grid ">
+			<div class="btm-right">
+				<img src="images/tt3.png" alt=" ">
+					<div class="captn">
+						<div class="captn1">
+							<h4>Immortal</h4>
+							
+						</div>
+						<div class="captn2">
+							<a href="#" class="icon_1"></a>
+							<a href="#" class="icon_2"></a>
+							<a href="#" class="icon_3"></a>
+								
+						</div>
+					</div>
+			</div>
+		</div>
+		<div class="col-md-3 bottom-grid ">
+			<div class="btm-right">
+				<img src="images/tt4.png" alt=" ">
+					<div class="captn">
+						<div class="captn1">
+							<h4>Warlike</h4>
+							
+						</div>
+						<div class="captn2">
+							<a href="#" class="icon_1"></a>
+							<a href="#" class="icon_2"></a>
+							<a href="#" class="icon_3"></a>
+								
+						</div>
+					</div>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>	
+<div class="test">
+		<div class="container">
+		<h3>Testimonials</h3>
+			<div  class=" test-grid-1" >
+				<div class="col-md-6 test-wrapper">
+					<img src="images/te.jpg" alt="" class="img-responsive">
+					<div class="test-grid">
+					<div class="test-gr">
+						<h4>Andery</h4>
+						<span>Ceo</span>
+						</div>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.</p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="col-md-6 test-wrapper">
+					<img src="images/te1.jpg" alt="" class="img-responsive">
+					<div class="test-grid">
+					<div class="test-gr">
+						<h4>Hailey</h4>
+						<span> Principal</span>
+						</div>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.</p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				
+			<div class="clearfix"> </div>
+			</div>
+			<div  class=" test-grid-2" >
+				<div class="col-md-6 test-wrapper">
+					<img src="images/te2.jpg" alt="" class="img-responsive">
+					<div class="test-grid">
+					<div class="test-gr">
+						<h4>Quincy</h4>
+						<span>Manager</span>
+						</div>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.</p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="col-md-6 test-wrapper">
+					<img src="images/te3.jpg" alt="" class="img-responsive">
+					<div class="test-grid">
+					<div class="test-gr">
+						<h4>Barb</h4>
+						<span>professor</span>
+						</div>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.</p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				
+			<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+
+<!---->
+<div class="content-bottom">
+	<h1>Gallery</h1>
+		<div class="content-in">
+            <div class="port effect-1">
+                <div class="image-box">
+                   <img src="images/fi.jpg" alt="" class="img-responsive">
+               </div>
+                <div class="text-desc">
+                    <h6>Education</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor .</p>
+                </div>
+           </div>
+         </div>
+		<div class="content-in">
+            <div class="port effect-1">
+                <div class="image-box">
+                    <img src="images/fi1.jpg" alt="" class="img-responsive">
+                </div>
+				<div class="text-desc">
+                    <h6>Education</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor .</p>	
+                </div>
+            </div>
+        </div>
+		<div class="content-in">
+            <div class="port effect-1">
+                <div class="image-box">
+                    <img src="images/fi3.jpg" alt="" class="img-responsive">
+                </div>
+				<div class="text-desc">
+					<h6>Education</h6>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor .</p>   	
+				</div>
+			</div>
+        </div>
+		<div class="content-in">
+            <div class="port effect-1">
+                <div class="image-box">
+                    <img src="images/fi2.jpg" alt="" class="img-responsive">
+                </div>
+                <div class="text-desc">
+                    <h6>Education</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor .</p>	
+                </div>
+            </div>
+        </div>
+		<div class="content-in">
+            <div class="port effect-1">
+                <div class="image-box">
+                    <img src="images/fi4.jpg" alt="" class="img-responsive">
+                </div>
+                <div class="text-desc">
+                    <h6>Education</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor .</p>	
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+</div>
+<!---->
+<!--footer-->
+<div class="footer">
+	<div class="container">
+		<div class="col-md-6 footer-left">
+			<h3>Information</h3>
+			<p class="para">At vero eos et accusamus et iusto odio dignissimos
+			ducimus qui blanditiis praesentium voluptatum deleniti at
+			que corrupti quos dolores et quas molestias excepturi sint
+			occaecati cupiditate non provident, similique sunt.</p>
+			<h3>Newsletter<label></label></h3>
+			<form action="#" method="post">
+				<input type="text" value="Name" name="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
+				<input type="email" value="Email" name="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+		<div class="col-md-6 footer-right">
+			<h3>Contact Us</h3>
+			<ul class="con-icons">
+				<li><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>+123 456 7890</li>
+				<li><a href="mailto:info@example.com"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>info@example.com</a></li>
+			</ul>
+			<p class="copy-right">Copyright &copy; 2016.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+<!--//footer-->
+</body>
+</html>

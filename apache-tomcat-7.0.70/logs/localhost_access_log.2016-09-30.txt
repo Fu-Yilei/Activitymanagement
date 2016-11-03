@@ -1,0 +1,16 @@
+127.0.0.1 - - [30/Sep/2016:10:28:11 +0800] "GET / HTTP/1.1" 200 11418
+0:0:0:0:0:0:0:1 - - [30/Sep/2016:10:28:13 +0800] "GET /BookDB/WelcomeView.jsp HTTP/1.1" 200 1416
+0:0:0:0:0:0:0:1 - - [30/Sep/2016:10:28:13 +0800] "GET /BookDB/CSS/style.css HTTP/1.1" 200 1368
+0:0:0:0:0:0:0:1 - - [30/Sep/2016:10:29:06 +0800] "GET /BookDB/WelcomeView.jsp HTTP/1.1" 200 1416
+0:0:0:0:0:0:0:1 - - [30/Sep/2016:10:29:30 +0800] "GET /BookDB/WelcomeView.jsp HTTP/1.1" 200 1416
+0:0:0:0:0:0:0:1 - - [30/Sep/2016:10:31:10 +0800] "GET /BookDB/WelcomeView.jsp HTTP/1.1" 200 1416
+0:0:0:0:0:0:0:1 - - [30/Sep/2016:10:38:13 +0800] "GET /BookDB/WelcomeView.jsp HTTP/1.1" 200 1416
+0:0:0:0:0:0:0:1 - - [30/Sep/2016:10:39:26 +0800] "GET /BookDB/WelcomeView.jsp HTTP/1.1" 200 1416
+0:0:0:0:0:0:0:1 - - [30/Sep/2016:10:40:59 +0800] "GET /BookDB/WelcomeView.jsp HTTP/1.1" 200 1416
+0:0:0:0:0:0:0:1 - - [30/Sep/2016:10:41:03 +0800] "GET /BookDB/WelcomeView.jsp HTTP/1.1" 200 1416
+0:0:0:0:0:0:0:1 - - [30/Sep/2016:10:41:42 +0800] "GET /BookDB/WelcomeView.jsp HTTP/1.1" 200 1416
+0:0:0:0:0:0:0:1 - - [30/Sep/2016:10:41:44 +0800] "GET /BookDB//AuthorSearch.jsp HTTP/1.1" 200 265
+0:0:0:0:0:0:0:1 - - [30/Sep/2016:11:30:07 +0800] "GET /BookDB/WelcomeView.jsp HTTP/1.1" 200 1416
+0:0:0:0:0:0:0:1 - - [30/Sep/2016:11:30:09 +0800] "GET /BookDB//AuthorSearch.jsp HTTP/1.1" 200 1074
+0:0:0:0:0:0:0:1 - - [30/Sep/2016:11:43:26 +0800] "GET /BookDB/WelcomeView.jsp HTTP/1.1" 200 1416
+0:0:0:0:0:0:0:1 - - [30/Sep/2016:11:43:26 +0800] "GET /BookDB/CSS/style.css HTTP/1.1" 200 1370
