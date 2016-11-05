@@ -32,7 +32,7 @@ h1,h2,h3,h4,h5,h6,label,p{
 .header{
 	background:url(../images/1.jpg) no-repeat right;
 	width:100%;
-	background-size:cover;
+  	background-size:cover;
 	min-height:750px;
 	display:block;
 	position:relative;
@@ -62,9 +62,13 @@ ul.nav-login li a{
 ul.nav-login li a:hover {
 	background:#00959f;
 }
+
 .head-top{
 	margin-top:1em;
 }
+
+
+
 /*----*/
 .social-ic{
 	float:right;
