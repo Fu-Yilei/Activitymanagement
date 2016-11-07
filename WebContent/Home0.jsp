@@ -1,3 +1,4 @@
+<%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +23,7 @@
 	<div class="container">
 		<div class="head-top">
 			<div class="logo">
-				<a href="Home0.html"><img src="images/logo.png" alt="" title="Academic"></a>
+				<a href="Home0.jsp"><img src="images/logo.png" alt="" title="Academic"></a>
 			</div>
 			<div class="login">
 				<ul class="nav-login">
@@ -151,8 +152,8 @@
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav cl-effect-8">
-								<li ><a class="active" href="Home0.html">Home </a></li>
-								<li><a href="ViewAll0.html">ViewAll</a></li>
+								<li ><a class="active" href="Home0.jsp">Home </a></li>
+								<li><a href="ViewAll0.jsp">ViewAll</a></li>
 							
 							</ul>
 						</div><!-- /.navbar-collapse -->

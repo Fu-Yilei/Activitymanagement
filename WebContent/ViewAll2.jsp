@@ -1,3 +1,4 @@
+<%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,19 +19,18 @@
 
 </head>
 <body>
-
  <div class="header head1">
 	<div class="container">
 		<div class="head-top">
 			<div class="logo">
-				<a href="Home0.html"><img src="images/logo.png" alt="" title="Academic"></a>
+				<a href="Home0.jsp"><img src="images/logo.png" alt="" title="Academic"></a>
 			</div>
 			<div class="login">
 				<ul class="nav-login">
 					<li><a href="#" data-toggle="modal" data-target="#myModal3">Help</a></li>
 					<li><a href="#" data-toggle="modal" data-target="#myModal4">Contact us</a></li>
 					<li style="color:white;">Hello!XXX</li>
-					<li><a href="Home0.html">Logout</a></li>
+					<li><a href="Home0.jsp">Logout</a></li>
 				</ul>
 			</div>
 			<div class="clearfix"></div>
@@ -100,8 +100,8 @@
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav cl-effect-8">
-								<li ><a href="Home1.html">Home</a></li>
-								<li><a class="active" href="ViewAll1.html">ViewAll</a></li>
+								<li ><a href="Home2.jsp">Home</a></li>
+								<li><a class="active" href="ViewAll2.jsp">ViewAll</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 					</div>
@@ -124,12 +124,10 @@
 				<!-- begin of iterator -->
 				<div class="col-md-6 test-wrapper" style="margin-bottom:10px">
 					<div class="test-grid">
-						<div class="test-gr">
+					<div class="test-gr">
 						</div>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.</p>
-						<button>Like</button>
 					</div>
-					
 					<div class="clearfix"></div>
 				</div>
 				<!--  end of iterator -->
