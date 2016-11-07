@@ -48,13 +48,8 @@
 									<div class="login-right">
 										<form action="#" method="post">
 											<h3>Signin with your account </h3>
-											<input type="text" value="Enter your mobile number or Email" name=" Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your mobile number or Email';}" required="">	
-											<input type="password" value="Password" name="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">	
-											<h4><a href="#">Forgot password</a> / <a href="#">Create new password</a></h4>
-											<div class="single-bottom">
-												<input type="checkbox"  id="brand" value="">
-												<label for="brand"><span></span>Remember Me.</label>
-											</div>
+											<input type="text" value="Enter your Email" name=" Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Enter your Email';}" required="">	
+											<input type="password" value="Password" name="Password" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Password';}" required="">	
 											<input type="submit" value="SIGNIN" >
 										</form>
 									</div>
@@ -77,13 +72,12 @@
 							<div class="login-grids">
 							
 									<div class="login-right">
-										<form action="#" method="post">
+										<form action="SignUp" method="post">
 											<h3>Create your account </h3>
-											<input type="text" value="Name" name="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-											<input type="text" value="Mobile number" name="Mobile number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mobile number';}" required="">
-											<input type="text" value="Email id" name="Email id" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email id';}" required="">	
-											<input type="password" value="Password" name="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">	
-											
+											<input type="text" value="Name" name="Name" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Email';}" required="">	
+											<input type="password" value="Password" name="Password" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Password';}" required="">	
+											<input type="radio" value="normal" name="Usertype">User
+											<input type="radio" value="holder" name="Usertype">Holder
 											<input type="submit" value="CREATE ACCOUNT" >
 										</form>
 									</div>
