@@ -1,3 +1,4 @@
+<%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,86 +16,29 @@
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!---->
 <script src="js/bootstrap.min.js"></script>
-<link href='http://fonts.useso.com/css?family=Catamaran:400,100,300,500,700,600,800,900' rel='stylesheet' type='text/css'>
-<link href='http://fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
+
  <div class="header head1">
 	<div class="container">
 		<div class="head-top">
 			<div class="logo">
-				<a href="index.html"><img src="images/bo.png" alt="" title="Academic"></a>
+				<a href="Home0.jsp"><img src="images/logo.png" alt="" title="Academic"></a>
 			</div>
 			<div class="login">
 				<ul class="nav-login">
 					<li><a href="#" data-toggle="modal" data-target="#myModal3">Help</a></li>
 					<li><a href="#" data-toggle="modal" data-target="#myModal4">Contact us</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal1">Login</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal2">Signup</a></li>
+					<li style="color:white;">Hello!XXX</li>
+					<li><a href="Home0.jsp">Logout</a></li>
 				</ul>
 			</div>
 			<div class="clearfix"></div>
 		</div>
 	</div>
 		<!-- login -->
-			<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content modal-info">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-						</div>
-						<div class="modal-body modal-spa">
-							<div class="login-grids">
-							
-									<div class="login-right">
-										<form action="#" method="post">
-											<h3>Signin with your account </h3>
-											<input type="text" value="Enter your mobile number or Email" name=" Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your mobile number or Email';}" required="">	
-											<input type="password" value="Password" name="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">	
-											<h4><a href="#">Forgot password</a> / <a href="#">Create new password</a></h4>
-											<div class="single-bottom">
-												<input type="checkbox"  id="brand" value="">
-												<label for="brand"><span></span>Remember Me.</label>
-											</div>
-											<input type="submit" value="SIGNIN" >
-										</form>
-									</div>
-									
-								<p>By logging in you agree to our <span>Terms and Conditions</span> and <span>Privacy Policy</span></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- //login -->
-			<!-- signup -->
-			<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content modal-info">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-						</div>
-						<div class="modal-body modal-spa">
-							<div class="login-grids">
-							
-									<div class="login-right">
-										<form action="#" method="post">
-											<h3>Create your account </h3>
-											<input type="text" value="Name" name="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-											<input type="text" value="Mobile number" name="Mobile number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mobile number';}" required="">
-											<input type="text" value="Email id" name="Email id" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email id';}" required="">	
-											<input type="password" value="Password" name="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">	
-											
-											<input type="submit" value="CREATE ACCOUNT" >
-										</form>
-									</div>
-								
-								<p>By logging in you agree to our <span>Terms and Conditions</span> and <span>Privacy Policy</span></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			
 			<!-- //signup -->
 			<!--  help -->
 			<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabe3">
@@ -157,8 +101,8 @@
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav cl-effect-8">
-								<li ><a href="index.html">Home</a></li>
-								<li><a class="active" href="ViewAll1.html">ViewAll</a></li>
+								<li ><a href="Home1.jsp">Home</a></li>
+								<li><a class="active" href="ViewAll1.jsp">ViewAll</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 					</div>
@@ -181,10 +125,12 @@
 				<!-- begin of iterator -->
 				<div class="col-md-6 test-wrapper" style="margin-bottom:10px">
 					<div class="test-grid">
-					<div class="test-gr">
+						<div class="test-gr">
 						</div>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.</p>
+						<button>Like</button>
 					</div>
+					
 					<div class="clearfix"></div>
 				</div>
 				<!--  end of iterator -->
