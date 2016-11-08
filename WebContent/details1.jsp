@@ -22,7 +22,7 @@
 	<div class="container">
 		<div class="head-top">
 			<div class="logo">
-				<a href="Home0.jsp"><img src="images/logo.png" alt="" title="Academic"></a>
+				<a href="Home1.jsp"><img src="images/logo.png" alt="" title="Academic"></a>
 			</div>
 			<div class="login">
 				<ul class="nav-login">

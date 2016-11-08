@@ -19,7 +19,7 @@
 
 </head>
 <body>
- <div class="header head1">
+ <div class="header">
 	<div class="container">
 		<div class="head-top">
 			<div class="logo">
@@ -36,60 +36,6 @@
 			<div class="clearfix"></div>
 		</div>
 	</div>
-		<!-- login -->
-			<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content modal-info">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-						</div>
-						<div class="modal-body modal-spa">
-							<div class="login-grids">
-							
-									<div class="login-right">
-										<form action="#" method="post">
-											<h3>Signin with your account </h3>
-											<input type="text" value="Enter your Email" name=" Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Enter your Email';}" required="">	
-											<input type="password" value="Password" name="Password" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Password';}" required="">	
-											<input type="submit" value="SIGNIN" >
-										</form>
-									</div>
-									
-								<p>By logging in you agree to our <span>Terms and Conditions</span> and <span>Privacy Policy</span></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- //login -->
-			<!-- signup -->
-			<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content modal-info">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-						</div>
-						<div class="modal-body modal-spa">
-							<div class="login-grids">
-							
-									<div class="login-right">
-										<form action="SignUp" method="post">
-											<h3>Create your account </h3>
-											<input type="text" value="Name" name="Name" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Email';}" required="">	
-											<input type="password" value="Password" name="Password" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Password';}" required="">	
-											<input type="radio" value="normal" name="Usertype">User
-											<input type="radio" value="holder" name="Usertype">Holder
-											<input type="submit" value="CREATE ACCOUNT" >
-										</form>
-									</div>
-								
-								<p>By logging in you agree to our <span>Terms and Conditions</span> and <span>Privacy Policy</span></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- //signup -->
 			<!--  help -->
 			<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabe3">
 				<div class="modal-dialog" role="document">
@@ -134,7 +80,62 @@
 				</div>
 			</div>
 			<!-- //contact us -->
-			<div class="nav-top">
+		<!-- login -->
+			<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content modal-info">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+						</div>
+						<div class="modal-body modal-spa">
+							<div class="login-grids">
+							
+									<div class="login-right">
+										<form action="SignIn" method="post">
+											<h3>Signin with your account </h3>
+											<input type="text" value="Enter your Email" name="Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Enter your Email';}" required="">	
+											<input type="password" value="Password" name="Password" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Password';}" required="">	
+											<input type="submit" value="SIGNIN" >
+										</form>
+									</div>
+									
+								<p>By logging in you agree to our <span>Terms and Conditions</span> and <span>Privacy Policy</span></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //login -->
+			<!-- signup -->
+			<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content modal-info">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+						</div>
+						<div class="modal-body modal-spa">
+							<div class="login-grids">
+							
+									<div class="login-right">
+										<form action="SignUp" method="post" name="form1">
+											<h3>Create your account </h3>
+											<input type="text" value="Email" name="Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Email';}" required="">	
+											<input type="password" value="Password" name="Password" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Password';}" required="">	
+											<input type="radio" value="normal" name="Usertype">User
+											<input type="radio" value="holder" name="Usertype">Holder
+											<input type="submit" value="CREATE ACCOUNT">
+										</form>
+									</div>
+								
+								<p>By logging in you agree to our <span>Terms and Conditions</span> and <span>Privacy Policy</span></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //signup -->
+		
+		<div class="nav-top">
 			<div class="container">
 				<div class="nav1">
 					<div class="navbar1">
@@ -151,8 +152,9 @@
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav cl-effect-8">
-								<li ><a href="Home0.jsp">Home</a></li>
-								<li><a class="active" href="ViewAll0.jsp">ViewAll</a></li>
+								<li><a class="active" href="Home0.jsp">Home </a></li>
+								<li><a href="ViewAll0.jsp">ViewAll</a></li>
+							
 							</ul>
 						</div><!-- /.navbar-collapse -->
 					</div>
@@ -162,6 +164,7 @@
 			</div> 
 		</div> 
 </div> 
+
 <!-- about -->
 <div class="about">
 				<div class="container">

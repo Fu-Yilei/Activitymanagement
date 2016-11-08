@@ -91,9 +91,9 @@
 							<div class="login-grids">
 							
 									<div class="login-right">
-										<form action="#" method="post">
+										<form action="SignIn" method="post">
 											<h3>Signin with your account </h3>
-											<input type="text" value="Enter your Email" name=" Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Enter your Email';}" required="">	
+											<input type="text" value="Enter your Email" name="Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Enter your Email';}" required="">	
 											<input type="password" value="Password" name="Password" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Password';}" required="">	
 											<input type="submit" value="SIGNIN" >
 										</form>
@@ -117,13 +117,13 @@
 							<div class="login-grids">
 							
 									<div class="login-right">
-										<form action="SignUp" method="post">
+										<form action="SignUp" method="post" name="form1">
 											<h3>Create your account </h3>
 											<input type="text" value="Email" name="Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Email';}" required="">	
 											<input type="password" value="Password" name="Password" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Password';}" required="">	
 											<input type="radio" value="normal" name="Usertype">User
 											<input type="radio" value="holder" name="Usertype">Holder
-											<input type="submit" value="CREATE ACCOUNT" >
+											<input type="submit" value="CREATE ACCOUNT">
 										</form>
 									</div>
 								
