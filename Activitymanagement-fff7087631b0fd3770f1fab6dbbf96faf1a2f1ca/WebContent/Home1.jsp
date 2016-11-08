@@ -1,5 +1,7 @@
+<%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
+<meta charset="gb2312"/>
 <head>
 <title>Home</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
@@ -15,21 +17,21 @@
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!---->
 <script src="js/bootstrap.min.js"></script>
-<link href='http://fonts.useso.com/css?family=Catamaran:400,100,300,500,700,600,800,900' rel='stylesheet' type='text/css'>
-<link href='http://fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
  <div class="header">
 	<div class="container">
 		<div class="head-top">
 			<div class="logo">
-				<a href="index.html"><img src="images/bo.png" alt="" title="Academic"></a>
+				<a href="Home0.jsp"><img src="images/logo.png" alt="" title="Academic"></a>
 			</div>
 			<div class="login">
 				<ul class="nav-login">
 					<li><a href="#" data-toggle="modal" data-target="#myModal3">Help</a></li>
 					<li><a href="#" data-toggle="modal" data-target="#myModal4">Contact us</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal1">Exit</a></li>
+					<li style="color:white;">Hello!XXX</li>
+					<li><a href="Home0.jsp">Logout</a></li>
 					
 				</ul>
 			</div>
@@ -94,7 +96,7 @@
 									<div class="login-right">
 										<h3>Really want to quit in your name?</h3>
 										<h3>Then will jump to the home page!</h3>
-										<li><a href="Home0.html">Exit</a></li>
+										<li><a href="Home0.jsp">Exit</a></li>
 									</div>
 									
 								<p>By logging in you agree to our <span>Terms and Conditions</span> and <span>Privacy Policy</span></p>
@@ -125,9 +127,8 @@
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav cl-effect-8">
-								<li ><a class="active" href="Home0.html">Home </a></li>
-								<li><a href="ViewAll3.html">ViewAll</a></li>
-								<li><a herf="unknown.html">New</</a></li>
+								<li ><a class="active" href="Home1.jsp">Home </a></li>
+								<li><a href="ViewAll1.jsp">ViewAll</a></li>
 								
 							
 							</ul>
@@ -141,10 +142,15 @@
 </div> 
 
 <div>
-<h3>已创办活动</h3>
-<!-- login 后，在该action半段是用户还是开发者，然后返回由其开发或者收藏的活动的裂变  -->
+<h3>Already collect</h3>
+<!-- login ºó£¬ÔÚ¸Ãaction°ë¶ÎÊÇÓÃ»§»¹ÊÇ¿ª·¢Õß£¬È»ºó·µ»ØÓÉÆä¿ª·¢»òÕßÊÕ²ØµÄ»î¶¯µÄÁÑ±ä  -->
+
+<p>Processing------------</p>
+<!-- ÔÚÕâÀï¼ÓÒ»¸öÅÐ¶ÏÓï¾äÅÐ¶ÏÊ±¼ä£¬ÊÇ½øÐÐÖÐ»¹ÊÇÒÑ½áÊø -->
 
 
+<p>过期------------</p>	
+<!-- Ò²ÓÐÉ¾³ý¹¦ÄÜ -->
 	
 </div>
 

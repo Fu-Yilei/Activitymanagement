@@ -1,3 +1,4 @@
+<%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,22 +16,21 @@
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!---->
 <script src="js/bootstrap.min.js"></script>
-<link href='http://fonts.useso.com/css?family=Catamaran:400,100,300,500,700,600,800,900' rel='stylesheet' type='text/css'>
-<link href='http://fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
  <div class="header">
 	<div class="container">
 		<div class="head-top">
 			<div class="logo">
-				<a href="index.html"><img src="images/bo.png" alt="" title="Academic"></a>
+				<a href="Home0.jsp"><img src="images/logo.png" alt="" title="Academic"></a>
 			</div>
 			<div class="login">
 				<ul class="nav-login">
 					<li><a href="#" data-toggle="modal" data-target="#myModal3">Help</a></li>
 					<li><a href="#" data-toggle="modal" data-target="#myModal4">Contact us</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal1">Exit</a></li>
-					
+					<li style="color:white;">Hello!XXX</li>
+					<li><a href="Home0.jsp">Logout</a></li>
 				</ul>
 			</div>
 			<div class="clearfix"></div>
@@ -80,33 +80,8 @@
 				</div>
 			</div>
 			<!-- //contact us -->
+		
 			
-			<!--  Exit -->
-			<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabe4">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content modal-info">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-						</div>
-						<div class="modal-body modal-spa">
-							<div class="login-grids">
-							
-									<div class="login-right">
-										<h3>Really want to quit in your name?</h3>
-										<h3>Then will jump to the home page!</h3>
-										<li><a href="Home0.html">Exit</a></li>
-									</div>
-									
-								<p>By logging in you agree to our <span>Terms and Conditions</span> and <span>Privacy Policy</span></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- //Exit -->
-			
-			
-
 		
 		<div class="nav-top">
 			<div class="container">
@@ -125,8 +100,7 @@
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav cl-effect-8">
-								<li ><a class="active" href="Home0.html">Home </a></li>
-								<li><a href="ViewAll2.html">ViewAll</a></li>
+								<li ><a class="active" href="Home2.jsp">Back </a></li>
 								
 							
 							</ul>
@@ -139,23 +113,26 @@
 		</div> 
 </div> 
 
-<div>
-<h3>已收藏活动</h3>
-<!-- login 后，在该action半段是用户还是开发者，然后返回由其开发或者收藏的活动的裂变  -->
-
-<p>进行中------------</p>
-<!-- 在这里加一个判断语句判断时间，是进行中还是已结束 -->
-
-
-<a href='<s:url action="delete">
-<s:param name="ISBN" value="#book.ISBN" />  <!-- 用户名和活动名俩个参数  -->
-</s:url>'>删除</a>
-<!-- 加一个倒计时 -->
-
-<p>已过期------------</p>	
-<!-- 也有删除功能 -->
 	
-</div>
+
+
+	
+	<div class="modal-dialog" role="document">
+	<div class="login-grids">
+		<div class="login-right">
+			<form action="Creatnewactivity" method="post">
+			<h3>Create a new activity </h3>
+			<input type="text" placeholder="title" name="title">
+			<p><input type="date" name="Creattime">
+			<input type="text" placeholder="site" name="site">
+			<input type="text" placeholder="speaker" name="speaker">
+			<p><input type="reset" value="reset">
+			<input type="submit" value="CREATE" >
+			</form>
+		</div>
+	</div>
+	</div>
+		
 
 
 </body>
