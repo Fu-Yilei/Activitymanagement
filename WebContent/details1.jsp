@@ -22,7 +22,7 @@
 	<div class="container">
 		<div class="head-top">
 			<div class="logo">
-				<a href="Home0.jsp"><img src="images/logo.png" alt="" title="Academic"></a>
+				<a href="Home1.jsp"><img src="images/logo.png" alt="" title="Academic"></a>
 			</div>
 			<div class="login">
 				<ul class="nav-login">
@@ -82,6 +82,33 @@
 				</div>
 			</div>
 			<!-- //contact us -->
+			<div class="nav-top">
+			<div class="container">
+				<div class="nav1">
+					<div class="navbar1">
+					<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" >
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+		 
+						</div>
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav cl-effect-8">
+								<li ><a href="Home1.jsp">Home</a></li>
+								<li><a class="active" href="ViewAll1.jsp">ViewAll</a></li>
+							</ul>
+						</div><!-- /.navbar-collapse -->
+					</div>
+					
+					<div class="clearfix"></div>
+				</div> 
+			</div> 
+		</div> 
 </div> 
 <!-- about -->
 <!-- about -->
@@ -200,6 +227,35 @@
         </div>
         <div class="clearfix"> </div>
 </div>
-
+<!---->
+<!--footer-->
+<div class="footer">
+	<div class="container">
+		<div class="col-md-6 footer-left">
+			<h3>Information</h3>
+			<p class="para">At vero eos et accusamus et iusto odio dignissimos
+			ducimus qui blanditiis praesentium voluptatum deleniti at
+			que corrupti quos dolores et quas molestias excepturi sint
+			occaecati cupiditate non provident, similique sunt.</p>
+			<h3>Newsletter<label></label></h3>
+			<form action="#" method="post">
+				<input type="text" value="Name" name="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
+				<input type="email" value="Email" name="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+		<div class="col-md-6 footer-right">
+			<h3>Contact Us</h3>
+			<ul class="con-icons">
+				<li><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>+123 456 7890</li>
+				<li><a href="mailto:info@example.com"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>info@example.com</a></li>
+			</ul>
+			<p class="copy-right">Copyright &copy; 2016.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+<!--//footer-->
 </body>
+
 </html>

@@ -19,17 +19,29 @@
 
 </head>
 <body>
+<%  
+Cookie[] cookies = request.getCookies();  
+String email = "";  
+if (cookies != null) {  
+    for (Cookie c : cookies) {  
+        if ("Email".equals(c.getName())) {  
+            email = c.getValue();  
+            break;  
+        }  
+    }  
+}  
+%>  
  <div class="header head1">
 	<div class="container">
 		<div class="head-top">
 			<div class="logo">
-				<a href="Home0.jsp"><img src="images/logo.png" alt="" title="Academic"></a>
+				<a href="Home2.jsp"><img src="images/logo.png" alt="" title="Academic"></a>
 			</div>
 			<div class="login">
 				<ul class="nav-login">
 					<li><a href="#" data-toggle="modal" data-target="#myModal3">Help</a></li>
 					<li><a href="#" data-toggle="modal" data-target="#myModal4">Contact us</a></li>
-					<li style="color:white;">Hello!XXX</li>
+					<li style="color:white;">Hello!<%= email %></li>
 					<li><a href="Home0.jsp">Logout</a></li>
 				</ul>
 			</div>

@@ -9,14 +9,20 @@
 	<package name="default" extends ="struts-default">
 
 		<action name="SignUp" class="AM_action.SignupAction">
-			<result name="normal">/Home1.html</result>
-			<result name="holder">/Home2.html</result>
-			<result name="error">/Home0.html</result>
+			<result name="normal" type="redirect">/Home1.jsp</result>
+			<result name="holder" type="redirect">/Home2.jsp</result>
+			<result name="*">/Failed.jsp</result>
+		</action>
+		
+		<action name="SignIn" class="AM_action.SignInAction">
+			<result name="normal" type="redirect">/Home1.jsp</result>
+			<result name="holder" type="redirect">/Home2.jsp</result>
+			<result name="*">/Failed.jsp</result>
 		</action>
 		
 		<action name="*">
 			<result>
-				/{1}.html
+				/{1}.jsp
 			</result>
 		</action>
 

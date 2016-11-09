@@ -14,7 +14,6 @@ public class DatabaseService {
 	static final String dbuser = "root";
 	static final String dbpwd = "fuyilei@96";
 	public boolean NewAccount(User u) {
-		System.out.println(u.getEmail()+" "+u.getPassword()+" "+u.getUsertype());
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 		}
@@ -37,6 +36,28 @@ public class DatabaseService {
 		
 		return true;
 	}
-	
-	
+	public int CheckUser(String signinEmail, String signinPassword) {
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+		}
+		catch (Exception e){
+			return -1;
+		}
+		try{
+			Connection connect = DriverManager.getConnection(
+					dburl,dbuser,dbpwd);
+			Statement stmt = connect.createStatement();
+			ResultSet rs = stmt.executeQuery("select * from user_table where Email = '"+signinEmail+"' ");
+			if (rs.wasNull())
+				return -1;
+			while (rs.next()){
+				if (rs.getString("Password").equals(signinPassword)){
+					return rs.getInt("Type");
+				}
+			}
+		}catch(Exception e){
+			return -1;
+		}
+		return -1;
+	}
 }

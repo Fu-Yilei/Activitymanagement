@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>ViewAll</title>
+<title>Failed</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -19,7 +19,7 @@
 
 </head>
 <body>
-<div class="header">
+ <div class="header">
 	<div class="container">
 		<div class="head-top">
 			<div class="logo">
@@ -93,8 +93,8 @@
 									<div class="login-right">
 										<form action="SignIn" method="post">
 											<h3>Signin with your account </h3>
-											<input type="text" value="Enter your Email" name="Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Enter your Email';}" required="">	
-											<input type="password" value="Password" name="Password" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Password';}" required="">	
+											<input type="text" value="Enter your Email" name="SigninEmail" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Enter your Email';}" required="">	
+											<input type="password" value="Password" name="SigninPassword" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Password';}" required="">	
 											<input type="submit" value="SIGNIN" >
 										</form>
 									</div>
@@ -117,13 +117,13 @@
 							<div class="login-grids">
 							
 									<div class="login-right">
-										<form action="SignUp" method="post" name="form1">
+										<form action="SignUp" method="post">
 											<h3>Create your account </h3>
 											<input type="text" value="Email" name="Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Email';}" required="">	
 											<input type="password" value="Password" name="Password" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Password';}" required="">	
 											<input type="radio" value="normal" name="Usertype">User
 											<input type="radio" value="holder" name="Usertype">Holder
-											<input type="submit" value="CREATE ACCOUNT">
+											<input type="submit" value="CREATE ACCOUNT" >
 										</form>
 									</div>
 								
@@ -153,7 +153,7 @@
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav cl-effect-8">
 								<li><a href="Home0.jsp">Home </a></li>
-								<li><a href="ViewAll0.jsp" class="active">ViewAll</a></li>
+								<li><a href="ViewAll0.jsp">ViewAll</a></li>
 							
 							</ul>
 						</div><!-- /.navbar-collapse -->
@@ -165,29 +165,12 @@
 		</div> 
 </div> 
 
-<div class="test">
-		<div class="container">
-			<div  class=" test-grid-1" >
-				<!-- begin of iterator -->
-				<div class="col-md-6 test-wrapper" style="margin-bottom:10px">
-					<div class="test-grid">
-					<div class="test-gr">
-						</div>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.</p>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<!--  end of iterator -->
-				
-				<div class="clearfix"> </div>
-			</div>
-			
-				
-			<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div>
+	
+	
 
+
+<!---->
+<p>Failed</p>
 
 </body>
 </html>
