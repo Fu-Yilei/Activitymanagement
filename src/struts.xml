@@ -8,10 +8,21 @@
 	<!--  constant name="struts.configuration.xml.reload" value="true" /-->
 	<package name="default" extends ="struts-default">
 
-		<!-- 显示书 -->
+		<action name="SignUp" class="AM_action.SignupAction">
+			<result name="normal" type="redirect">/Home1.jsp</result>
+			<result name="holder" type="redirect">/Home2.jsp</result>
+			<result name="*">/Failed.jsp</result>
+		</action>
+		
+		<action name="SignIn" class="AM_action.SignInAction">
+			<result name="normal" type="redirect">/Home1.jsp</result>
+			<result name="holder" type="redirect">/Home2.jsp</result>
+			<result name="*">/Failed.jsp</result>
+		</action>
+		
 		<action name="*">
 			<result>
-				/WEB-INF/{1}.html
+				/{1}.jsp
 			</result>
 		</action>
 
