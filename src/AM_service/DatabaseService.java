@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import AM_entity.Activity;
 import AM_entity.User;
 
 public class DatabaseService {
@@ -59,5 +60,44 @@ public class DatabaseService {
 			return -1;
 		}
 		return -1;
+	}
+	public void AddActivity(Activity a) {
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+		}
+		catch (Exception e){
+			return ;
+		}
+		
+		try{
+			Connection connect = DriverManager.getConnection(
+					dburl,dbuser,dbpwd);
+			Statement stmt = connect.createStatement();
+			ResultSet rs = stmt.executeQuery("select * from activity");
+			int id = 0;
+			if (rs.last())
+				id = rs.getRow();
+			
+			try{
+				PreparedStatement Statement=connect.prepareStatement("insert into activity values (?,?,?,?,?,?,?)");
+				Statement.setInt(1, id);
+				Statement.setString(2, a.getTitle());
+				Statement.setDate(3, a.getDate());
+				Statement.setTime(4, a.getTime());
+				Statement.setString(5, a.getSite());
+				Statement.setString(6, a.getSpeaker());
+				Statement.setString(7, a.getHolder());
+				Statement.executeUpdate();
+			}catch(Exception e){
+				System.out.println("92"+e);
+				return ;
+			}
+				
+		}catch(Exception e){
+			System.out.println("97"+e);
+			return ;
+		}
+		return ;
+		
 	}
 }

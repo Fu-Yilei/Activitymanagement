@@ -19,6 +19,23 @@
 
 </head>
 <body>
+<%  
+Cookie[] cookies = request.getCookies();  
+String email = "";  
+if (cookies != null) {  
+    for (Cookie c : cookies) {  
+        if ("Email".equals(c.getName())) {  
+            email = c.getValue();  
+            break;  
+        }  
+    }  
+}  
+%>  
+<% 
+java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
+java.util.Date currentTime = new java.util.Date();
+String str = formatter.format(currentTime);  
+%>
  <div class="header">
 	<div class="container">
 		<div class="head-top">
@@ -29,7 +46,7 @@
 				<ul class="nav-login">
 					<li><a href="#" data-toggle="modal" data-target="#myModal3">Help</a></li>
 					<li><a href="#" data-toggle="modal" data-target="#myModal4">Contact us</a></li>
-					<li style="color:white;">Hello!XXX</li>
+					<li style="color:white;">Hello!<%= email %></li>
 					<li><a href="Home0.jsp">Logout</a></li>
 				</ul>
 			</div>
@@ -117,17 +134,38 @@
 
 
 	
+	<script>
+		function check_required(field,alerttxt){
+			with(field){
+				if (!/^((0[0-9])|(1[0-9])|(2[0-3]))\:([0-5][0-9])$/.test(value)){
+					alert(alerttxt)
+					return false;
+				}else{
+					return true;
+				}
+			}
+		}
+		function check(thisform){
+			with(thisform){
+				if (check_required(time,"wrong time!") == false){
+					time.focus();
+					return false;
+				}
+			}
+		}
+	</script>
 	<div class="modal-dialog" role="document">
 	<div class="login-grids">
 		<div class="login-right">
-			<form action="Creatnewactivity" method="post">
+			<form action="CreateActivity" method="post" onsubmit="return check(this)">
 			<h3>Create a new activity </h3>
 			<input type="text" placeholder="title" name="title">
-			<p><input type="date" name="Creattime">
+			<p><input type="date" name="date" required min=<%= str %>>
+			<p><input type="text" placeholder="time" name="time">
 			<input type="text" placeholder="site" name="site">
 			<input type="text" placeholder="speaker" name="speaker">
 			<p><input type="reset" value="reset">
-			<input type="submit" value="CREATE" >
+			<input type="submit" value="CREATE">
 			</form>
 		</div>
 	</div>
