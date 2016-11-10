@@ -12,7 +12,7 @@ public class DatabaseService {
 
 	static final String dburl = "jdbc:mysql://localhost:3306/Activitymanagement";
 	static final String dbuser = "root";
-	static final String dbpwd = "wr19950705";
+	static final String dbpwd = "fuyilei@96";
 	public boolean NewAccount(User u) {
 		try{
 			Class.forName("com.mysql.jdbc.Driver");

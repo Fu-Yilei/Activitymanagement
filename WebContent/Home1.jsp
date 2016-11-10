@@ -45,7 +45,6 @@ if (cookies != null) {
 					<li><a href="#" data-toggle="modal" data-target="#myModal4">Contact us</a></li>
 					<li style="color:white;">Hello!<%= email %></li>
 					<li><a href="Home0.jsp">Logout</a></li>
-					
 				</ul>
 			</div>
 			<div class="clearfix"></div>
