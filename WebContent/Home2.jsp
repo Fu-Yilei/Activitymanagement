@@ -141,7 +141,7 @@ if (cookies != null) {
 							<ul class="nav navbar-nav cl-effect-8">
 								<li><a class="active" href="Home2.jsp">Home </a></li>
 								<li><a href="ViewAll2.jsp">ViewAll</a></li>
-								<li><a href="unknown.jsp">New</a></li>
+								<li><a href="New.jsp">New</a></li>
 								
 							
 							</ul>

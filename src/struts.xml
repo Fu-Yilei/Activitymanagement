@@ -20,6 +20,10 @@
 			<result name="*">/Failed.jsp</result>
 		</action>
 		
+		<action name="CreateActivity" class="AM_action.CreateActivityAction">
+			<result name="success" type="redirect">/Home2.jsp</result>
+		</action>
+		
 		<action name="*">
 			<result>
 				/{1}.jsp

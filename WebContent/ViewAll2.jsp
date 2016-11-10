@@ -114,16 +114,10 @@ if (cookies != null) {
 							<ul class="nav navbar-nav cl-effect-8">
 								<li ><a href="Home2.jsp">Home</a></li>
 								<li><a class="active" href="ViewAll2.jsp">ViewAll</a></li>
+								<li><a href="New.jsp">New</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 					</div>
-					<!-- start search-->
-				<!-- 	<ul class="social-ic">
-						<li><a href="#"><i></i></a></li>
-						<li><a href="#"><i class="ic"></i></a></li>
-						<li><a href="#"><i class="ic1"></i></a></li>
-						<li><a href="#"><i class="ic2"></i></a></li>
-					</ul> -->
 					<div class="clearfix"></div>
 				</div> 
 			</div> 
