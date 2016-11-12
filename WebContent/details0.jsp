@@ -1,9 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import="java.io.*,java.util.*,java.sql.*"%>
-<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -24,25 +19,6 @@
 
 </head>
 <body>
-<%  
-Cookie[] cookies = request.getCookies();  
-String id = "";
-if (cookies != null) {  
-    for (Cookie c : cookies) {   
-        if ("ACID".equals(c.getName())){
-        	id = c.getValue();
-        	break;
-        }
-    }  
-}  
-%>  
-<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-     url="jdbc:mysql://localhost:3306/activitymanagement"
-     user="root"  password="wr19950705"/>
- 
-<sql:query dataSource="${snapshot}" var="result">
-SELECT * from activity where ID = <%= id %>;
-</sql:query>
  <div class="header">
 	<div class="container">
 		<div class="head-top">
@@ -191,10 +167,9 @@ SELECT * from activity where ID = <%= id %>;
 
 <!-- about -->
 <div class="about">
-			<c:forEach var="row" items="${result.rows}">
 				<div class="container">
 				<div class="about-head">
-					<h2><c:out value="${row.Title}"/>的详细信息</h2>
+					<h2>XXX活动的详细信息</h2>
 					<p> 此处按照模板给出详细的信息</p>
 				</div>
 					<div class="about-grids">
@@ -206,17 +181,17 @@ SELECT * from activity where ID = <%= id %>;
 							</div>							
 						</div>
 						<div class="col-md-7 about-grid">
-							<h3></h3>
+							<h3>活动地点</h3>
 							<h5>此处给出活动的详细地点。</h5>
-							<p><c:out value="${row.Site}"/></p>
+							<p></p>
 							<div class="about-top">
 								<div class="col-md-6 about-left">
 									<h4>活动时间</h4>
-									<p>日期：<c:out value="${row.Date}"/>时间：<c:out value="${row.Time}"/></p>
+									<p>此处给出活动的详细时间</p>
 								</div>
 								<div class="col-md-6 about-right">
 								<h4>活动主办方</h4>
-									<p><c:out value="${row.Holder}"/></p>
+									<p>此处给出活动的主办方</p>
 								</div>
 								<div class="clearfix"></div>
 							</div>
@@ -243,7 +218,6 @@ SELECT * from activity where ID = <%= id %>;
 				</div>
 			</div>
 		</div>
-		</c:forEach>
 </div>
 <div class="content-bottom">
 	<h1>Gallery</h1>

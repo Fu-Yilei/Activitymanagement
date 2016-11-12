@@ -61,7 +61,7 @@ public class DatabaseService {
 		}
 		return -1;
 	}
-	public void AddActivity(Activity a,String holder) {
+	public void AddActivity(Activity a) {
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 		}
@@ -92,48 +92,9 @@ public class DatabaseService {
 				System.out.println("92"+e);
 				return ;
 			}
-			try{
-				PreparedStatement Statement=connect.prepareStatement("insert into holderhold values (?,?)");
-				Statement.setString(1, holder);
-				Statement.setInt(2, id);
-
-				Statement.executeUpdate();
-			}catch(Exception e){
-				System.out.println("92"+e);
-				return ;
-			}
-
 				
 		}catch(Exception e){
 			System.out.println("97"+e);
-			return ;
-		}
-		return ;
-		
-	}
-	public void LikeAC(String userEmail, String activityID) {
-		int id = Integer.parseInt(activityID);
-		try{
-			Class.forName("com.mysql.jdbc.Driver");
-		}
-		catch (Exception e){
-			return ;
-		}
-		
-		try{
-			Connection connect = DriverManager.getConnection(
-					dburl,dbuser,dbpwd);
-			
-			try{
-				PreparedStatement Statement=connect.prepareStatement("insert into userlike values (?,?)");
-				Statement.setString(1, userEmail);
-				Statement.setInt(2, id);
-
-				Statement.executeUpdate();
-			}catch(Exception e){
-				return ;
-			}
-		}catch(Exception e){
 			return ;
 		}
 		return ;

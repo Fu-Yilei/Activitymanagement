@@ -24,19 +24,6 @@
 			<result name="success" type="redirect">/Home2.jsp</result>
 		</action>
 		
-		<action name="ToDetail0" class="AM_action.DetailsAction">
-			<result name="success" type="redirect">/details0.jsp</result>
-		</action>
-		<action name="ToDetail1" class="AM_action.DetailsAction">
-			<result name="success" type="redirect">/details1.jsp</result>
-		</action>
-		<action name="ToDetail2" class="AM_action.DetailsAction">
-			<result name="success" type="redirect">/details2.jsp</result>
-		</action>
-		<action name="Like" class="AM_action.LikeAction">
-			<result name="success" type="redirect">/Home1.jsp</result>
-		</action>
-		
 		<action name="*">
 			<result>
 				/{1}.jsp

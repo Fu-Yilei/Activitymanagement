@@ -1,9 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import="java.io.*,java.util.*,java.sql.*"%>
-<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,36 +16,21 @@
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!---->
 <script src="js/bootstrap.min.js"></script>
-<style> 
-a:link {color: #FFFFFF}	
-a:visited {color: #FF66CC}	
-a:hover {color: #FFFF33}	
-a:active {color: #0000FF}	
-</style>
+
 </head>
 <body>
 <%  
 Cookie[] cookies = request.getCookies();  
 String email = "";  
-String id = "";
 if (cookies != null) {  
     for (Cookie c : cookies) {  
         if ("Email".equals(c.getName())) {  
             email = c.getValue();  
+            break;  
         }  
-        if ("ACID".equals(c.getName())){
-        	id = c.getValue();
-        }
     }  
 }  
 %>  
-<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-     url="jdbc:mysql://localhost:3306/activitymanagement"
-     user="root"  password="wr19950705"/>
-
-<sql:query dataSource="${snapshot}" var="result">
-SELECT * from activity;
-</sql:query>
  <div class="header head1">
 	<div class="container">
 		<div class="head-top">
@@ -151,14 +131,8 @@ SELECT * from activity;
 				<div class="col-md-6 test-wrapper" style="margin-bottom:10px">
 					<div class="test-grid">
 					<div class="test-gr">
-						<c:forEach var="row" items="${result.rows}">
-  							<p style="margin-bottom:5px">
-  								<a href="ToDetail2?ID=${row.ID}">
-  									<c:out value="${row.Title}"/>
-  								</a>
-  							</p>					
-
-						</c:forEach>
+						</div>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.</p>
 					</div>
 					<div class="clearfix"></div>
 				</div>

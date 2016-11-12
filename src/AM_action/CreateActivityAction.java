@@ -21,19 +21,8 @@ public class CreateActivityAction implements Action {
 	String time;
 	String site;
 	String speaker;
-	String holder;
 	
 	
-	public String getHolder() {
-		return holder;
-	}
-
-
-	public void setHolder(String holder) {
-		this.holder = holder;
-	}
-
-
 	public String getTitle() {
 		return title;
 	}
@@ -109,7 +98,7 @@ public class CreateActivityAction implements Action {
 		}
 		DatabaseService ds = new DatabaseService();
 		Activity a = new Activity(title,date,time_time,site,speaker,holder);
-		ds.AddActivity(a,holder);
+		ds.AddActivity(a);
 		
 		return SUCCESS;
 	}
