@@ -66,7 +66,7 @@ public class DatabaseService {
 			Class.forName("com.mysql.jdbc.Driver");
 		}
 		catch (Exception e){
-			return ;
+			return;
 		}
 		
 		try{
@@ -85,14 +85,13 @@ public class DatabaseService {
 				Statement.setDate(3, a.getDate());
 				Statement.setTime(4, a.getTime());
 				Statement.setString(5, a.getSite());
-				Statement.setString(6, a.getSpeaker());
+				Statement.setString(6, a.getdetails());
 				Statement.setString(7, a.getHolder());
 				Statement.executeUpdate();
 			}catch(Exception e){
 				System.out.println("92"+e);
 				return ;
 			}
-				
 		}catch(Exception e){
 			System.out.println("97"+e);
 			return ;

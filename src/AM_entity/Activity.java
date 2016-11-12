@@ -8,16 +8,16 @@ public class Activity {
 	private Date date;
 	private Time time;
 	private String site;
-	private String speaker;
+	private String details;
 	private String holder;
 	
 	public Activity(){};
-	public Activity(String t,Date d,Time tt,String s,String sp,String h){
+	public Activity(String t,Date d,Time tt,String s,String sp,String h) {
 		title = t;
 		date = d;
 		time = tt;
 		site = s;
-		speaker = sp;
+		details = sp;
 		holder = h;
 	}
 	public String getTitle() {
@@ -44,11 +44,11 @@ public class Activity {
 	public void setSite(String site) {
 		this.site = site;
 	}
-	public String getSpeaker() {
-		return speaker;
+	public String getdetails() {
+		return details;
 	}
-	public void setSpeaker(String speaker) {
-		this.speaker = speaker;
+	public void setdetails(String details) {
+		this.details = details;
 	}
 	public String getHolder() {
 		return holder;
@@ -56,7 +56,4 @@ public class Activity {
 	public void setHolder(String holder) {
 		this.holder = holder;
 	}
-	
-	
-	
 }

@@ -3,26 +3,33 @@ package AM_action;
 import java.sql.Date;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
-
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import org.apache.struts2.ServletActionContext;
+import com.opensymphony.xwork2.ActionSupport;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-
-import org.apache.struts2.ServletActionContext;
-
 import com.opensymphony.xwork2.Action;
-
 import AM_entity.Activity;
 import AM_service.DatabaseService;
 
 public class CreateActivityAction implements Action {
 
+	private static final long serialVersionUID = 1L;
+	
 	String title;
 	Date date;
 	String time;
 	String site;
-	String speaker;
-	
-	
+	String details;
+    File file;
+    String fileFileName;
+    String fileContentType;
+    
+    
 	public String getTitle() {
 		return title;
 	}
@@ -65,16 +72,47 @@ public class CreateActivityAction implements Action {
 	}
 
 
-	public String getSpeaker() {
-		return speaker;
+	public String getdetails() {
+		return details;
 	}
 
 
-	public void setSpeaker(String speaker) {
-		this.speaker = speaker;
+	public void setdetails(String details) {
+		this.details = details;
 	}
 
+    public File getFile()
+    {
+        return file;
+    }
 
+    public void setFile(File file)
+    {
+        this.file = file;
+    }
+
+    public String getFileFileName()
+    {
+        return fileFileName;
+    }
+
+    public void setFileFileName(String fileFileName)
+    {
+        this.fileFileName = fileFileName;
+    }
+
+    public String getFileContentType()
+    {
+        return fileContentType;
+    }
+
+    public void setFileContentType(String fileContentType)
+    {
+        this.fileContentType = fileContentType;
+    }
+    
+    
+	
 	public String execute() throws Exception {
 		Time time_time;
         SimpleDateFormat format = new SimpleDateFormat("HH:mm");
@@ -97,8 +135,25 @@ public class CreateActivityAction implements Action {
 			}
 		}
 		DatabaseService ds = new DatabaseService();
-		Activity a = new Activity(title,date,time_time,site,speaker,holder);
+		Activity a = new Activity(title,date,time_time,site,details,holder);
 		ds.AddActivity(a);
+		
+		
+		String root = ServletActionContext.getServletContext().getRealPath("/upload");
+        InputStream is = new FileInputStream(file);
+        OutputStream os = new FileOutputStream(new File(root, fileFileName));
+        System.out.println("fileFileName: " + fileFileName);
+        System.out.println("file: " + file.getName());
+        System.out.println("file: " + file.getPath());
+        byte[] buffer = new byte[500];
+        int length = 0;
+        while(-1 != (length = is.read(buffer, 0, buffer.length)))
+        {
+            os.write(buffer);
+        }
+        os.close();
+        is.close();
+        
 		
 		return SUCCESS;
 	}
