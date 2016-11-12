@@ -1,4 +1,9 @@
-<%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +23,28 @@
 <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
+<%  
+Cookie[] cookies = request.getCookies();  
+String id = "";
+String email = "";
+if (cookies != null) {  
+    for (Cookie c : cookies) {   
+        if ("ACID".equals(c.getName())){
+        	id = c.getValue();
+        }
+        if ("Email".equals(c.getName())){
+        	email = c.getValue();
+        }
+    }  
+}  
+%>  
+<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
+     url="jdbc:mysql://localhost:3306/activitymanagement"
+     user="root"  password="wr19950705"/>
+ 
+<sql:query dataSource="${snapshot}" var="result">
+SELECT * from activity where ID = <%= id %>;
+</sql:query>
  <div class="header head1">
 	<div class="container">
 		<div class="head-top">
@@ -28,7 +55,7 @@
 				<ul class="nav-login">
 					<li><a href="#" data-toggle="modal" data-target="#myModal3">Help</a></li>
 					<li><a href="#" data-toggle="modal" data-target="#myModal4">Contact us</a></li>
-					<li style="color:white;">Hello!XXX</li>
+					<li style="color:white;">Hello!<%= email %></li>
 					<li><a href="Home0.jsp">Logout</a></li>
 				</ul>
 			</div>
@@ -112,9 +139,10 @@
 </div> 
 <!-- about -->
 <div class="about">
+			<c:forEach var="row" items="${result.rows}">
 				<div class="container">
 				<div class="about-head">
-					<h2>XXX活动的详细信息</h2>
+					<h2><c:out value="${row.Title}"/>的详细信息</h2>
 					<p> 此处按照模板给出详细的信息</p>
 				</div>
 					<div class="about-grids">
@@ -126,17 +154,17 @@
 							</div>							
 						</div>
 						<div class="col-md-7 about-grid">
-							<h3>活动地点</h3>
+							<h3></h3>
 							<h5>此处给出活动的详细地点。</h5>
-							<p></p>
+							<p><c:out value="${row.Site}"/></p>
 							<div class="about-top">
 								<div class="col-md-6 about-left">
 									<h4>活动时间</h4>
-									<p>此处给出活动的详细时间</p>
+									<p>日期：<c:out value="${row.Date}"/>时间：<c:out value="${row.Time}"/></p>
 								</div>
 								<div class="col-md-6 about-right">
 								<h4>活动主办方</h4>
-									<p>此处给出活动的主办方</p>
+									<p><c:out value="${row.Holder}"/></p>
 								</div>
 								<div class="clearfix"></div>
 							</div>
@@ -163,6 +191,7 @@
 				</div>
 			</div>
 		</div>
+		</c:forEach>
 </div>
 <div class="content-bottom">
 	<h1>Gallery</h1>

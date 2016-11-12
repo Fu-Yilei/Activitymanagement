@@ -164,6 +164,7 @@ String str = formatter.format(currentTime);
 			<p><input type="text" placeholder="time" name="time">
 			<input type="text" placeholder="site" name="site">
 			<input type="text" placeholder="speaker" name="speaker">
+			<input type="hidden" name="holder" value=<%=email %>>
 			<p><input type="reset" value="reset">
 			<input type="submit" value="CREATE">
 			</form>
