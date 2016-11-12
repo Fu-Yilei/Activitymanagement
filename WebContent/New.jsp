@@ -158,20 +158,14 @@ String str = formatter.format(currentTime);
 	<div class="login-grids">
 		<div class="login-right">
 			<form action="CreateActivity" method="post" onsubmit="return check(this)">
-			<h2>Create a new activity </h2>
-			<p>
-			<h3>Activity Title</h3>
+			<h3>Create a new activity </h3>
 			<input type="text" placeholder="title" name="title">
-			<h3>Activity Time</h3>
-			<input type="date" name="date" required min=<%= str %>>
-			<input type="text" placeholder="time" name="time">
-			<h3>Activity Place</h3>
-			<input type="text" placeholder="Place" name="site">
-			<h3>Details of the Activity</h3>
-			<p><textarea  rows = "10" cols = "97" placeholder = "Enter Activity's Details" name = "details"></textarea></p>
-			<h3>Upload Your Poster(if not, we will automatically made one for you.)</h3>
-			<input type="file" name="image"> 
-			<input type="reset" value="RESET">
+			<p><input type="date" name="date" required min=<%= str %>>
+			<p><input type="text" placeholder="time" name="time">
+			<input type="text" placeholder="site" name="site">
+			<input type="text" placeholder="speaker" name="speaker">
+			<input type="hidden" name="holder" value=<%=email %>>
+			<p><input type="reset" value="reset">
 			<input type="submit" value="CREATE">
 			</form>
 		</div>
