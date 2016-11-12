@@ -1,5 +1,10 @@
-<%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags" %>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <!DOCTYPE html>
 <html>
 <meta charset="gb2312"/>
@@ -33,6 +38,14 @@ if (cookies != null) {
     }  
 }  
 %>  
+<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
+     url="jdbc:mysql://localhost:3306/activitymanagement"
+     user="root"  password="wr19950705"/>
+
+<sql:query dataSource="${snapshot}" var="result">
+SELECT * 
+from activity where ID in (select ActivityID from userlike where Email = "<%=email %>");
+</sql:query>
  <div class="header">
 	<div class="container">
 		<div class="head-top">
@@ -155,14 +168,34 @@ if (cookies != null) {
 
 <div>
 <h3>Already collect</h3>
-<!-- login ºó£¬ÔÚ¸Ãaction°ë¶ÎÊÇÓÃ»§»¹ÊÇ¿ª·¢Õß£¬È»ºó·µ»ØÓÉÆä¿ª·¢»òÕßÊÕ²ØµÄ»î¶¯µÄÁÑ±ä  -->
+
 
 <p>Processing------------</p>
-<!-- ÔÚÕâÀï¼ÓÒ»¸öÅÐ¶ÏÓï¾äÅÐ¶ÏÊ±¼ä£¬ÊÇ½øÐÐÖÐ»¹ÊÇÒÑ½áÊø -->
 
+<table border="1">
+	<tr>
+		<th>Title</th>
+		<th>Date</th>
+		<th>Time</th>
+		<th>Site</th>
+		<th>Speaker</th>
+		<th>Holder</th>
+	</tr>
+	<c:forEach var="row" items="${result.rows}">
+		<tr>
+			<td><c:out value="${row.Title}"/></td>
+			<td><c:out value="${row.Date}"/></td>
+			<td><c:out value="${row.Time}"/></td>
+			<td><c:out value="${row.Site}"/></td>
+			<td><c:out value="${row.Speaker}"/></td>
+			<td><c:out value="${row.Holder}"/></td>
+		</tr>
+	</c:forEach>
+	
+</table>
 
 <p>过期------------</p>	
-<!-- Ò²ÓÐÉ¾³ý¹¦ÄÜ -->
+不想写
 	
 </div>
 
