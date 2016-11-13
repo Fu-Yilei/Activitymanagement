@@ -75,8 +75,12 @@ public class DatabaseService {
 			Statement stmt = connect.createStatement();
 			ResultSet rs = stmt.executeQuery("select * from activity");
 			int id = 0;
-			if (rs.last())
-				id = rs.getRow();
+			while (rs.next()){
+				if (rs.getInt("ID") == id)
+					id++;
+				else
+					break;
+			}
 			
 			try{
 				PreparedStatement Statement=connect.prepareStatement("insert into activity values (?,?,?,?,?,?,?)");
@@ -111,8 +115,8 @@ public class DatabaseService {
 		return ;
 		
 	}
-	public void LikeAC(String userEmail, String activityID) {
-		int id = Integer.parseInt(activityID);
+	public void LikeAC(String userEmail, int activityID) {
+		String tmp = userEmail.substring(1, userEmail.length()-1);
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 		}
@@ -126,8 +130,8 @@ public class DatabaseService {
 			
 			try{
 				PreparedStatement Statement=connect.prepareStatement("insert into userlike values (?,?)");
-				Statement.setString(1, userEmail);
-				Statement.setInt(2, id);
+				Statement.setString(1, tmp);
+				Statement.setInt(2, activityID);
 
 				Statement.executeUpdate();
 			}catch(Exception e){
@@ -137,6 +141,74 @@ public class DatabaseService {
 			return ;
 		}
 		return ;
+		
+	}
+	public void DelfromUserLike(String delUser,int delID) {
+		System.out.println("user:"+delUser);
+		System.out.println("delID:"+delID);
+		String tmp = delUser.substring(1, delUser.length()-1);
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+		}
+		catch (Exception e){
+			System.out.println(e);
+			return ;
+		}
+		
+		try{
+			Connection connect = DriverManager.getConnection(
+					dburl,dbuser,dbpwd);
+			Statement stmt = connect.createStatement();
+			stmt.executeUpdate("delete from userlike where Email = '"+tmp+"' and ActivityID = '"+delID+"' ");
+			return ;
+		}catch (Exception e){
+			System.out.println(e);
+			return ;
+		}
+		
+	}
+	public void DelfromAll(int delID) {
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+		}
+		catch (Exception e){
+			System.out.println(e);
+			return ;
+		}
+		
+		try{
+			Connection connect = DriverManager.getConnection(
+					dburl,dbuser,dbpwd);
+			Statement stmt = connect.createStatement();
+			stmt.executeUpdate("delete from userlike where ActivityID = '"+delID+"' ");
+			stmt.executeUpdate("delete from holderhold where ActivityID = '"+delID+"' ");
+			stmt.executeUpdate("delete from activity where ID = '"+delID+"' ");
+			return ;
+		}catch (Exception e){
+			System.out.println(e);
+			return ;
+		}
+		
+	}
+	public void UpdateActivity(int activityID, Activity a) {
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+		}
+		catch (Exception e){
+			System.out.println(e);
+			return ;
+		}
+		
+		try{
+			Connection connect = DriverManager.getConnection(
+					dburl,dbuser,dbpwd);
+			Statement stmt = connect.createStatement();
+			stmt.executeUpdate("update activity set Title='"+a.getTitle()+"' ,Date='"+a.getDate()+"' ,Time='"+a.getTime()+"' ,Site='"+a.getSite()+"' ,Speaker='"+a.getSpeaker()+"'");
+			return ;
+		}catch (Exception e){
+			System.out.println(e);
+			return ;
+		}
 		
 	}
 }

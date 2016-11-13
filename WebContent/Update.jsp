@@ -7,7 +7,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <!DOCTYPE html>
 <html>
-<meta charset="gb2312"/>
 <head>
 <title>Home</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
@@ -29,28 +28,34 @@
 <%  
 Cookie[] cookies = request.getCookies();  
 String email = "";  
+String id = "";
 if (cookies != null) {  
     for (Cookie c : cookies) {  
         if ("Email".equals(c.getName())) {  
             email = c.getValue();  
-            break;  
         }  
+        if ("ACID".equals(c.getName())){
+        	id = c.getValue();
+        }
     }  
 }  
-%>  
+
+java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
+java.util.Date currentTime = new java.util.Date();
+String str = formatter.format(currentTime);  
+%>
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://localhost:3306/activitymanagement"
      user="root"  password="wr19950705"/>
-
+ 
 <sql:query dataSource="${snapshot}" var="result">
-SELECT * 
-from activity where ID in (select ActivityID from userlike where Email = "<%=email %>");
+SELECT * from activity where ID = <%= id %>;
 </sql:query>
  <div class="header">
 	<div class="container">
 		<div class="head-top">
 			<div class="logo">
-				<a href="Home1.jsp"><img src="images/logo.png" alt="" title="Academic"></a>
+				<a href="Home2.jsp"><img src="images/logo.png" alt="" title="Academic"></a>
 			</div>
 			<div class="login">
 				<ul class="nav-login">
@@ -107,33 +112,8 @@ from activity where ID in (select ActivityID from userlike where Email = "<%=ema
 				</div>
 			</div>
 			<!-- //contact us -->
+		
 			
-			<!--  Exit -->
-			<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabe4">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content modal-info">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-						</div>
-						<div class="modal-body modal-spa">
-							<div class="login-grids">
-							
-									<div class="login-right">
-										<h3>Really want to quit in your name?</h3>
-										<h3>Then will jump to the home page!</h3>
-										<li><a href="Home0.jsp">Exit</a></li>
-									</div>
-									
-								<p>By logging in you agree to our <span>Terms and Conditions</span> and <span>Privacy Policy</span></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- //Exit -->
-			
-			
-
 		
 		<div class="nav-top">
 			<div class="container">
@@ -152,8 +132,7 @@ from activity where ID in (select ActivityID from userlike where Email = "<%=ema
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav cl-effect-8">
-								<li><a class="active" href="Home1.jsp">Home</a></li>
-								<li><a href="ViewAll1.jsp">ViewAll</a></li>
+								<li ><a class="active" href="Home2.jsp">Back </a></li>
 								
 							
 							</ul>
@@ -166,40 +145,49 @@ from activity where ID in (select ActivityID from userlike where Email = "<%=ema
 		</div> 
 </div> 
 
-<div>
-<h3>Already collect</h3>
-
-
-<p>Processing------------</p>
-
-<table border="1">
-	<tr>
-		<th>Title</th>
-		<th>Date</th>
-		<th>Time</th>
-		<th>Site</th>
-		<th>Speaker</th>
-		<th>Holder</th>
-		<th>Action</th>
-	</tr>
-	<c:forEach var="row" items="${result.rows}">
-		<tr>
-			<td><c:out value="${row.Title}"/></td>
-			<td><c:out value="${row.Date}"/></td>
-			<td><c:out value="${row.Time}"/></td>
-			<td><c:out value="${row.Site}"/></td>
-			<td><c:out value="${row.Speaker}"/></td>
-			<td><c:out value="${row.Holder}"/></td>
-			<td><a href="DontLike?delID=${row.ID}&delUser='<%= email %>'"><button>取消收藏</button></a></td>
-		</tr>
-	</c:forEach>
 	
-</table>
+<script>
+		function check_required(field,alerttxt){
+			with(field){
+				if (!/^((0[0-9])|(1[0-9])|(2[0-3]))\:([0-5][0-9])$/.test(value)
+						&& !/^((0[0-9])|(1[0-9])|(2[0-3]))\:([0-5][0-9])\:([0-5][0-9])$/.test(value)){
+					alert(alerttxt)
+					return false;
+				}else{
+					return true;
+				}
+			}
+		}
+		function check(thisform){
+			with(thisform){
+				if (check_required(time,"wrong time!") == false){
+					time.focus();
+					return false;
+				}
+			}
+		}
+	</script>
+	<div class="modal-dialog" role="document">
+	<div class="login-grids">
+		<div class="login-right">
+			<form action="UpdateAC" method="post" onsubmit="return check(this)">
+			<h3>Update a activity </h3>
+			<c:forEach var="row" items="${result.rows}">
+			<input type="text" placeholder="title" name="title" value=${row.Title}>
+			<p><input type="date" name="date" required min=<%= str %> value=${row.Date}>
+			<p><input type="text" placeholder="time" name="time" value=${row.Time}>
+			<input type="text" placeholder="site" name="site" value=${row.Site}>
+			<input type="text" placeholder="speaker" name="speaker" value=${row.Speaker}>
+			<input type="hidden" name="activityID" value=${row.ID}>
+			<p><input type="reset" value="reset">
+			<input type="submit" value="UPDATE">
+			</c:forEach>
+			</form>
+		</div>
+	</div>
+	</div>
 
-<p>过期------------</p>	
-不想写
-	
-</div>
+		
 
 
 </body>

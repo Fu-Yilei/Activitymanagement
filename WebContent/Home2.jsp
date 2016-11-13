@@ -177,6 +177,7 @@ from activity where ID in (select ActivityID from holderhold where Email = "<%=e
 		<th>Site</th>
 		<th>Speaker</th>
 		<th>Holder</th>
+		<th>Action</th>
 	</tr>
 	<c:forEach var="row" items="${result.rows}">
 		<tr>
@@ -186,6 +187,10 @@ from activity where ID in (select ActivityID from holderhold where Email = "<%=e
 			<td><c:out value="${row.Site}"/></td>
 			<td><c:out value="${row.Speaker}"/></td>
 			<td><c:out value="${row.Holder}"/></td>
+			<td>
+				<a href="DelAC?delID=${row.ID}"><button>删除活动</button></a>
+				<a href="ToUpdate?ID=${row.ID}"><button>修改活动信息</button></a>
+			</td>
 		</tr>
 	</c:forEach>
 	

@@ -36,6 +36,18 @@
 		<action name="Like" class="AM_action.LikeAction">
 			<result name="success" type="redirect">/Home1.jsp</result>
 		</action>
+		<action name="DontLike" class="AM_action.DelAction">
+			<result name="success" type="redirect">/Home1.jsp</result>
+		</action>
+		<action name="DelAC" class="AM_action.HolderDelAction">
+			<result name="success" type="redirect">/Home2.jsp</result>
+		</action>
+		<action name="ToUpdate" class="AM_action.ToUpdateAction">
+			<result name="success" type="redirect">/Update.jsp</result>
+		</action>
+		<action name="UpdateAC" class="AM_action.UpdateACAction">
+			<result name="success" type="redirect">/Home2.jsp</result>
+		</action>
 		
 		<action name="*">
 			<result>

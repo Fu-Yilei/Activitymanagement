@@ -7,7 +7,7 @@ import AM_service.DatabaseService;
 public class LikeAction implements Action {
 
 	String userEmail;
-	String activityID;
+	int activityID;
 	
 	
 	public String getUserEmail() {
@@ -20,12 +20,15 @@ public class LikeAction implements Action {
 	}
 
 
-	public String getActivityID() {
+	
+
+
+	public int getActivityID() {
 		return activityID;
 	}
 
 
-	public void setActivityID(String activityID) {
+	public void setActivityID(int activityID) {
 		this.activityID = activityID;
 	}
 
