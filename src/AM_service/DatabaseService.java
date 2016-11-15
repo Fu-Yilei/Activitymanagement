@@ -116,7 +116,11 @@ public class DatabaseService {
 		
 	}
 	public void LikeAC(String userEmail, int activityID) {
-		String tmp = userEmail.substring(1, userEmail.length()-1);
+		String tmp;
+		if (userEmail.charAt(0) == '0')
+			tmp = userEmail.substring(1, userEmail.length()-1);
+		else
+			tmp = userEmail;
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 		}

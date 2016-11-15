@@ -144,7 +144,7 @@ SELECT * from activity where ID = <%= id %>;
 				<div class="container">
 				<div class="about-head">
 					<h2><c:out value="${row.Title}"/>的详细信息</h2>
-					<p> 此处按照模板给出详细的信息</p>
+					<p> 此处按照模板给出详细的信息 <%=id %></p>
 				</div>
 					<div class="about-grids">
 					<div class="col-md-5 about-grid1">
@@ -189,7 +189,7 @@ SELECT * from activity where ID = <%= id %>;
 							<a href = "ViewAll1.jsp">返回</a>
 						</li>
 						<li role="presentation" class="active">
-							<a href="Like?userEmail='<%= email%>'&activityID='<%=id%>'">收藏</a>
+							<a href="Like?userEmail=<%= email%>&activityID=<%=id%>">收藏</a>
 						</li>
 					</ul>
 				</div>
