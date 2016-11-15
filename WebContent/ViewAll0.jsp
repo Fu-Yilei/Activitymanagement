@@ -36,7 +36,7 @@ a:active {color: #0000FF}
 <sql:query dataSource="${snapshot}" var="result">
 SELECT * from activity;
 </sql:query>
-<div class="header">
+<div class="header head1">
 	<div class="container">
 		<div class="head-top">
 			<div class="logo">

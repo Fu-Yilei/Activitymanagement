@@ -19,7 +19,7 @@
 
 </head>
 <body>
- <div class="header">
+ <div class="header head1">
 	<div class="container">
 		<div class="head-top">
 			<div class="logo">
@@ -170,7 +170,9 @@
 
 
 <!---->
-<p>Failed</p>
+<div class="col-md-6 about-right">
+	<h4>Failed!</h4>
+</div>
 
 </body>
 </html>

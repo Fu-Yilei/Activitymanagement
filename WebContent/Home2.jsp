@@ -44,7 +44,7 @@ if (cookies != null) {
 SELECT * 
 from activity where ID in (select ActivityID from holderhold where Email = "<%=email %>");
 </sql:query>
- <div class="header">
+ <div class="header head1">
 	<div class="container">
 		<div class="head-top">
 			<div class="logo">
@@ -167,9 +167,10 @@ from activity where ID in (select ActivityID from holderhold where Email = "<%=e
 </div> 
 
 <div>
-<h3>主办活动</h3>
-
-<table border="1">
+<br><br><br>
+<h3 align="center">主办活动</h3>
+<br><br><br>
+<table class="table">
 	<tr>
 		<th>Title</th>
 		<th>Date</th>
