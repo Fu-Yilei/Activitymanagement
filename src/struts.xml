@@ -20,6 +20,35 @@
 			<result name="*">/Failed.jsp</result>
 		</action>
 		
+		<action name="CreateActivity" class="AM_action.CreateActivityAction">
+			<result name="success" type="redirect">/Home2.jsp</result>
+		</action>
+		
+		<action name="ToDetail0" class="AM_action.DetailsAction">
+			<result name="success" type="redirect">/details0.jsp</result>
+		</action>
+		<action name="ToDetail1" class="AM_action.DetailsAction">
+			<result name="success" type="redirect">/details1.jsp</result>
+		</action>
+		<action name="ToDetail2" class="AM_action.DetailsAction">
+			<result name="success" type="redirect">/details2.jsp</result>
+		</action>
+		<action name="Like" class="AM_action.LikeAction">
+			<result name="success" type="redirect">/Home1.jsp</result>
+		</action>
+		<action name="DontLike" class="AM_action.DelAction">
+			<result name="success" type="redirect">/Home1.jsp</result>
+		</action>
+		<action name="DelAC" class="AM_action.HolderDelAction">
+			<result name="success" type="redirect">/Home2.jsp</result>
+		</action>
+		<action name="ToUpdate" class="AM_action.ToUpdateAction">
+			<result name="success" type="redirect">/Update.jsp</result>
+		</action>
+		<action name="UpdateAC" class="AM_action.UpdateACAction">
+			<result name="success" type="redirect">/Home2.jsp</result>
+		</action>
+		
 		<action name="*">
 			<result>
 				/{1}.jsp

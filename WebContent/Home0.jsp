@@ -117,10 +117,30 @@
 							<div class="login-grids">
 							
 									<div class="login-right">
-										<form action="SignUp" method="post" name="form1">
+										<script>
+											function check_required(field,alerttxt){
+												with(field){
+													if (!/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value)){
+														alert(alerttxt)
+														return false;
+													}else{
+														return true;
+													}
+												}
+											}
+											function check(thisform){
+												with(thisform){
+													if (check_required(time,"unsupport email format!") == false){
+														time.focus();
+														return false;
+													}
+												}
+											}
+										</script>
+										<form action="SignUp" method="post" name="form1" onsubmit="return check(this)">
 											<h3>Create your account </h3>
-											<input type="text" value="Email" name="Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Email';}" required="">	
-											<input type="password" value="Password" name="Password" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Password';}" required="">	
+											<input type="text" value="Email" name="Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Email';}">	
+											<input type="password" value="Password" name="Password" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Password';}">	
 											<input type="radio" value="normal" name="Usertype">User
 											<input type="radio" value="holder" name="Usertype">Holder
 											<input type="submit" value="CREATE ACCOUNT">
