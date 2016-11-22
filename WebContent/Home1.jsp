@@ -40,7 +40,7 @@ if (cookies != null) {
 %>  
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://localhost:3306/activitymanagement"
-     user="root"  password="wr19950705"/>
+     user="root"  password="fuyilei@96"/>
 
 <sql:query dataSource="${snapshot}" var="result">
 SELECT * 
@@ -176,7 +176,7 @@ from activity where ID in (select ActivityID from userlike where Email = "<%=ema
 		<th>Date</th>
 		<th>Time</th>
 		<th>Site</th>
-		<th>Speaker</th>
+		<th>Details</th>
 		<th>Holder</th>
 		<th>Action</th>
 	</tr>
@@ -186,7 +186,7 @@ from activity where ID in (select ActivityID from userlike where Email = "<%=ema
 			<td><c:out value="${row.Date}"/></td>
 			<td><c:out value="${row.Time}"/></td>
 			<td><c:out value="${row.Site}"/></td>
-			<td><c:out value="${row.Speaker}"/></td>
+			<td><c:out value="${row.Details}"/></td>
 			<td><c:out value="${row.Holder}"/></td>
 			<td><a href="DontLike?delID=${row.ID}&delUser='<%= email %>'"><button>取消收藏</button></a></td>
 		</tr>

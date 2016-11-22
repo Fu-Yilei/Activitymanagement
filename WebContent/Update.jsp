@@ -46,7 +46,7 @@ String str = formatter.format(currentTime);
 %>
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://localhost:3306/activitymanagement"
-     user="root"  password="wr19950705"/>
+     user="root"  password="fuyilei@96"/>
  
 <sql:query dataSource="${snapshot}" var="result">
 SELECT * from activity where ID = <%= id %>;
@@ -177,7 +177,7 @@ SELECT * from activity where ID = <%= id %>;
 			<p><input type="date" name="date" required min=<%= str %> value=${row.Date}>
 			<p><input type="text" placeholder="time" name="time" value=${row.Time}>
 			<input type="text" placeholder="site" name="site" value=${row.Site}>
-			<input type="text" placeholder="speaker" name="speaker" value=${row.Speaker}>
+			<input type="text" placeholder="Details" name="Details" value=${row.Details}>
 			<input type="hidden" name="activityID" value=${row.ID}>
 			<p><input type="reset" value="reset">
 			<input type="submit" value="UPDATE">

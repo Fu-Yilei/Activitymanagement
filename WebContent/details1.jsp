@@ -40,7 +40,7 @@ if (cookies != null) {
 %>  
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://localhost:3306/activitymanagement"
-     user="root"  password="wr19950705"/>
+     user="root"  password="fuyilei@96"/>
  
 <sql:query dataSource="${snapshot}" var="result">
 SELECT * from activity where ID = <%= id %>;
@@ -144,7 +144,7 @@ SELECT * from activity where ID = <%= id %>;
 				<div class="container">
 				<div class="about-head">
 					<h2><c:out value="${row.Title}"/>的详细信息</h2>
-					<p> 此处按照模板给出详细的信息 <%=id %></p>
+					<p> <c:out value="${row.Details}"/> <%=id %></p>
 				</div>
 					<div class="about-grids">
 					<div class="col-md-5 about-grid1">

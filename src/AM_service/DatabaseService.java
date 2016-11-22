@@ -11,7 +11,7 @@ import AM_entity.User;
 
 public class DatabaseService {
 
-	static final String dburl = "jdbc:mysql://localhost:3306/Activitymanagement";
+	static final String dburl = "jdbc:mysql://localhost:3306/activitymanagement";
 	static final String dbuser = "root";
 	static final String dbpwd = "fuyilei@96";
 	public boolean NewAccount(User u) {
@@ -89,7 +89,7 @@ public class DatabaseService {
 				Statement.setDate(3, a.getDate());
 				Statement.setTime(4, a.getTime());
 				Statement.setString(5, a.getSite());
-				Statement.setString(6, a.getSpeaker());
+				Statement.setString(6, a.getDetails());
 				Statement.setString(7, a.getHolder());
 				Statement.executeUpdate();
 			}catch(Exception e){
@@ -207,7 +207,7 @@ public class DatabaseService {
 			Connection connect = DriverManager.getConnection(
 					dburl,dbuser,dbpwd);
 			Statement stmt = connect.createStatement();
-			stmt.executeUpdate("update activity set Title='"+a.getTitle()+"' ,Date='"+a.getDate()+"' ,Time='"+a.getTime()+"' ,Site='"+a.getSite()+"' ,Speaker='"+a.getSpeaker()+"'");
+			stmt.executeUpdate("update activity set Title='"+a.getTitle()+"' ,Date='"+a.getDate()+"' ,Time='"+a.getTime()+"' ,Site='"+a.getSite()+"' ,Details='"+a.getDetails()+"'");
 			return ;
 		}catch (Exception e){
 			System.out.println(e);

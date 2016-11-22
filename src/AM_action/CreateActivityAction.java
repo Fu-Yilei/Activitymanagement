@@ -20,7 +20,7 @@ public class CreateActivityAction implements Action {
 	Date date;
 	String time;
 	String site;
-	String speaker;
+	String Details;
 	String holder;
 	
 	
@@ -76,13 +76,13 @@ public class CreateActivityAction implements Action {
 	}
 
 
-	public String getSpeaker() {
-		return speaker;
+	public String getDetails() {
+		return Details;
 	}
 
 
-	public void setSpeaker(String speaker) {
-		this.speaker = speaker;
+	public void setDetails(String Details) {
+		this.Details = Details;
 	}
 
 
@@ -108,7 +108,7 @@ public class CreateActivityAction implements Action {
 			}
 		}
 		DatabaseService ds = new DatabaseService();
-		Activity a = new Activity(title,date,time_time,site,speaker,holder);
+		Activity a = new Activity(title,date,time_time,site,Details,holder);
 		ds.AddActivity(a,holder);
 		
 		return SUCCESS;
