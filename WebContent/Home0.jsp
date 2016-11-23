@@ -154,7 +154,15 @@
 				</div>
 			</div>
 			<!-- //signup -->
-		
+		<div class="banner">
+			<div class="container">
+				<div class="banner-text">
+					<h2>小型在线活动管理系统</h2>
+					<p>Via Team W.F.T.N</p>
+				</div>
+				<p class="banner-text1">您目前正在以游客的身份访问本网站，如果希望享受收藏活动和接受提醒的服务，敬请注册！</p>
+			</div>
+		</div>
 		<div class="nav-top">
 			<div class="container">
 				<div class="nav1">

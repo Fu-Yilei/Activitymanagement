@@ -166,7 +166,7 @@ SELECT * from activity;
   								<form action="Like" method="post">
   									<input type="hidden" name="userEmail" value=<%= email %>>
   									<input type="hidden" name="activityID" value=${row.ID}>
-  									<input type="submit" value="收藏">
+  									<input type="submit" value="收藏 ">
   								</form>
   						
 
