@@ -31,7 +31,7 @@ a:active {color: #0000FF}
 <body>
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://localhost:3306/activitymanagement"
-     user="root"  password="wr19950705"/>
+     user="root"  password="fuyilei@96"/>
 
 <sql:query dataSource="${snapshot}" var="result">
 SELECT * from activity;

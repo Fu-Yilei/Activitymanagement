@@ -46,7 +46,7 @@ if (cookies != null) {
 %>  
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://localhost:3306/activitymanagement"
-     user="root"  password="wr19950705"/>
+     user="root"  password="fuyilei@96"/>
 
 <sql:query dataSource="${snapshot}" var="result">
 SELECT * from activity;
@@ -166,7 +166,7 @@ SELECT * from activity;
   								<form action="Like" method="post">
   									<input type="hidden" name="userEmail" value=<%= email %>>
   									<input type="hidden" name="activityID" value=${row.ID}>
-  									<input type="submit" value="收藏">
+  									<input type="submit" value="收藏 ">
   								</form>
   						
 

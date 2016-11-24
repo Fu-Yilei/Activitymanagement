@@ -245,6 +245,25 @@ transition: 0.5s all;
 .login-right input[type="submit"]:hover {
 	background:#00959F;
 }
+
+.login-right input[type="reset"] {
+  background:#B7112A;
+  color: #fff;
+  font-size:1.2em;
+  border: none;
+  width: 100%;
+  outline: none;
+  -webkit-appearance:none;
+  padding:7px 15px;
+  transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+	margin-top:20px;
+}
+.login-right input[type="reset"]:hover {
+	background:#00959F;
+}
 /*-- agileits --*/ 
 .login-grids p {
     font-size: 12px;
@@ -441,6 +460,26 @@ transition: 0.5s all;
     -webkit-appearance: none;
 }
 .footer-left input[type="submit"]:hover {
+    background: #B7112A;
+}
+.footer-left input[type="reset"] {
+    border: none;
+    padding: 12px 0;
+    width: 22%;
+    margin-top: 0px;
+    font-size: 1em;
+    color: #fff;
+    letter-spacing: 1px;
+    outline: none;
+    background: #00959F;
+    transition: 0.5s all ease;
+    -webkit-transition: 0.5s all ease;
+    -moz-transition: 0.5s all ease;
+    -o-transition: 0.5s all ease;
+    -ms-transition: 0.5s all ease;
+    -webkit-appearance: none;
+}
+.footer-left input[type="reset"]:hover {
     background: #B7112A;
 }
 .footer-left form{
@@ -832,6 +871,24 @@ background:#E8E8E8;
     margin: 1.5em 0 0 0em;
 }
 .contact-grids1 input[type="submit"]:hover{
+	background:#000;
+	    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+.contact-grids1 input[type="reset"]{
+	outline: none;
+    padding: 11px 0;
+    border: none;
+    background: #00959F;
+    font-size: 1em;
+    color: #fff;
+    width: 100%;
+    margin: 1.5em 0 0 0em;
+}
+.contact-grids1 input[type="reset"]:hover{
 	background:#000;
 	    transition: 0.5s all;
     -webkit-transition: 0.5s all;
@@ -1634,6 +1691,9 @@ ul.nav.nav-pills {
 .contact-grids1 input[type="submit"] {
     margin: 0em 0 0 0em;
 }
+.contact-grids1 input[type="reset"] {
+    margin: 0em 0 0 0em;
+}
 .contact-form1 {
     padding: 0;
     margin-bottom: 1em;
@@ -2117,6 +2177,10 @@ ul.con-icons li {
     margin-bottom: 1em;
 }
 .footer-left input[type="submit"] {
+    padding: 8px 0;
+    width: 27%;
+}
+.footer-left input[type="reset"] {
     padding: 8px 0;
     width: 27%;
 }

@@ -38,7 +38,7 @@ if (cookies != null) {
 %>  
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://localhost:3306/activitymanagement"
-     user="root"  password="wr19950705"/>
+     user="root"  password="fuyilei@96"/>
 
 <sql:query dataSource="${snapshot}" var="result">
 SELECT * 
@@ -166,38 +166,43 @@ from activity where ID in (select ActivityID from holderhold where Email = "<%=e
 		</div> 
 </div> 
 
-<div>
-<br><br><br>
-<h3 align="center">主办活动</h3>
-<br><br><br>
-<table class="table">
-	<tr>
-		<th>Title</th>
-		<th>Date</th>
-		<th>Time</th>
-		<th>Site</th>
-		<th>Speaker</th>
-		<th>Holder</th>
-		<th>Action</th>
-	</tr>
-	<c:forEach var="row" items="${result.rows}">
-		<tr>
-			<td><c:out value="${row.Title}"/></td>
-			<td><c:out value="${row.Date}"/></td>
-			<td><c:out value="${row.Time}"/></td>
-			<td><c:out value="${row.Site}"/></td>
-			<td><c:out value="${row.Speaker}"/></td>
-			<td><c:out value="${row.Holder}"/></td>
-			<td>
-				<a href="DelAC?delID=${row.ID}"><button>删除活动</button></a>
-				<a href="ToUpdate?ID=${row.ID}"><button>修改活动信息</button></a>
-			</td>
-		</tr>
-	</c:forEach>
-	
-</table>
-
-	
+<div class="about">
+<div class = "container">
+<div class = "page">
+	<div class="page-header">
+        <h3><%= email %>主办的活动</h3>
+    </div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>活动标题</th>
+				<th>活动日期</th>
+				<th>活动时间</th>
+				<th>活动地点</th>
+				<th>活动内容</th>
+				<!--th>Holder</th-->
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="row" items="${result.rows}">
+				<tr>
+					<td><c:out value="${row.Title}"/></td>
+					<td><c:out value="${row.Date}"/></td>
+					<td><c:out value="${row.Time}"/></td>
+					<td><c:out value="${row.Site}"/></td>
+					<td><c:out value="${row.Details}"/></td>
+					<!--td><c:out value="${row.Holder}"/></td-->
+					<td>
+						<a href="DelAC?delID=${row.ID}"><button type="button" class="btn btn-sm btn-default" >删除活动</button></a>
+						<a href="ToUpdate?ID=${row.ID}"><button type="button" class="btn btn-sm btn-default">修改活动信息</button></a>
+					</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+</div>
+</div>
 </div>
 
 

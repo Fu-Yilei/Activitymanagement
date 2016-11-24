@@ -40,7 +40,7 @@ if (cookies != null) {
 %>  
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://localhost:3306/activitymanagement"
-     user="root"  password="wr19950705"/>
+     user="root"  password="fuyilei@96"/>
 
 <sql:query dataSource="${snapshot}" var="result">
 SELECT * 
@@ -166,35 +166,41 @@ from activity where ID in (select ActivityID from userlike where Email = "<%=ema
 		</div> 
 </div> 
 
-<div>
-<br><br><br>
-<h3 align="center">已收藏</h3>
-<br><br><br>
+<div class="about">
+<div class = "container">
+<div class = "page">
+	<div class="page-header">
+        <h3><%= email %>收藏的活动</h3>
+    </div>
 <table class="table">
-	<tr>
-		<th>Title</th>
-		<th>Date</th>
-		<th>Time</th>
-		<th>Site</th>
-		<th>Speaker</th>
-		<th>Holder</th>
-		<th>Action</th>
-	</tr>
+	<thead>
+		<tr>
+			<th>活动标题</th>
+			<th>活动日期</th>
+			<th>活动时间</th>
+			<th>活动地点</th>
+			<th>活动内容</th>
+			<th>主办方</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
 	<c:forEach var="row" items="${result.rows}">
 		<tr>
 			<td><c:out value="${row.Title}"/></td>
 			<td><c:out value="${row.Date}"/></td>
 			<td><c:out value="${row.Time}"/></td>
 			<td><c:out value="${row.Site}"/></td>
-			<td><c:out value="${row.Speaker}"/></td>
+			<td><c:out value="${row.Details}"/></td>
 			<td><c:out value="${row.Holder}"/></td>
-			<td><a href="DontLike?delID=${row.ID}&delUser='<%= email %>'"><button>取消收藏</button></a></td>
+			<td><a href="DontLike?delID=${row.ID}&delUser='<%= email %>'"><button type="button" class="btn btn-sm btn-default">取消收藏</button></a></td>
 		</tr>
 	</c:forEach>
-	
+	</tbody>
 </table>
 
-	
+</div>
+</div>
 </div>
 
 
