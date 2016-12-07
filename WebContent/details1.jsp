@@ -27,6 +27,9 @@
 Cookie[] cookies = request.getCookies();  
 String email = "";  
 String id = "";
+String whether = "";
+String zero = "0";
+String one = "1";
 if (cookies != null) {  
     for (Cookie c : cookies) {  
         if ("Email".equals(c.getName())) {  
@@ -35,9 +38,24 @@ if (cookies != null) {
         if ("ACID".equals(c.getName())){
         	id = c.getValue();
         }
+        if ("Whether".equals(c.getName())){
+        	whether = c.getValue();
+        }
     }  
 }  
 %>  
+<script>
+	window.onload=function(){
+		var w = '<%=whether%>';
+		var o = '<%=one%>';
+		if (w == o){
+			document.getElementById("111").style.display = "none";
+		}else{
+			document.getElementById("222").style.display = "none";
+		}
+	}
+					
+</script>
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://localhost:3306/activitymanagement"
      user="root"  password="fuyilei@96"/>
@@ -45,6 +63,7 @@ if (cookies != null) {
 <sql:query dataSource="${snapshot}" var="result">
 SELECT * from activity where ID = <%= id %>;
 </sql:query>
+
  <div class="header head1">
 	<div class="container">
 		<div class="head-top">
@@ -183,14 +202,24 @@ SELECT * from activity where ID = <%= id %>;
 					</div>
 				</div>
 				<div class="about-grids">
-				<div class="page-header ">
+				
+				<div class="page-header "> 
 					<ul class="nav nav-pills" role="tablist">
 						<li role="presentation" class="active">
 							<a href = "ViewAll1.jsp">返回</a>
-						</li>
-						<li role="presentation" class="active">
-							<a href="Like?userEmail=<%= email%>&activityID=<%=id%>">收藏</a>
-						</li>
+					</li>
+						
+							<li role="presentation" class="active" id="111">
+
+								<a href="Like?userEmail=<%= email%>&activityID=<%=id%>">收藏</a>
+
+							</li>
+						<li role="presentation" class="active" id="222">
+
+							<a>已收藏</a>
+							</li>
+
+						
 					</ul>
 				</div>
 			</div>

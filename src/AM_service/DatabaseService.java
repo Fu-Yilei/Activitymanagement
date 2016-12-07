@@ -215,4 +215,33 @@ public class DatabaseService {
 		}
 		
 	}
+	public boolean whetherLike(String email, int iD) {
+		
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+		}
+		catch (Exception e){
+			System.out.println(e);
+			return false;
+		}
+		try{
+			Connection connect = DriverManager.getConnection(
+					dburl,dbuser,dbpwd);
+			Statement stmt = connect.createStatement();
+			ResultSet rs = stmt.executeQuery("select * from userlike where Email = '"+email+"' and ActivityID = '"+iD+"'");
+			System.out.println("in ds wl");
+			if (rs.next()){
+				System.out.println("yes");
+				return true;
+			}
+			else{
+				System.out.println("no");
+				return false;
+			}
+			
+		}catch (Exception e){
+			System.out.println(e);
+			return false;
+		}
+	}
 }
