@@ -22,8 +22,19 @@ public class CreateActivityAction implements Action {
 	String site;
 	String Details;
 	String holder;
+	String tag[];
 	
 	
+	public String[] getTag() {
+		return tag;
+	}
+
+
+	public void setTag(String[] tag) {
+		this.tag = tag;
+	}
+
+
 	public String getHolder() {
 		return holder;
 	}
@@ -107,8 +118,11 @@ public class CreateActivityAction implements Action {
 				break;
 			}
 		}
+		String tagtmp = "";
+		for (int i = 0;i < tag.length;i++)
+			tagtmp += tag[i];
 		DatabaseService ds = new DatabaseService();
-		Activity a = new Activity(title,date,time_time,site,Details,holder);
+		Activity a = new Activity(title,date,time_time,site,Details,holder,tagtmp);
 		ds.AddActivity(a,holder);
 		
 		return SUCCESS;

@@ -164,6 +164,16 @@ String str = formatter.format(currentTime);
 			<h3>DATE AND TIME OF THE ACTIVITY</h3>
 			<input type="date" name="date" required min=<%= str %>>
 			<input type="text" placeholder="time" name="time">(Time type: HH:MM)
+			
+			<h3>TAG OF THE ACTIVITY</h3>
+			<input type="checkbox" name="tag" value="1"/>思想品德教育
+			<input type="checkbox" name="tag" value="2"/>文化艺术
+			<input type="checkbox" name="tag" value="3"/>课外学术科技
+			<input type="checkbox" name="tag" value="4"/>体育
+			<input type="checkbox" name="tag" value="5"/>社会实践
+			<input type="checkbox" name="tag" value="6"/>创业
+			<input type="checkbox" name="tag" value="7"/>志愿活动
+			
 			<h3>SITE OF THE ACTIVITY</h3>
 			<input type="text" placeholder="site" name="site">
 			<h3>DETAILS OF THE ACTIVITY</h3>

@@ -173,10 +173,23 @@ SELECT * from activity where ID = <%= id %>;
 			<form action="UpdateAC" method="post" onsubmit="return check(this)">
 			<h3>Update a activity </h3>
 			<c:forEach var="row" items="${result.rows}">
+			<h3>TITLE</h3>
 			<input type="text" placeholder="title" name="title" value=${row.Title}>
+			<h3>DATE AND TIME</h3>
 			<p><input type="date" name="date" required min=<%= str %> value=${row.Date}>
 			<p><input type="text" placeholder="time" name="time" value=${row.Time}>
+			<h3>TAG OF THE ACTIVITY</h3>
+			<h3>请重新选择标签</h3>
+			<input type="checkbox" name="tag" value="1"/>思想品德教育
+			<input type="checkbox" name="tag" value="2"/>文化艺术
+			<input type="checkbox" name="tag" value="3"/>课外学术科技
+			<input type="checkbox" name="tag" value="4"/>体育
+			<input type="checkbox" name="tag" value="5"/>社会实践
+			<input type="checkbox" name="tag" value="6"/>创业
+			<input type="checkbox" name="tag" value="7"/>志愿活动
+			<h3>SITE</h3>
 			<input type="text" placeholder="site" name="site" value=${row.Site}>
+			<h3>DETAILS</h3>
 			<input type="text" placeholder="Details" name="Details" value=${row.Details}>
 			<input type="hidden" name="activityID" value=${row.ID}>
 			<p><input type="reset" value="reset">

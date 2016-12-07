@@ -9,6 +9,7 @@ import org.apache.struts2.ServletActionContext;
 import com.opensymphony.xwork2.Action;
 
 import AM_service.DatabaseService;
+import AM_service.RecommendService;
 
 public class SignInAction implements Action {
 
@@ -38,6 +39,10 @@ public class SignInAction implements Action {
 		int tmp = ds.CheckUser(Email,Password);
 		System.out.println("tmp = "+tmp);
 		if (tmp != -1){
+			if (tmp == 0){
+				RecommendService rcs = new RecommendService();
+				rcs.FindProperAc(Email);
+			}
 			Cookie email = new Cookie("Email",Email);
 			HttpServletResponse response = ServletActionContext.getResponse();  
 			email.setMaxAge(60*60);

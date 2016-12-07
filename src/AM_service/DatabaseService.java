@@ -5,9 +5,13 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import AM_entity.Activity;
 import AM_entity.User;
+
 
 public class DatabaseService {
 
@@ -83,7 +87,7 @@ public class DatabaseService {
 			}
 			
 			try{
-				PreparedStatement Statement=connect.prepareStatement("insert into activity values (?,?,?,?,?,?,?)");
+				PreparedStatement Statement=connect.prepareStatement("insert into activity values (?,?,?,?,?,?,?,?)");
 				Statement.setInt(1, id);
 				Statement.setString(2, a.getTitle());
 				Statement.setDate(3, a.getDate());
@@ -91,6 +95,7 @@ public class DatabaseService {
 				Statement.setString(5, a.getSite());
 				Statement.setString(6, a.getDetails());
 				Statement.setString(7, a.getHolder());
+				Statement.setString(8, a.getTag());
 				Statement.executeUpdate();
 			}catch(Exception e){
 				System.out.println("92"+e);
@@ -207,7 +212,7 @@ public class DatabaseService {
 			Connection connect = DriverManager.getConnection(
 					dburl,dbuser,dbpwd);
 			Statement stmt = connect.createStatement();
-			stmt.executeUpdate("update activity set Title='"+a.getTitle()+"' ,Date='"+a.getDate()+"' ,Time='"+a.getTime()+"' ,Site='"+a.getSite()+"' ,Details='"+a.getDetails()+"'");
+			stmt.executeUpdate("update activity set Title='"+a.getTitle()+"' ,Date='"+a.getDate()+"' ,Time='"+a.getTime()+"' ,Site='"+a.getSite()+"' ,Details='"+a.getDetails()+"' ,Tag='"+a.getTag()+"'");
 			return ;
 		}catch (Exception e){
 			System.out.println(e);
@@ -244,4 +249,79 @@ public class DatabaseService {
 			return false;
 		}
 	}
+	public String CalcAndWriteLike(String email) {
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+		}
+		catch (Exception e){
+			System.out.println(e);
+			return null;
+		}
+		try{
+			String tags = "";
+			Connection connect = DriverManager.getConnection(
+					dburl,dbuser,dbpwd);
+			Statement stmt = connect.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * from activity where ID in (select ActivityID from userlike where Email = '"+email+"'");
+			while (rs.next())
+				tags += rs.getString("Tag");
+			
+			int data[] = {0,0,0,0,0,0,0,0};
+			int cnt = tags.length();
+			double ProAd = 0;
+			for (int i = 0;i < cnt;i++)
+				data[ (int)(tags.charAt(i)) - 48 ] ++;
+			
+			double ratio[] = {0,0,0,0,0,0,0,0};
+			for (int i = 1;i < 8;i++)
+				ProAd += Math.pow(data[i],2);
+			
+			ProAd = Math.pow(ProAd, 0.5);
+			for (int i = 1; i < 8;i++)
+				ratio[i] = data[i] / ProAd;
+			String likearray = "";
+			
+			for (int i = 1;i < 7;i++)
+				likearray += (new DecimalFormat("0.00").format(ratio[i]))+"/";
+			likearray += (new DecimalFormat("0.00").format(ratio[7]))+"";
+			
+			stmt.executeUpdate("update user_table set Like='"+likearray+"'");
+			
+			return likearray;
+			
+		}catch (Exception e){
+			System.out.println(e);
+			return null;
+		}
+
+	}
+	public List<User> getAllUsers() {
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+		}
+		catch (Exception e){
+			return null;
+		}
+		try{
+			Connection connect = DriverManager.getConnection(
+					dburl,dbuser,dbpwd);
+			Statement stmt = connect.createStatement();
+			List<User> lu = new ArrayList<User>();
+			
+			ResultSet rs = stmt.executeQuery("select * from user_table");
+			while (rs.next()){
+
+				User u = new User(rs.getString("Email"),
+				rs.getString("Password"),
+				rs.getInt("Type"),
+				rs.getString("Like"));
+				lu.add(u);			
+			}
+			return lu;
+		}catch (Exception e){
+			System.out.println(e);
+			return null;
+		}
+	}
+	
 }

@@ -10,15 +10,17 @@ public class Activity {
 	private String site;
 	private String Details;
 	private String holder;
+	private String tag;
 	
 	public Activity(){};
-	public Activity(String t,Date d,Time tt,String s,String sp,String h){
+	public Activity(String t,Date d,Time tt,String s,String sp,String h,String ttt){
 		title = t;
 		date = d;
 		time = tt;
 		site = s;
 		Details = sp;
 		holder = h;
+		tag = ttt;
 	}
 	public String getTitle() {
 		return title;
@@ -55,6 +57,12 @@ public class Activity {
 	}
 	public void setHolder(String holder) {
 		this.holder = holder;
+	}
+	public String getTag() {
+		return tag;
+	}
+	public void setTag(String tag) {
+		this.tag = tag;
 	}
 	
 	
