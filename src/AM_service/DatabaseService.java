@@ -30,10 +30,11 @@ public class DatabaseService {
 			Connection connect = DriverManager.getConnection(
 					dburl,dbuser,dbpwd);
 			
-			PreparedStatement Statement=connect.prepareStatement("INSERT INTO user_table VALUES (?,?,?)");
+			PreparedStatement Statement=connect.prepareStatement("INSERT INTO user_table VALUES (?,?,?,?)");
 			Statement.setString(1, u.getEmail());
 			Statement.setString(2, u.getPassword());
 			Statement.setInt(3, u.getUsertype());
+			Statement.setString(4, u.getLike());
 			Statement.executeUpdate();
 		}catch(Exception e){
 			return false;

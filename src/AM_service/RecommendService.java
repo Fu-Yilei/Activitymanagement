@@ -80,7 +80,7 @@ public class RecommendService {
 	public void FindProperAc(String email) {
 		DatabaseService ds = new DatabaseService();
 		String LikeArray = ds.CalcAndWriteLike(email);
-		if (LikeArray == null)
+		if (LikeArray == null || LikeArray == "")
 			return ;
 		System.out.println("78:Like Array is " + LikeArray);/**********************************/
 		
