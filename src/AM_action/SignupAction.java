@@ -53,7 +53,7 @@ public class SignupAction implements Action {
 		else
 			return ERROR;
 		
-		User u = new User(Email,Password,tmp);
+		User u = new User(Email,Password,tmp,null);
 		DatabaseService ds = new DatabaseService();
 		boolean t = ds.NewAccount(u);
 	//	System.out.println(t);

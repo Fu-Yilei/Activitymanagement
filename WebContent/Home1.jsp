@@ -46,6 +46,11 @@ if (cookies != null) {
 SELECT * 
 from activity where ID in (select ActivityID from userlike where Email = "<%=email %>");
 </sql:query>
+
+<sql:query dataSource="${snapshot}" var="result1">
+SELECT * 
+from activity where ID in (select ActivityID from tmprectable where Email = "<%=email %>");
+</sql:query>
  <div class="header head1">
 	<div class="container">
 		<div class="head-top">
@@ -57,7 +62,7 @@ from activity where ID in (select ActivityID from userlike where Email = "<%=ema
 					<li><a href="#" data-toggle="modal" data-target="#myModal3">Help</a></li>
 					<li><a href="#" data-toggle="modal" data-target="#myModal4">Contact us</a></li>
 					<li style="color:white;">Hello!<%= email %></li>
-					<li><a href="Home0.jsp">Logout</a></li>
+					<li><a href="LogOut?Email=<%=email%>">Logout</a></li>
 				</ul>
 			</div>
 			<div class="clearfix"></div>
@@ -202,7 +207,16 @@ from activity where ID in (select ActivityID from userlike where Email = "<%=ema
 </div>
 </div>
 </div>
+<p>您可能喜欢：</p>
 
+	<c:forEach var="r" items="${result1.rows}">
+  			<a href="ToDetail1?ID=${r.ID}&Email=<%=email %>">
+  					<c:out value="${r.Title}"/>
+  			</a><br>
+  	
+  						
+
+	</c:forEach>
 
 </body>
 </html>

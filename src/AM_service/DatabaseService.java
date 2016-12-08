@@ -212,7 +212,7 @@ public class DatabaseService {
 			Connection connect = DriverManager.getConnection(
 					dburl,dbuser,dbpwd);
 			Statement stmt = connect.createStatement();
-			stmt.executeUpdate("update activity set Title='"+a.getTitle()+"' ,Date='"+a.getDate()+"' ,Time='"+a.getTime()+"' ,Site='"+a.getSite()+"' ,Details='"+a.getDetails()+"' ,Tag='"+a.getTag()+"'");
+			stmt.executeUpdate("update activity set Title='"+a.getTitle()+"' ,Date='"+a.getDate()+"' ,Time='"+a.getTime()+"' ,Site='"+a.getSite()+"' ,Details='"+a.getDetails()+"' ,Tag='"+a.getTag()+"' where ID = '"+activityID+"'");
 			return ;
 		}catch (Exception e){
 			System.out.println(e);
@@ -250,6 +250,7 @@ public class DatabaseService {
 		}
 	}
 	public String CalcAndWriteLike(String email) {
+		System.out.println("In DS calcAndWriteLike");
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 		}
@@ -258,11 +259,14 @@ public class DatabaseService {
 			return null;
 		}
 		try{
+			System.out.println("In second try");
 			String tags = "";
 			Connection connect = DriverManager.getConnection(
 					dburl,dbuser,dbpwd);
 			Statement stmt = connect.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * from activity where ID in (select ActivityID from userlike where Email = '"+email+"'");
+			System.out.println("267 success");
+			ResultSet rs = stmt.executeQuery("SELECT * from activity where ID in (select ActivityID from userlike where Email = '"+email+"')");
+			System.out.println("269 success");
 			while (rs.next())
 				tags += rs.getString("Tag");
 			
@@ -277,6 +281,10 @@ public class DatabaseService {
 				ProAd += Math.pow(data[i],2);
 			
 			ProAd = Math.pow(ProAd, 0.5);
+			
+			if (ProAd == 0)
+				return "";
+			
 			for (int i = 1; i < 8;i++)
 				ratio[i] = data[i] / ProAd;
 			String likearray = "";
@@ -285,8 +293,10 @@ public class DatabaseService {
 				likearray += (new DecimalFormat("0.00").format(ratio[i]))+"/";
 			likearray += (new DecimalFormat("0.00").format(ratio[7]))+"";
 			
-			stmt.executeUpdate("update user_table set Like='"+likearray+"'");
-			
+			System.out.println("296success");
+			Statement stmt2 = connect.createStatement();
+			stmt2.executeUpdate("update user_table set LikeLs = '"+likearray+"' where Email = '"+email+"'");
+			System.out.println("Out ds cawl");
 			return likearray;
 			
 		}catch (Exception e){
@@ -308,19 +318,40 @@ public class DatabaseService {
 			Statement stmt = connect.createStatement();
 			List<User> lu = new ArrayList<User>();
 			
-			ResultSet rs = stmt.executeQuery("select * from user_table");
+			ResultSet rs = stmt.executeQuery("select * from user_table where Type = 0");
 			while (rs.next()){
 
 				User u = new User(rs.getString("Email"),
 				rs.getString("Password"),
 				rs.getInt("Type"),
-				rs.getString("Like"));
+				rs.getString("LikeLs"));
 				lu.add(u);			
 			}
 			return lu;
 		}catch (Exception e){
 			System.out.println(e);
 			return null;
+		}
+	}
+	public void DelACfromTmp(String email) {
+		
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+		}
+		catch (Exception e){
+			System.out.println(e);
+			return ;
+		}
+		
+		try{
+			Connection connect = DriverManager.getConnection(
+					dburl,dbuser,dbpwd);
+			Statement stmt = connect.createStatement();
+			stmt.executeUpdate("delete from tmprectable where Email = '"+email+"' ");
+			return ;
+		}catch (Exception e){
+			System.out.println(e);
+			return ;
 		}
 	}
 	

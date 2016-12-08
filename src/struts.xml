@@ -49,6 +49,10 @@
 			<result name="success" type="redirect">/Home2.jsp</result>
 		</action>
 		
+		<action name="LogOut" class="AM_action.LogOutAction">
+			<result name="success" type="redirect">/Home0.jsp</result>
+		</action>
+		
 		<action name="*">
 			<result>
 				/{1}.jsp

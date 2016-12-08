@@ -66,6 +66,16 @@ public class UpdateACAction implements Action {
 	}
 
 
+	public String[] getTag() {
+		return tag;
+	}
+
+
+	public void setTag(String[] tag) {
+		this.tag = tag;
+	}
+
+
 	public void setDetails(String Details) {
 		this.Details = Details;
 	}
@@ -83,6 +93,10 @@ public class UpdateACAction implements Action {
 
 	public String execute() throws Exception {
 		String tagtmp = "";
+		System.out.println("86:upac:tags is ");
+		for (int i = 0;i < tag.length;i++){
+			System.out.println(tag[i]);
+		}
 		for (int i = 0;i < tag.length;i++)
 			tagtmp += tag[i];
 		Time time_time;

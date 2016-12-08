@@ -41,7 +41,9 @@ public class SignInAction implements Action {
 		if (tmp != -1){
 			if (tmp == 0){
 				RecommendService rcs = new RecommendService();
+				System.out.println("-----In FindProperAc-----");
 				rcs.FindProperAc(Email);
+				System.out.println("-----Out FindProperAc-----");
 			}
 			Cookie email = new Cookie("Email",Email);
 			HttpServletResponse response = ServletActionContext.getResponse();  
