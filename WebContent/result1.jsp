@@ -1,8 +1,13 @@
-<%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Failed</title>
+<title>Result</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -16,26 +21,60 @@
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!---->
 <script src="js/bootstrap.min.js"></script>
-
+<style> 
+a:link {color: #FFFFFF}	
+a:visited {color: #FF66CC}	
+a:hover {color: #FFFF33}	
+a:active {color: #0000FF}	
+</style>
 </head>
 <body>
+<%  
+Cookie[] cookies = request.getCookies();  
+String email = "";  
+String id = "";
+String title="";
+if (cookies != null) {  
+    for (Cookie c : cookies) {  
+        if ("Email".equals(c.getName())) {  
+            email = c.getValue();  
+        }  
+        if ("ACID".equals(c.getName())){
+        	id = c.getValue();
+        }
+        if ("ACTITLE".equals(c.getName())){
+        	title=c.getValue();
+        }
+    }  
+}  
+%>  
+<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
+     url="jdbc:mysql://localhost:3306/activitymanagement"
+     user="root"  password="602747"/>
+
+<sql:query dataSource="${snapshot}" var="result">
+select * from activity where find_in_set('fdsafdsa',Title);
+</sql:query>
  <div class="header head1">
 	<div class="container">
 		<div class="head-top">
 			<div class="logo">
-				<a href="Home0.jsp"><img src="images/logo.png" alt="" title="Academic"></a>
+				<a href="Home1.jsp"><img src="images/logo.png" alt="" title="Academic"></a>
 			</div>
 			<div class="login">
 				<ul class="nav-login">
 					<li><a href="#" data-toggle="modal" data-target="#myModal3">Help</a></li>
 					<li><a href="#" data-toggle="modal" data-target="#myModal4">Contact us</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal1">Login</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal2">Signup</a></li>
+					<li style="color:white;">Hello!<%= email %></li>
+					<li><a href="Home0.jsp">Logout</a></li>
 				</ul>
 			</div>
 			<div class="clearfix"></div>
 		</div>
 	</div>
+		<!-- login -->
+			
+			<!-- //signup -->
 			<!--  help -->
 			<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabe3">
 				<div class="modal-dialog" role="document">
@@ -80,62 +119,7 @@
 				</div>
 			</div>
 			<!-- //contact us -->
-		<!-- login -->
-			<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content modal-info">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-						</div>
-						<div class="modal-body modal-spa">
-							<div class="login-grids">
-							
-									<div class="login-right">
-										<form action="SignIn" method="post">
-											<h3>Signin with your account </h3>
-											<input type="text" value="Enter your Email" name="SigninEmail" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Enter your Email';}" required="">	
-											<input type="password" value="Password" name="SigninPassword" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Password';}" required="">	
-											<input type="submit" value="SIGNIN" >
-										</form>
-									</div>
-									
-								<p>By logging in you agree to our <span>Terms and Conditions</span> and <span>Privacy Policy</span></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- //login -->
-			<!-- signup -->
-			<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content modal-info">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-						</div>
-						<div class="modal-body modal-spa">
-							<div class="login-grids">
-							
-									<div class="login-right">
-										<form action="SignUp" method="post">
-											<h3>Create your account </h3>
-											<input type="text" value="Email" name="Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Email';}" required="">	
-											<input type="password" value="Password" name="Password" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Password';}" required="">	
-											<input type="radio" value="normal" name="Usertype">User
-											<input type="radio" value="holder" name="Usertype">Holder
-											<input type="submit" value="CREATE ACCOUNT" >
-										</form>
-									</div>
-								
-								<p>By logging in you agree to our <span>Terms and Conditions</span> and <span>Privacy Policy</span></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- //signup -->
-		
-		<div class="nav-top">
+			<div class="nav-top">
 			<div class="container">
 				<div class="nav1">
 					<div class="navbar1">
@@ -152,27 +136,60 @@
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav cl-effect-8">
-								<li><a href="Home0.jsp">Home </a></li>
-								<li><a href="ViewAll0.jsp">ViewAll</a></li>
-							
+								
+								<li ><a href="Search1.jsp">Back</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 					</div>
-					
+					<!-- start search-->
+				<!-- 	<ul class="social-ic">
+						<li><a href="#"><i></i></a></li>
+						<li><a href="#"><i class="ic"></i></a></li>
+						<li><a href="#"><i class="ic1"></i></a></li>
+						<li><a href="#"><i class="ic2"></i></a></li>
+					</ul> -->
 					<div class="clearfix"></div>
 				</div> 
 			</div> 
 		</div> 
 </div> 
 
-	
-	
+<div class="test">
+		<div class="container">
+			<div  class=" test-grid-1" >
+				<!-- begin of iterator -->
+				<div class="col-md-6 test-wrapper" style="margin-bottom:10px">
+					<div class="test-grid">
+						<div class="test-gr">
+						<c:forEach var="row" items="${result.rows}">
+  							<p style="margin-top:5px">
+  								<a href="ToDetail1?ID=${row.ID}">
+  									<c:out value="${row.Title}"/>
+  								</a>
+  							</p>
+  								<form action="Like" method="post">
+  									<input type="hidden" name="userEmail" value=<%= email %>>
+  									<input type="hidden" name="activityID" value=${row.ID}>
+  									<input type="submit" value="收藏 ">
+  								</form>
+  						
 
+						</c:forEach>
+					</div>
+					
+					<div class="clearfix"></div>
+				</div>
+				<!--  end of iterator -->
+				
+				<div class="clearfix"> </div>
+			</div>
+			
+				
+			<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
 
-<!---->
-<div class="col-md-6 about-right">
-	<h4>Failed!</h4>
-</div>
 
 </body>
 </html>

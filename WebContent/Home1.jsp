@@ -1,5 +1,10 @@
-<%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags" %>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <!DOCTYPE html>
 <html>
 <meta charset="gb2312"/>
@@ -33,7 +38,15 @@ if (cookies != null) {
     }  
 }  
 %>  
- <div class="header">
+<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
+     url="jdbc:mysql://localhost:3306/activitymanagement"
+     user="root"  password="602747"/>
+
+<sql:query dataSource="${snapshot}" var="result">
+SELECT * 
+from activity where ID in (select ActivityID from userlike where Email = "<%=email %>");
+</sql:query>
+ <div class="header head1">
 	<div class="container">
 		<div class="head-top">
 			<div class="logo">
@@ -141,6 +154,7 @@ if (cookies != null) {
 							<ul class="nav navbar-nav cl-effect-8">
 								<li><a class="active" href="Home1.jsp">Home</a></li>
 								<li><a href="ViewAll1.jsp">ViewAll</a></li>
+								<li ><a href="Search1.jsp">Search</a></li>
 								
 							
 							</ul>
@@ -153,17 +167,41 @@ if (cookies != null) {
 		</div> 
 </div> 
 
-<div>
-<h3>Already collect</h3>
-<!-- login ºó£¬ÔÚ¸Ãaction°ë¶ÎÊÇÓÃ»§»¹ÊÇ¿ª·¢Õß£¬È»ºó·µ»ØÓÉÆä¿ª·¢»òÕßÊÕ²ØµÄ»î¶¯µÄÁÑ±ä  -->
+<div class="about">
+<div class = "container">
+<div class = "page">
+	<div class="page-header">
+        <h3><%= email %>收藏的活动</h3>
+    </div>
+<table class="table">
+	<thead>
+		<tr>
+			<th>活动标题</th>
+			<th>活动日期</th>
+			<th>活动时间</th>
+			<th>活动地点</th>
+			<th>活动内容</th>
+			<th>主办方</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+	<c:forEach var="row" items="${result.rows}">
+		<tr>
+			<td><c:out value="${row.Title}"/></td>
+			<td><c:out value="${row.Date}"/></td>
+			<td><c:out value="${row.Time}"/></td>
+			<td><c:out value="${row.Site}"/></td>
+			<td><c:out value="${row.Details}"/></td>
+			<td><c:out value="${row.Holder}"/></td>
+			<td><a href="DontLike?delID=${row.ID}&delUser='<%= email %>'"><button type="button" class="btn btn-sm btn-default">取消收藏</button></a></td>
+		</tr>
+	</c:forEach>
+	</tbody>
+</table>
 
-<p>Processing------------</p>
-<!-- ÔÚÕâÀï¼ÓÒ»¸öÅÐ¶ÏÓï¾äÅÐ¶ÏÊ±¼ä£¬ÊÇ½øÐÐÖÐ»¹ÊÇÒÑ½áÊø -->
-
-
-<p>过期------------</p>	
-<!-- Ò²ÓÐÉ¾³ý¹¦ÄÜ -->
-	
+</div>
+</div>
 </div>
 
 

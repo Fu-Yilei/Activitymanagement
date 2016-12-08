@@ -9,11 +9,12 @@ import java.sql.Statement;
 import AM_entity.Activity;
 import AM_entity.User;
 
+import java.util.ArrayList;
 public class DatabaseService {
 
-	static final String dburl = "jdbc:mysql://localhost:3306/Activitymanagement";
+	static final String dburl = "jdbc:mysql://localhost:3306/activitymanagement";
 	static final String dbuser = "root";
-	static final String dbpwd = "fuyilei@96";
+	static final String dbpwd = "602747";
 	public boolean NewAccount(User u) {
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
@@ -36,6 +37,39 @@ public class DatabaseService {
 		}
 		
 		return true;
+	}
+	
+	
+	public ArrayList<Activity> SearchActivityByTitle(String title){
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+		}
+		catch (Exception e){
+			return null;
+		}
+		try{
+			Connection connect = DriverManager.getConnection(
+					dburl,dbuser,dbpwd);
+			ArrayList<Activity> aclist=new ArrayList<Activity>();
+			Statement stmt = connect.createStatement();
+			ResultSet rs = stmt.executeQuery("select * from activity where Title in ('"+title+"')");
+			while (rs.next()) {
+				Activity ac  = new Activity();
+				ac.setTitle(rs.getString("Title"));
+				ac.setDate(rs.getDate("Date"));
+				ac.setDetails(rs.getString("Details"));
+				ac.setHolder(rs.getString("Holder"));
+				ac.setSite(rs.getString("Site"));
+				ac.setTime(rs.getTime("Time"));
+			
+				aclist.add(ac);
+			}
+			return aclist;
+			
+		}catch(Exception e){
+			return null;
+		}
+		
 	}
 	public int CheckUser(String signinEmail, String signinPassword) {
 		try{
@@ -61,7 +95,7 @@ public class DatabaseService {
 		}
 		return -1;
 	}
-	public void AddActivity(Activity a) {
+	public void AddActivity(Activity a,String holder) {
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 		}
@@ -75,8 +109,12 @@ public class DatabaseService {
 			Statement stmt = connect.createStatement();
 			ResultSet rs = stmt.executeQuery("select * from activity");
 			int id = 0;
-			if (rs.last())
-				id = rs.getRow();
+			while (rs.next()){
+				if (rs.getInt("ID") == id)
+					id++;
+				else
+					break;
+			}
 			
 			try{
 				PreparedStatement Statement=connect.prepareStatement("insert into activity values (?,?,?,?,?,?,?)");
@@ -85,13 +123,24 @@ public class DatabaseService {
 				Statement.setDate(3, a.getDate());
 				Statement.setTime(4, a.getTime());
 				Statement.setString(5, a.getSite());
-				Statement.setString(6, a.getSpeaker());
+				Statement.setString(6, a.getDetails());
 				Statement.setString(7, a.getHolder());
 				Statement.executeUpdate();
 			}catch(Exception e){
 				System.out.println("92"+e);
 				return ;
 			}
+			try{
+				PreparedStatement Statement=connect.prepareStatement("insert into holderhold values (?,?)");
+				Statement.setString(1, holder);
+				Statement.setInt(2, id);
+
+				Statement.executeUpdate();
+			}catch(Exception e){
+				System.out.println("92"+e);
+				return ;
+			}
+
 				
 		}catch(Exception e){
 			System.out.println("97"+e);
@@ -100,39 +149,104 @@ public class DatabaseService {
 		return ;
 		
 	}
-	
-	
-	public Activity getAcByTiltle(String title){
+	public void LikeAC(String userEmail, int activityID) {
+		String tmp;
+		if (userEmail.charAt(0) == '0')
+			tmp = userEmail.substring(1, userEmail.length()-1);
+		else
+			tmp = userEmail;
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 		}
 		catch (Exception e){
-			return null;
+			return ;
 		}
 		
 		try{
-			ResultSet rs = null;
-			Activity ac  = new Activity();
-			Connection connect = DriverManager.getConnection(dburl,dbuser,dbpwd);
+			Connection connect = DriverManager.getConnection(
+					dburl,dbuser,dbpwd);
 			
-			PreparedStatement Statement=connect.prepareStatement("SELECT Date,Time,Site,Speaker,Holder  FROM activity WHERE title=?");
-			Statement.setString(1, title);
-			rs = Statement.executeQuery();
-			while (rs.next()) {
-				ac.setTitle(title);
-				ac.setDate(rs.getDate("Date"));
-				ac.setHolder(rs.getString("Holder"));
-				ac.setSite(rs.getString("Site"));
-				ac.setSpeaker(rs.getString("Speaker"));
-				ac.setTime(rs.getTime("Time"));
-				
+			try{
+				PreparedStatement Statement=connect.prepareStatement("insert into userlike values (?,?)");
+				Statement.setString(1, tmp);
+				Statement.setInt(2, activityID);
+
+				Statement.executeUpdate();
+			}catch(Exception e){
+				return ;
 			}
-			Statement.close();	
-			return ac;
 		}catch(Exception e){
-			return null;
+			return ;
 		}
+		return ;
+		
 	}
-	
-	
+	public void DelfromUserLike(String delUser,int delID) {
+		System.out.println("user:"+delUser);
+		System.out.println("delID:"+delID);
+		String tmp = delUser.substring(1, delUser.length()-1);
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+		}
+		catch (Exception e){
+			System.out.println(e);
+			return ;
+		}
+		
+		try{
+			Connection connect = DriverManager.getConnection(
+					dburl,dbuser,dbpwd);
+			Statement stmt = connect.createStatement();
+			stmt.executeUpdate("delete from userlike where Email = '"+tmp+"' and ActivityID = '"+delID+"' ");
+			return ;
+		}catch (Exception e){
+			System.out.println(e);
+			return ;
+		}
+		
+	}
+	public void DelfromAll(int delID) {
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+		}
+		catch (Exception e){
+			System.out.println(e);
+			return ;
+		}
+		
+		try{
+			Connection connect = DriverManager.getConnection(
+					dburl,dbuser,dbpwd);
+			Statement stmt = connect.createStatement();
+			stmt.executeUpdate("delete from userlike where ActivityID = '"+delID+"' ");
+			stmt.executeUpdate("delete from holderhold where ActivityID = '"+delID+"' ");
+			stmt.executeUpdate("delete from activity where ID = '"+delID+"' ");
+			return ;
+		}catch (Exception e){
+			System.out.println(e);
+			return ;
+		}
+		
+	}
+	public void UpdateActivity(int activityID, Activity a) {
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+		}
+		catch (Exception e){
+			System.out.println(e);
+			return ;
+		}
+		
+		try{
+			Connection connect = DriverManager.getConnection(
+					dburl,dbuser,dbpwd);
+			Statement stmt = connect.createStatement();
+			stmt.executeUpdate("update activity set Title='"+a.getTitle()+"' ,Date='"+a.getDate()+"' ,Time='"+a.getTime()+"' ,Site='"+a.getSite()+"' ,Details='"+a.getDetails()+"'");
+			return ;
+		}catch (Exception e){
+			System.out.println(e);
+			return ;
+		}
+		
+	}
 }

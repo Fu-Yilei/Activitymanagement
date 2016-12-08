@@ -7,7 +7,7 @@ import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.Action;
 
-public class DetailsAction implements Action {
+public class ToUpdateAction implements Action {
 
 	int ID;
 	
@@ -21,12 +21,10 @@ public class DetailsAction implements Action {
 
 	public String execute() throws Exception {
 		String a = ID + "";
-		System.out.println("a = "+a);
 		Cookie id = new Cookie("ACID",a);
 		HttpServletResponse response = ServletActionContext.getResponse();  
 		id.setMaxAge(60*60);
 		response.addCookie(id);
-		
 		return SUCCESS;
 	}
 

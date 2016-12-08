@@ -4,36 +4,22 @@ import java.sql.Date;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.Action;
 
 import AM_entity.Activity;
 import AM_service.DatabaseService;
 
-public class CreateActivityAction implements Action {
+public class UpdateACAction implements Action {
 
 	String title;
 	Date date;
 	String time;
 	String site;
 	String Details;
-	String holder;
+	int activityID;
 	
 	
-	public String getHolder() {
-		return holder;
-	}
-
-
-	public void setHolder(String holder) {
-		this.holder = holder;
-	}
-
-
 	public String getTitle() {
 		return title;
 	}
@@ -53,8 +39,6 @@ public class CreateActivityAction implements Action {
 		this.date = date;
 	}
 
-
-	
 
 	public String getTime() {
 		return time;
@@ -86,6 +70,16 @@ public class CreateActivityAction implements Action {
 	}
 
 
+	public int getActivityID() {
+		return activityID;
+	}
+
+
+	public void setActivityID(int activityID) {
+		this.activityID = activityID;
+	}
+
+
 	public String execute() throws Exception {
 		Time time_time;
         SimpleDateFormat format = new SimpleDateFormat("HH:mm");
@@ -96,20 +90,12 @@ public class CreateActivityAction implements Action {
         	return ERROR;
         }
         time_time = new java.sql.Time(d.getTime());
-        System.out.println(date.toString());
-		System.out.println(time);
+
 		String holder = "";
-		HttpServletRequest request = ServletActionContext.getRequest();
-		Cookie[] cookies = request.getCookies();
-		for (Cookie c : cookies){
-			if (c.getName().equals("Email")){
-				holder = c.getValue();
-				break;
-			}
-		}
+		
 		DatabaseService ds = new DatabaseService();
 		Activity a = new Activity(title,date,time_time,site,Details,holder);
-		ds.AddActivity(a,holder);
+		ds.UpdateActivity(activityID,a);
 		
 		return SUCCESS;
 	}

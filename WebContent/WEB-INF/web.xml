@@ -7,7 +7,8 @@
 	<filter>
 		<filter-name>struts2</filter-name>
 	<filter-class>
-		org.apache.struts2.dispatcher.FilterDispatcher
+		 org.apache.struts2.dispatcher.FilterDispatcher
+		
 	</filter-class>
 	</filter>
 	<filter-mapping>

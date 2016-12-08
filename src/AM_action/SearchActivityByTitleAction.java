@@ -7,25 +7,26 @@ import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.Action;
 
-public class DetailsAction implements Action {
+public class SearchActivityByTitleAction implements Action {
 
-	int ID;
+	String title;
 	
-	public int getID() {
-		return ID;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setID(int iD) {
-		ID = iD;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
+	
 	public String execute() throws Exception {
-		String a = ID + "";
+		String a = title;
 		System.out.println("a = "+a);
-		Cookie id = new Cookie("ACID",a);
+		Cookie title = new Cookie("ACTITLE",a);
 		HttpServletResponse response = ServletActionContext.getResponse();  
-		id.setMaxAge(60*60);
-		response.addCookie(id);
+		title.setMaxAge(60*60);
+		response.addCookie(title);
 		
 		return SUCCESS;
 	}

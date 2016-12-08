@@ -24,11 +24,42 @@
 			<result name="success" type="redirect">/Home2.jsp</result>
 		</action>
 		
-		<action name="detail" class="AM_action.DetailsAction" method="execute">
-			<result name="success">/details0.jsp</result>
-			<result name="error">/error.jsp</result>
+		<action name="ToDetail0" class="AM_action.DetailsAction">
+			<result name="success" type="redirect">/details0.jsp</result>
+		</action>
+		<action name="ToDetail1" class="AM_action.DetailsAction">
+			<result name="success" type="redirect">/details1.jsp</result>
+		</action>
+		<action name="ToDetail2" class="AM_action.DetailsAction">
+			<result name="success" type="redirect">/details2.jsp</result>
+		</action>
+		<action name="Search1" class="AM_action.SearchActivityByTitleAction">
+			<result name="success" type="redirect">/result1.jsp</result>
+		</action>
+		<action name="Search2" class="AM_action.SearchActivityByTitleAction">
+			<result name="success" type="redirect">/result2.jsp</result>
+		</action>
+		<action name="Like" class="AM_action.LikeAction">
+			<result name="success" type="redirect">/Home1.jsp</result>
+		</action>
+		<action name="DontLike" class="AM_action.DelAction">
+			<result name="success" type="redirect">/Home1.jsp</result>
+		</action>
+		<action name="DelAC" class="AM_action.HolderDelAction">
+			<result name="success" type="redirect">/Home2.jsp</result>
+		</action>
+		<action name="ToUpdate" class="AM_action.ToUpdateAction">
+			<result name="success" type="redirect">/Update.jsp</result>
+		</action>
+		<action name="UpdateAC" class="AM_action.UpdateACAction">
+			<result name="success" type="redirect">/Home2.jsp</result>
 		</action>
 		
+		<action name="*">
+			<result>
+				/{1}.jsp
+			</result>
+		</action>
 
 </package>
 </struts>

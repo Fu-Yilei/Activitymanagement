@@ -1,5 +1,9 @@
-<%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +36,15 @@ if (cookies != null) {
     }  
 }  
 %>  
- <div class="header">
+<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
+     url="jdbc:mysql://localhost:3306/activitymanagement"
+     user="root"  password="602747"/>
+
+<sql:query dataSource="${snapshot}" var="result">
+SELECT * 
+from activity where ID in (select ActivityID from holderhold where Email = "<%=email %>");
+</sql:query>
+ <div class="header head1">
 	<div class="container">
 		<div class="head-top">
 			<div class="logo">
@@ -142,6 +154,7 @@ if (cookies != null) {
 								<li><a class="active" href="Home2.jsp">Home </a></li>
 								<li><a href="ViewAll2.jsp">ViewAll</a></li>
 								<li><a href="New.jsp">New</a></li>
+								<li ><a href="Search2.jsp">Search</a></li>
 								
 							
 							</ul>
@@ -154,12 +167,43 @@ if (cookies != null) {
 		</div> 
 </div> 
 
-<div>
-<h3>主办活动</h3>
-
-
-
-	
+<div class="about">
+<div class = "container">
+<div class = "page">
+	<div class="page-header">
+        <h3><%= email %>主办的活动</h3>
+    </div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>活动标题</th>
+				<th>活动日期</th>
+				<th>活动时间</th>
+				<th>活动地点</th>
+				<th>活动内容</th>
+				<!--th>Holder</th-->
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="row" items="${result.rows}">
+				<tr>
+					<td><c:out value="${row.Title}"/></td>
+					<td><c:out value="${row.Date}"/></td>
+					<td><c:out value="${row.Time}"/></td>
+					<td><c:out value="${row.Site}"/></td>
+					<td><c:out value="${row.Details}"/></td>
+					<!--td><c:out value="${row.Holder}"/></td-->
+					<td>
+						<a href="DelAC?delID=${row.ID}"><button type="button" class="btn btn-sm btn-default" >删除活动</button></a>
+						<a href="ToUpdate?ID=${row.ID}"><button type="button" class="btn btn-sm btn-default">修改活动信息</button></a>
+					</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+</div>
+</div>
 </div>
 
 

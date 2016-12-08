@@ -8,7 +8,7 @@ public class Activity {
 	private Date date;
 	private Time time;
 	private String site;
-	private String speaker;
+	private String Details;
 	private String holder;
 	
 	public Activity(){};
@@ -17,7 +17,7 @@ public class Activity {
 		date = d;
 		time = tt;
 		site = s;
-		speaker = sp;
+		Details = sp;
 		holder = h;
 	}
 	public String getTitle() {
@@ -44,11 +44,11 @@ public class Activity {
 	public void setSite(String site) {
 		this.site = site;
 	}
-	public String getSpeaker() {
-		return speaker;
+	public String getDetails() {
+		return Details;
 	}
-	public void setSpeaker(String speaker) {
-		this.speaker = speaker;
+	public void setDetails(String Details) {
+		this.Details = Details;
 	}
 	public String getHolder() {
 		return holder;
