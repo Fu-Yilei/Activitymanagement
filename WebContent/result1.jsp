@@ -48,12 +48,13 @@ if (cookies != null) {
     }  
 }  
 %>  
+"+title+"
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://localhost:3306/activitymanagement"
      user="root"  password="602747"/>
 
 <sql:query dataSource="${snapshot}" var="result">
-select * from activity where find_in_set('fdsafdsa',Title);
+select * from activity where find_in_set('<%= title %>',Title);
 </sql:query>
  <div class="header head1">
 	<div class="container">
