@@ -53,7 +53,7 @@ if (cookies != null) {
      user="root"  password="602747"/>
 
 <sql:query dataSource="${snapshot}" var="result">
-select * from activity where find_in_set(<%= title %>,Title);
+select * from activity where find_in_set('<%= title %>',Title);
 </sql:query>
  <div class="header head1">
 	<div class="container">
