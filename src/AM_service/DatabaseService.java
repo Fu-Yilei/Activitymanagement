@@ -212,8 +212,23 @@ public class DatabaseService {
 		try{
 			Connection connect = DriverManager.getConnection(
 					dburl,dbuser,dbpwd);
-			Statement stmt = connect.createStatement();
-			stmt.executeUpdate("update activity set Title='"+a.getTitle()+"' ,Date='"+a.getDate()+"' ,Time='"+a.getTime()+"' ,Site='"+a.getSite()+"' ,Details='"+a.getDetails()+"' ,Tag='"+a.getTag()+"' where ID = '"+activityID+"'");
+			String ori_title = "";
+			Statement stmt0 = connect.createStatement();
+			ResultSet rs = stmt0.executeQuery("select * from activity where ID = '"+activityID+"'");
+			while (rs.next())
+				ori_title = rs.getString("Title");
+			Statement stmt1 = connect.createStatement();
+			stmt1.executeUpdate("update activity set Title='"+a.getTitle()+"' ,Date='"+a.getDate()+"' ,Time='"+a.getTime()+"' ,Site='"+a.getSite()+"' ,Details='"+a.getDetails()+"' ,Tag='"+a.getTag()+"' where ID = '"+activityID+"'");
+			System.out.println("Update over");
+			Statement stmt2 = connect.createStatement();
+			ResultSet rs2 = stmt2.executeQuery("select * from userlike where ActivityID = '"+activityID+"'");
+			while (rs2.next()){
+				String con = "您所关注的\""+ori_title+"\"活动信息改为：\n"+"\t\t日期："+a.getDate()+"\n\t\t时间： "
+						+a.getTime()+"\t\t\n地点： "+a.getSite();
+				SendEmailService ses = new SendEmailService();
+				ses.setAddress(rs2.getString("Email"), "活动信息变动通知");
+				ses.send(con);
+			}
 			return ;
 		}catch (Exception e){
 			System.out.println(e);

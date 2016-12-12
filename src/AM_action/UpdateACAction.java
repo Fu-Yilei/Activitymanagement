@@ -15,9 +15,9 @@ public class UpdateACAction implements Action {
 	String title;
 	Date date;
 	String time;
+	String tag[];
 	String site;
 	String Details;
-	String tag[];
 	int activityID;
 	
 	
@@ -100,19 +100,25 @@ public class UpdateACAction implements Action {
 		for (int i = 0;i < tag.length;i++)
 			tagtmp += tag[i];
 		Time time_time;
+		System.out.println("103");
         SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+        System.out.println("105");
         java.util.Date d = null;
+        System.out.println("107");
         try {
             d = format.parse(time);
         } catch (Exception e) {
         	return ERROR;
         }
+        System.out.println("113");
         time_time = new java.sql.Time(d.getTime());
-
+        System.out.println("115");
 		String holder = "";
-		
+		System.out.println("117");
 		DatabaseService ds = new DatabaseService();
+		System.out.println("119");
 		Activity a = new Activity(title,date,time_time,site,Details,holder,tagtmp);
+		System.out.println("121");
 		ds.UpdateActivity(activityID,a);
 		
 		return SUCCESS;
