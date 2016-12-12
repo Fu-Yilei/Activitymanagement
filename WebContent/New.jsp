@@ -36,7 +36,7 @@ java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-d
 java.util.Date currentTime = new java.util.Date();
 String str = formatter.format(currentTime);  
 %>
- <div class="header">
+ <div class="header head1">
 	<div class="container">
 		<div class="head-top">
 			<div class="logo">
@@ -63,9 +63,10 @@ String str = formatter.format(currentTime);
 						<div class="modal-body modal-spa">
 							<div class="login-grids">
 									<div class="login-right" align="center">
-										<h3>Want know how to use?</h3>
-										<h3>Please Pay!</h3>
-										<img src="images/AliPay.png" class="img-responsive" alt>
+										<h3>本系统面对三种用户：游客，普通用户和主办方。</h3>
+										<h3>游客可以查询活动并查看活动详细信息。</h3>
+										<h3>普通用户在游客的基础上增加了收藏功能并提供邮件提醒功能。</h3>
+										<h3>主办方可以增加或者修改活动，但不提供收藏功能。</h3>
 									</div>
 									
 								<p>By logging in you agree to our <span>Terms and Conditions</span> and <span>Privacy Policy</span></p>
@@ -86,8 +87,8 @@ String str = formatter.format(currentTime);
 							<div class="login-grids">
 							
 									<div class="login-right">
-										<h3>want to contact us?</h3>
-										<h3>NO WAY!</h3>
+										<h3>Eamil:1730848262@qq.com</h3>
+										<h3>Tel:15858283456</h3>
 									</div>
 									
 								<p>By logging in you agree to our <span>Terms and Conditions</span> and <span>Privacy Policy</span></p>

@@ -34,7 +34,7 @@ public class DetailsAction implements Action {
 	public String execute() throws Exception {
 		System.out.println("email = "+ Email);
 		System.out.println("id = " + ID);
-		if (!Email.equals("")){
+		if (Email != null && !Email.isEmpty() && !Email.equals("")){
 			String tmp = "";
 			DatabaseService ds = new DatabaseService();
 			if (ds.whetherLike(Email,ID))
