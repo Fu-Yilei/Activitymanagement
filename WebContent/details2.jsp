@@ -185,7 +185,7 @@ SELECT * from activity where ID = <%= id %>;
 				<div class="page-header ">
 					<ul class="nav nav-pills" role="tablist">
 						<li role="presentation" class="active">
-							<a href = "ViewAll2.jsp">返回</a>
+							<a href="javascript:history.back(-1)">返回上一页</a>
 						</li>
 					</ul>
 				</div>

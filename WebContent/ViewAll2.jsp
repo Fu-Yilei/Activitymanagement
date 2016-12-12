@@ -135,6 +135,7 @@ SELECT * from activity;
 								<li ><a href="Home2.jsp">Home</a></li>
 								<li><a class="active" href="ViewAll2.jsp">ViewAll</a></li>
 								<li><a href="New.jsp">New</a></li>
+								<li ><a href="Search1.jsp">Search</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 					</div>
@@ -153,7 +154,7 @@ SELECT * from activity;
 					<div class="test-gr">
 						<c:forEach var="row" items="${result.rows}">
   							<p style="margin-bottom:5px">
-  								<a href="ToDetail2?ID=${row.ID}">
+  								<a href="ToDetail2?ID=${row.ID}&Email=<%=email %>">
   									<c:out value="${row.Title}"/>
   								</a>
   							</p>					

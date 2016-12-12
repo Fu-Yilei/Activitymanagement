@@ -163,7 +163,7 @@ select * from activity where find_in_set('<%= title %>',Title);
 						<div class="test-gr">
 						<c:forEach var="row" items="${result.rows}">
   							<p style="margin-top:5px">
-  								<a href="ToDetail2?ID=${row.ID}">
+  								<a href="ToDetail2?ID=${row.ID}&Email=<%=email %>">
   									<c:out value="${row.Title}"/>
   								</a>
   							</p>

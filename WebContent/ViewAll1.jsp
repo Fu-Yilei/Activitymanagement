@@ -134,6 +134,7 @@ SELECT * from activity;
 							<ul class="nav navbar-nav cl-effect-8">
 								<li ><a href="Home1.jsp">Home</a></li>
 								<li><a class="active" href="ViewAll1.jsp">ViewAll</a></li>
+								<li ><a href="Search1.jsp">Search</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 					</div>

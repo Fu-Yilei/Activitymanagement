@@ -159,7 +159,7 @@ from activity where ID in (select ActivityID from tmprectable where Email = "<%=
 							<ul class="nav navbar-nav cl-effect-8">
 								<li><a class="active" href="Home1.jsp">Home</a></li>
 								<li><a href="ViewAll1.jsp">ViewAll</a></li>
-								
+								<li ><a href="Search1.jsp">Search</a></li>
 							
 							</ul>
 						</div><!-- /.navbar-collapse -->

@@ -154,7 +154,7 @@ from activity where ID in (select ActivityID from holderhold where Email = "<%=e
 								<li><a class="active" href="Home2.jsp">Home </a></li>
 								<li><a href="ViewAll2.jsp">ViewAll</a></li>
 								<li><a href="New.jsp">New</a></li>
-								
+								<li ><a href="Search2.jsp">Search</a></li>
 							
 							</ul>
 						</div><!-- /.navbar-collapse -->

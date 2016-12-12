@@ -164,15 +164,10 @@ select * from activity where find_in_set('<%= title %>',Title);
 						<div class="test-gr">
 						<c:forEach var="row" items="${result.rows}">
   							<p style="margin-top:5px">
-  								<a href="ToDetail1?ID=${row.ID}">
+  							<a href="ToDetail1?ID=${row.ID}&Email=<%=email %>">
   									<c:out value="${row.Title}"/>
   								</a>
   							</p>
-  								<form action="Like" method="post">
-  									<input type="hidden" name="userEmail" value=<%= email %>>
-  									<input type="hidden" name="activityID" value=${row.ID}>
-  									<input type="submit" value="收藏 ">
-  								</form>
   						
 
 						</c:forEach>
