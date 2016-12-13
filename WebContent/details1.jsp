@@ -165,19 +165,19 @@ SELECT * from activity where ID = <%= id %>;
 				<div class="container">
 				<div class="about-head">
 					<h2><c:out value="${row.Title}"/>的详细信息</h2>
-					<p> <c:out value="${row.Details}"/> <%=id %></p>
+				
 				</div>
 					<div class="about-grids">
 					<div class="col-md-5 about-grid1">
 						
-							<h3 >活动海报，规格要求为竖版</h3>
+							
 							<div class="about-img">
 								<img src="images/aa.jpg" class="img-responsive" alt="">
 							</div>							
 						</div>
 						<div class="col-md-7 about-grid">
 							<h3></h3>
-							<h5>此处给出活动的详细地点。</h5>
+							<h5>活动地点。</h5>
 							<p><c:out value="${row.Site}"/></p>
 							<div class="about-top">
 								<div class="col-md-6 about-left">
@@ -193,7 +193,7 @@ SELECT * from activity where ID = <%= id %>;
 							<div class="about-top">
 								<div class="col-md-6 about-left">
 									<h4>其他信息</h4>
-									<p>给出活动的其他信息，例如：讲座的演讲者信息等。</p>
+									<p><c:out value="${row.Details}"/></p>
 								</div>
 								<div class="col-md-6 about-right">
 								<div class="clearfix"></div>

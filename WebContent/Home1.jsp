@@ -38,6 +38,32 @@ if (cookies != null) {
     }  
 }  
 %>  
+
+<script type="text/javascript">
+function count_down(o,id){
+        var datatime=/^[\d]{4}-[\d]{1,2}-[\d]{1,2}( [\d]{1,2}:[\d]{1,2}(:[\d]{1,2})?)?$/ig,str='',conn,s;
+        if(!o.match(datatime)){
+                alert('参数格式为2020-01-01[ 01:01[:01]].\r其中[]内的内容可省略');
+                return false;
+        }
+        var sec=(new Date(o.replace(/-/ig,'/')).getTime() - new Date().getTime())/1000;
+        if(sec > 0){
+                conn='还有';
+        }else{
+                conn='已过去';
+                sec*=-1;
+        }
+        s={'天':sec/24/3600,'小时':sec/3600%24};
+        for(i in s){
+                if(Math.floor(s[i])>0 ) str += Math.floor(s[i]) + i;
+        }
+        if(Math.floor(sec)==0){ str='0秒'; }
+        document.getElementById(id).innerHTML = conn +'<u>' + str + '</u>' + "举行";
+        setTimeout(function(){count_down(o)},1000);
+     //   return '距离<u>' + o + '</u>' + conn +'<u>' + str + '</u>';
+}
+
+</script>
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
      url="jdbc:mysql://localhost:3306/activitymanagement"
      user="root"  password="fuyilei@96"/>
@@ -199,7 +225,10 @@ from activity where ID in (select ActivityID from tmprectable where Email = "<%=
 			<td><c:out value="${row.Site}"/></td>
 			<td><c:out value="${row.Details}"/></td>
 			<td><c:out value="${row.Holder}"/></td>
+			<td><span id="${row.ID }"><script>count_down('${row.Date}','${row.ID}')</script></span></td>
+			
 			<td><a href="DontLike?delID=${row.ID}&delUser='<%= email %>'"><button type="button" class="btn btn-sm btn-default">取消收藏</button></a></td>
+		
 		</tr>
 	</c:forEach>
 	</tbody>
@@ -218,6 +247,5 @@ from activity where ID in (select ActivityID from tmprectable where Email = "<%=
   						
 
 	</c:forEach>
-
 </body>
 </html>

@@ -53,8 +53,11 @@ if (cookies != null) {
      url="jdbc:mysql://localhost:3306/activitymanagement"
      user="root"  password="602747"/>
 
-<sql:query dataSource="${snapshot}" var="result">
+<!--<sql:query dataSource="${snapshot}" var="result">
 select * from activity where find_in_set('<%= title %>',Title);
+</sql:query> -->
+<sql:query dataSource="${snapshot}" var="result">
+select * from activity where Title like "%<%= title%>%";
 </sql:query>
  <div class="header head1">
 	<div class="container">

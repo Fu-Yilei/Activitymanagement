@@ -189,10 +189,26 @@ public class DatabaseService {
 		try{
 			Connection connect = DriverManager.getConnection(
 					dburl,dbuser,dbpwd);
-			Statement stmt = connect.createStatement();
-			stmt.executeUpdate("delete from userlike where ActivityID = '"+delID+"' ");
-			stmt.executeUpdate("delete from holderhold where ActivityID = '"+delID+"' ");
-			stmt.executeUpdate("delete from activity where ID = '"+delID+"' ");
+			String ori_title = "";
+			Statement stmt0 = connect.createStatement();
+			ResultSet rs = stmt0.executeQuery("select * from activity where ID = '"+delID+"'");
+			while (rs.next())
+				ori_title = rs.getString("Title");
+			//Statement stmt1 = connect.createStatement();
+			//stmt1.executeUpdate("update activity set Title='"+a.getTitle()+"' ,Date='"+a.getDate()+"' ,Time='"+a.getTime()+"' ,Site='"+a.getSite()+"' ,Details='"+a.getDetails()+"' ,Tag='"+a.getTag()+"' where ID = '"+activityID+"'");
+			//System.out.println("Update over");
+			Statement stmt2 = connect.createStatement();
+			ResultSet rs2 = stmt2.executeQuery("select * from userlike where ActivityID = '"+delID+"'");
+			while (rs2.next()){
+				String con = "您所关注的\""+ori_title+"\"活动已经取消，请合理安排时间";
+				SendEmailService ses = new SendEmailService();
+				ses.setAddress(rs2.getString("Email"), "活动信息变动通知");
+				ses.send(con);
+			}
+			Statement stmt1 = connect.createStatement();
+			stmt1.executeUpdate("delete from userlike where ActivityID = '"+delID+"' ");
+			stmt1.executeUpdate("delete from holderhold where ActivityID = '"+delID+"' ");
+			stmt1.executeUpdate("delete from activity where ID = '"+delID+"' ");
 			return ;
 		}catch (Exception e){
 			System.out.println(e);
