@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Result</title>
+<title>SeachFalse</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -135,7 +135,7 @@ if (cookies != null) {
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav cl-effect-8">
 								
-								<li ><a href="Search1.jsp">Back</a></li>
+								<a href="javascript:history.back(-1)">Back</a>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 					</div>
@@ -155,57 +155,7 @@ if (cookies != null) {
 
 
 
-<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-     url="jdbc:mysql://localhost:3306/activitymanagement"
-     user="root"  password="602747"/>
-
-
-
-<sql:query dataSource="${snapshot}" var="result">
-select * from activity where Title like ('%<%=title %>%');
-</sql:query>
-
-
-<div class="test">
-		<div class="container">
-			<div  class=" test-grid-1" >
-				<!-- begin of iterator -->
-				<div class="col-md-6 test-wrapper" style="margin-bottom:10px">
-					<div class="test-grid">
-						<div class="test-gr">
-					
-						<!--  <h3>${fn: length(result.rows)}</h3> -->
-						<c:forEach var="row" items="${result.rows}">
-							 
-  							<p style="margin-top:5px">
-  								<a href="ToDetail1?ID=${row.ID}">
-  									<c:out value="${row.Title}"/>
-  								</a>
-  							</p>
-  								<form action="Like" method="post">
-  									<input type="hidden" name="userEmail" value=<%= email %>>
-  									<input type="hidden" name="activityID" value=${row.ID}>
-  									<input type="submit" value="收藏 ">
-  								</form>
-  						
-
-						</c:forEach>
-						
-					</div>
-					
-					<div class="clearfix"></div>
-				</div>
-				<!--  end of iterator -->
-				
-				<div class="clearfix"> </div>
-			</div>
-			
-				
-			<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div>  
-
+<h3>查询失败</h3>
 
 
 

@@ -40,7 +40,7 @@ public class DatabaseService {
 	}
 	
 	
-	public ArrayList<Activity> SearchActivityByTitle(String title){
+	public int[] SearchActivityByTitle(String title){
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 		}
@@ -52,7 +52,12 @@ public class DatabaseService {
 					dburl,dbuser,dbpwd);
 			ArrayList<Activity> aclist=new ArrayList<Activity>();
 			Statement stmt = connect.createStatement();
-			ResultSet rs = stmt.executeQuery("select * from activity where Title in ('"+title+"')");
+			int[] id=new int[100];
+			for (int j=0;j<100;j++){
+				id[j]=-1;
+			}
+			int i=0;
+			ResultSet rs = stmt.executeQuery("select * from activity where Title like '%"+title+"%' ");
 			while (rs.next()) {
 				Activity ac  = new Activity();
 				ac.setTitle(rs.getString("Title"));
@@ -63,8 +68,11 @@ public class DatabaseService {
 				ac.setTime(rs.getTime("Time"));
 			
 				aclist.add(ac);
+				id[i]=rs.getInt("ID");
+				i++;
 			}
-			return aclist;
+			
+			return id;
 			
 		}catch(Exception e){
 			return null;
