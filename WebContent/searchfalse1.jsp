@@ -171,7 +171,7 @@ size="5">
 
 
 
-<div onLoad="TimeClose();">
+
 <table >
     <tr>
       <td style="FILTER: glow(strength=4)mask(color=#E1E4EC)" height=109 align="center" valign="middle"><font face="Verdana" color="#8C96B5" 
@@ -180,7 +180,7 @@ size="4">
       <b><i>5秒后自动返回上衣用户界面或手动点击Back按键.........</i></b></font></td>
     </tr>
  </table>
-</div>
+
 
 
 </body>

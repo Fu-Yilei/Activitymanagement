@@ -3,6 +3,7 @@
 <html>
 <head>
 <title>Failed</title>
+<META HTTP-EQUIV="Refresh" CONTENT="5; URL=http://localhost:8080/ActivityManagement/Home0.jsp ">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -170,9 +171,26 @@
 
 
 <!---->
-<div class="col-md-6 about-right">
-	<h4>Failed!</h4>
-</div>
+<table align=center border=0 >
+    <tr>
+      <td style="FILTER: glow(strength=4)mask(color=#E1E4EC)" height=109 align="center" valign="middle"><font face="Verdana" color="#8C96B5" 
+
+size="5">
+      <b><i>登录失败，用户名或密码错误！</i></b></font></td>
+    </tr>
+ </table>
+
+
+
+
+<table >
+    <tr>
+      <td style="FILTER: glow(strength=4)mask(color=#E1E4EC)" height=109 align="center" valign="middle"><font face="Verdana" color="#8C96B5" 
+
+size="4">
+      <b><i>5秒后自动返回上衣用户界面或手动点击Home键返回.........</i></b></font></td>
+    </tr>
+ </table>
 
 </body>
 </html>
