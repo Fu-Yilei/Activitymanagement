@@ -167,6 +167,7 @@ String str = formatter.format(currentTime);
 			<input type="text" placeholder="time" name="time">(Time type: HH:MM)
 			
 			<h3>TAG OF THE ACTIVITY</h3>
+			<h3>请至少选择一个标签</h3>
 			<input type="checkbox" name="tag" value="1"/>思想品德教育
 			<input type="checkbox" name="tag" value="2"/>文化艺术
 			<input type="checkbox" name="tag" value="3"/>课外学术科技

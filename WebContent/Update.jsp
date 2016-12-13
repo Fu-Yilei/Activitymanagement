@@ -180,7 +180,7 @@ SELECT * from activity where ID = <%= id %>;
 			<p><input type="date" name="date" required min=<%= str %> value=${row.Date}>
 			<p><input type="text" placeholder="time" name="time" value=${row.Time}>
 			<h3>TAG OF THE ACTIVITY</h3>
-			<h3>请重新选择标签</h3>
+			<h3>请重新选择标签，至少选择一个</h3>
 			<input type="checkbox" name="tag" value="1"/>思想品德教育
 			<input type="checkbox" name="tag" value="2"/>文化艺术
 			<input type="checkbox" name="tag" value="3"/>课外学术科技
