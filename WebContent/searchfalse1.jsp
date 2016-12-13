@@ -7,8 +7,14 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
+
 <head>
+
 <title>SeachFalse</title>
+<% String url=request.getHeader("Referer"); 
+System.out.println(url);
+%>
+<META HTTP-EQUIV="Refresh" CONTENT="5; URL=http://localhost:8080/ActivityManagement/Search1.jsp ">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -135,7 +141,7 @@ if (cookies != null) {
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav cl-effect-8">
 								
-								<a href="javascript:history.back(-1)">Back</a>
+								<li><a href="javascript:history.back(-1)">Back</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 					</div>
@@ -154,9 +160,27 @@ if (cookies != null) {
 
 
 
+<table align=center border=0 >
+    <tr>
+      <td style="FILTER: glow(strength=4)mask(color=#E1E4EC)" height=109 align="center" valign="middle"><font face="Verdana" color="#8C96B5" 
 
-<h3>查询失败</h3>
+size="5">
+      <b><i>并没有符合查询条件的结果</i></b></font></td>
+    </tr>
+ </table>
 
+
+
+<div onLoad="TimeClose();">
+<table >
+    <tr>
+      <td style="FILTER: glow(strength=4)mask(color=#E1E4EC)" height=109 align="center" valign="middle"><font face="Verdana" color="#8C96B5" 
+
+size="4">
+      <b><i>5秒后自动返回上衣用户界面或手动点击Back按键.........</i></b></font></td>
+    </tr>
+ </table>
+</div>
 
 
 </body>
