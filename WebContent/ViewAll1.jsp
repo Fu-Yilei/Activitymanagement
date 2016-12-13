@@ -6,28 +6,28 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <!DOCTYPE html>
 <html>
-<head>
-<title>ViewAll</title>
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery.min.js"></script>
-<!-- Custom Theme files -->
-<!--theme-style-->
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
-<!--//theme-style-->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!---->
-<script src="js/bootstrap.min.js"></script>
-<style> 
-a:link {color: #FFFFFF}	
-a:visited {color: #FF66CC}	
-a:hover {color: #FFFF33}	
-a:active {color: #0000FF}	
-</style>
-</head>
+	<head>
+		<title>ViewAll</title>
+		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery.min.js"></script>
+		<!-- Custom Theme files -->
+		<!--theme-style-->
+		<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
+		<!--//theme-style-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="" />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<!---->
+		<script src="js/bootstrap.min.js"></script>
+		<style> 
+		a:link {color: #FFFFFF}	
+		a:visited {color: #FF66CC}	
+		a:hover {color: #FFFF33}	
+		a:active {color: #0000FF}	
+		</style>
+	</head>
 <body>
 <%  
 Cookie[] cookies = request.getCookies();  
@@ -45,8 +45,8 @@ if (cookies != null) {
 }  
 %>  
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-     url="jdbc:mysql://localhost:3306/activitymanagement"
-     user="root"  password="fuyilei@96"/>
+     url="jdbc:mysql://cqcstizsnftm.mysql.sae.sina.com.cn:10404/activitymanage"
+     user="root"  password="fuyilei96"/>
 
 <sql:query dataSource="${snapshot}" var="result">
 SELECT * from activity;
@@ -59,10 +59,10 @@ SELECT * from activity;
 			</div>
 			<div class="login">
 				<ul class="nav-login">
-					<li><a href="#" data-toggle="modal" data-target="#myModal3">Help</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal4">Contact us</a></li>
-					<li style="color:white;">Hello!<%= email %></li>
-					<li><a href="LogOut?Email=<%=email%>">Logout</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal3">帮助</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal4">联系我们</a></li>
+					<li style="color:white;">您好!<%= email %></li>
+					<li><a href="LogOut?Email=<%=email%>">登出</a></li>
 				</ul>
 			</div>
 			<div class="clearfix"></div>
@@ -130,60 +130,37 @@ SELECT * from activity;
 							</button>
 		 
 						</div>
-						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav cl-effect-8">
-								<li ><a href="Home1.jsp">Home</a></li>
-								<li><a class="active" href="ViewAll1.jsp">ViewAll</a></li>
-								<li ><a href="Search1.jsp">Search</a></li>
+								<li ><a href="Home1.jsp">主页</a></li>
+								<li><a class="active" href="ViewAll1.jsp">查看全部</a></li>
+								<li ><a href="Search1.jsp">查询</a></li>
 							</ul>
-						</div><!-- /.navbar-collapse -->
+						</div>
 					</div>
-					<!-- start search-->
-				<!-- 	<ul class="social-ic">
-						<li><a href="#"><i></i></a></li>
-						<li><a href="#"><i class="ic"></i></a></li>
-						<li><a href="#"><i class="ic1"></i></a></li>
-						<li><a href="#"><i class="ic2"></i></a></li>
-					</ul> -->
 					<div class="clearfix"></div>
 				</div> 
 			</div> 
 		</div> 
 </div> 
 
-<div class="test">
+	
 		<div class="container">
-			<div  class=" test-grid-1" >
-				<!-- begin of iterator -->
-				<div class="col-md-6 test-wrapper" style="margin-bottom:10px">
-					<div class="test-grid">
-						<div class="test-gr">
-						<c:forEach var="row" items="${result.rows}">
-  							<p style="margin-top:5px">
-  								<a href="ToDetail1?ID=${row.ID}&Email=<%=email %>">
-  									<c:out value="${row.Title}"/>
-  								</a>
-  							</p>
-  	
-  						
-
-						</c:forEach>
-					</div>
-					
-					<div class="clearfix"></div>
-				</div>
-				<!--  end of iterator -->
-				
-				<div class="clearfix"> </div>
-			</div>
-			
-				
-			<div class="clearfix"> </div>
+			<div  class="page" >
+			  <ul class="nav nav-pills" role="tablist">
+				<c:forEach var="row" items="${result.rows}">
+					<li role="presentation" class = "active">
+					<br>
+  						<a href="ToDetail1?ID=${row.ID}&Email=<%=email %>">
+						<font size = 5>
+  							<c:out value="${row.Title}"/>
+  						</font>
+  						</a>
+					</li>
+				</c:forEach>
+			</ul>
 			</div>
 		</div>
-	</div>
-
 
 </body>
 </html>

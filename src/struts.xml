@@ -22,6 +22,7 @@
 		
 		<action name="CreateActivity" class="AM_action.CreateActivityAction">
 			<result name="success" type="redirect">/Home2.jsp</result>
+			<result name="error">/New.jsp</result>
 		</action>
 		
 		<action name="ToDetail0" class="AM_action.DetailsAction">
@@ -33,12 +34,17 @@
 		<action name="ToDetail2" class="AM_action.DetailsAction">
 			<result name="success" type="redirect">/details2.jsp</result>
 		</action>
+
 		<action name="Search1" class="AM_action.SearchActivityByTitleAction">
 			<result name="success" type="redirect">/result1.jsp</result>
+			<result name="error" type="redirect">/searchfalse1.jsp</result>
 		</action>
 		<action name="Search2" class="AM_action.SearchActivityByTitleAction">
 			<result name="success" type="redirect">/result2.jsp</result>
+			<result name="error" type="redirect">/searchfalse2.jsp</result>
 		</action>
+
+
 		<action name="Like" class="AM_action.LikeAction">
 			<result name="success" type="redirect">/Home1.jsp</result>
 		</action>

@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Search</title>
+<title>搜索</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -15,6 +15,9 @@
 <!--theme-style-->
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
 <!--//theme-style-->
+<link href="css/stylee.css" rel="stylesheet" type="text/css" media="all" />	
+<link href="css/swipebox.css" rel="stylesheet" type="text/css" media="all" />	
+<link href="css/demo.css" rel="stylesheet" type="text/css" media="all" />	
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -53,10 +56,10 @@ if (cookies != null) {
 			</div>
 			<div class="login">
 				<ul class="nav-login">
-					<li><a href="#" data-toggle="modal" data-target="#myModal3">Help</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal4">Contact us</a></li>
-					<li style="color:white;">Hello!<%= email %></li>
-					<li><a href="Home0.jsp">Logout</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal3">帮助</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal4">联系我们</a></li>
+					<li style="color:white;"><%= email %>您好！</li>
+					<li><a href="Home0.jsp">登出</a></li>
 				</ul>
 			</div>
 			<div class="clearfix"></div>
@@ -127,7 +130,7 @@ if (cookies != null) {
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav cl-effect-8">
-								<li ><a href="Home2.jsp">Back</a></li>
+								<li ><a href="Home2.jsp">返回</a></li>
 								
 							</ul>
 						</div><!-- /.navbar-collapse -->

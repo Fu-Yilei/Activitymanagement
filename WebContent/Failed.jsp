@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Failed</title>
+<title>失败！</title>
+<META HTTP-EQUIV="Refresh" CONTENT="5; URL=http://localhost:8080/ActivityManagement/Home0.jsp ">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -27,10 +28,10 @@
 			</div>
 			<div class="login">
 				<ul class="nav-login">
-					<li><a href="#" data-toggle="modal" data-target="#myModal3">Help</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal4">Contact us</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal1">Login</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal2">Signup</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal3">帮助</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal4">联系我们</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal1">登录</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal2">注册</a></li>
 				</ul>
 			</div>
 			<div class="clearfix"></div>
@@ -45,12 +46,12 @@
 						</div>
 						<div class="modal-body modal-spa">
 							<div class="login-grids">
-									<div class="login-right" align="center">
+									<<div class="login-right" align="center">
 										<h3>本系统面对三种用户：游客，普通用户和主办方。</h3>
 										<h3>游客可以查询活动并查看活动详细信息。</h3>
 										<h3>普通用户在游客的基础上增加了收藏功能并提供邮件提醒功能。</h3>
 										<h3>主办方可以增加或者修改活动，但不提供收藏功能。</h3>
-									
+						
 									</div>
 									
 								<p>By logging in you agree to our <span>Terms and Conditions</span> and <span>Privacy Policy</span></p>
@@ -69,8 +70,7 @@
 						</div>
 						<div class="modal-body modal-spa">
 							<div class="login-grids">
-							
-									<div class="login-right">
+							<div class="login-right">
 										<h3>Eamil:1730848262@qq.com</h3>
 										<h3>Tel:15858283456</h3>
 									</div>
@@ -94,7 +94,7 @@
 							
 									<div class="login-right">
 										<form action="SignIn" method="post">
-											<h3>Signin with your account </h3>
+											<h3>登录您的账户</h3>
 											<input type="text" value="Enter your Email" name="SigninEmail" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Enter your Email';}" required="">	
 											<input type="password" value="Password" name="SigninPassword" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Password';}" required="">	
 											<input type="submit" value="SIGNIN" >
@@ -120,7 +120,7 @@
 							
 									<div class="login-right">
 										<form action="SignUp" method="post">
-											<h3>Create your account </h3>
+											<h3>创建一个新账户</h3>
 											<input type="text" value="Email" name="Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Email';}" required="">	
 											<input type="password" value="Password" name="Password" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Password';}" required="">	
 											<input type="radio" value="normal" name="Usertype">User
@@ -154,8 +154,8 @@
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav cl-effect-8">
-								<li><a href="Home0.jsp">Home </a></li>
-								<li><a href="ViewAll0.jsp">ViewAll</a></li>
+								<li><a href="Home0.jsp">主页 </a></li>
+								<li><a href="ViewAll0.jsp">查看全部</a></li>
 							
 							</ul>
 						</div><!-- /.navbar-collapse -->
@@ -172,7 +172,26 @@
 
 
 <!---->
-<h3>wrong password</h3>
+<table align=center border=0 >
+    <tr>
+      <td style="FILTER: glow(strength=4)mask(color=#E1E4EC)" height=109 align="center" valign="middle"><font face="Verdana" color="#8C96B5" 
+
+size="5">
+      <b><i>登录失败，用户名或密码错误！</i></b></font></td>
+    </tr>
+ </table>
+
+
+
+
+<table >
+    <tr>
+      <td style="FILTER: glow(strength=4)mask(color=#E1E4EC)" height=109 align="center" valign="middle"><font face="Verdana" color="#8C96B5" 
+
+size="4">
+      <b><i>5秒后自动返回上衣用户界面或手动点击Home键返回.........</i></b></font></td>
+    </tr>
+ </table>
 
 </body>
 </html>

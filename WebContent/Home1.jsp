@@ -9,7 +9,7 @@
 <html>
 <meta charset="gb2312"/>
 <head>
-<title>Home</title>
+<title>用户主页</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -65,8 +65,8 @@ function count_down(o,id){
 
 </script>
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-     url="jdbc:mysql://localhost:3306/activitymanagement"
-     user="root"  password="fuyilei@96"/>
+     url="jdbc:mysql://cqcstizsnftm.mysql.sae.sina.com.cn:10404/activitymanage"
+     user="root"  password="fuyilei96"/>
 
 <sql:query dataSource="${snapshot}" var="result">
 SELECT * 
@@ -85,10 +85,10 @@ from activity where ID in (select ActivityID from tmprectable where Email = "<%=
 			</div>
 			<div class="login">
 				<ul class="nav-login">
-					<li><a href="#" data-toggle="modal" data-target="#myModal3">Help</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal4">Contact us</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal3">帮助</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal4">联系我们</a></li>
 					<li style="color:white;">Hello!<%= email %></li>
-					<li><a href="LogOut?Email=<%=email%>">Logout</a></li>
+					<li><a href="LogOut?Email=<%=email%>">登出</a></li>
 				</ul>
 			</div>
 			<div class="clearfix"></div>
@@ -184,9 +184,9 @@ from activity where ID in (select ActivityID from tmprectable where Email = "<%=
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav cl-effect-8">
-								<li><a class="active" href="Home1.jsp">Home</a></li>
-								<li><a href="ViewAll1.jsp">ViewAll</a></li>
-								<li ><a href="Search1.jsp">Search</a></li>
+								<li><a class="active" href="Home1.jsp">主页</a></li>
+								<li><a href="ViewAll1.jsp">查看全部</a></li>
+								<li ><a href="Search1.jsp">查询</a></li>
 							
 							</ul>
 						</div><!-- /.navbar-collapse -->
@@ -225,7 +225,7 @@ from activity where ID in (select ActivityID from tmprectable where Email = "<%=
 			<td><c:out value="${row.Site}"/></td>
 			<td><c:out value="${row.Details}"/></td>
 			<td><c:out value="${row.Holder}"/></td>
-			<td><span id="${row.ID }"><script>count_down('${row.Date}','${row.ID}')</script></span></td>
+			<td><span id="${row.ID }"><script>count_down('${row.Date} ${row.Time}','${row.ID}')</script></span></td>
 			
 			<td><a href="DontLike?delID=${row.ID}&delUser='<%= email %>'"><button type="button" class="btn btn-sm btn-default">取消收藏</button></a></td>
 		
@@ -233,19 +233,43 @@ from activity where ID in (select ActivityID from tmprectable where Email = "<%=
 	</c:forEach>
 	</tbody>
 </table>
+<br><br><br><br>
+<h3>您可能喜欢：</h3>
 
+	
+  	<table class="table">
+	<thead>
+		<tr>
+			<th>活动标题</th>
+			<th>活动日期</th>
+			<th>活动时间</th>
+			<th>活动地点</th>
+			<th>活动内容</th>
+			<th>主办方</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+	<c:forEach var="row1" items="${result1.rows}">
+		<tr>
+			<td><a href="ToDetail1?ID=${row1.ID}&Email=<%=email %>">
+  					<c:out value="${row1.Title}"/>
+  			</a></td>
+			<td><c:out value="${row1.Date}"/></td>
+			<td><c:out value="${row1.Time}"/></td>
+			<td><c:out value="${row1.Site}"/></td>
+			<td><c:out value="${row1.Details}"/></td>
+			<td><c:out value="${row1.Holder}"/></td>		
+		</tr>
+	</c:forEach>
+	</tbody>
+</table>
 </div>
 </div>
 </div>
-<p>您可能喜欢：</p>
 
-	<c:forEach var="r" items="${result1.rows}">
-  			<a href="ToDetail1?ID=${r.ID}&Email=<%=email %>">
-  					<c:out value="${r.Title}"/>
-  			</a><br>
-  	
   						
 
-	</c:forEach>
+
 </body>
 </html>

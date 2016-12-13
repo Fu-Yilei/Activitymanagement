@@ -30,8 +30,8 @@ a:active {color: #0000FF}
 </head>
 <body>
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-     url="jdbc:mysql://localhost:3306/activitymanagement"
-     user="root"  password="fuyilei@96"/>
+     url="jdbc:mysql://cqcstizsnftm.mysql.sae.sina.com.cn:10404/activitymanage"
+     user="root"  password="fuyilei96"/>
 
 <sql:query dataSource="${snapshot}" var="result">
 SELECT * from activity;
@@ -44,10 +44,10 @@ SELECT * from activity;
 			</div>
 			<div class="login">
 				<ul class="nav-login">
-					<li><a href="#" data-toggle="modal" data-target="#myModal3">Help</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal4">Contact us</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal1">Login</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal2">Signup</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal3">帮助</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal4">联系我们</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal1">登录</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal2">注册</a></li>
 				</ul>
 			</div>
 			<div class="clearfix"></div>
@@ -110,7 +110,7 @@ SELECT * from activity;
 							
 									<div class="login-right">
 										<form action="SignIn" method="post">
-											<h3>Signin with your account </h3>
+											<h3>登录您的账户</h3>
 											<input type="text" value="Enter your Email" name="Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Enter your Email';}" required="">	
 											<input type="password" value="Password" name="Password" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Password';}" required="">	
 											<input type="submit" value="SIGNIN" >
@@ -136,11 +136,11 @@ SELECT * from activity;
 							
 									<div class="login-right">
 										<form action="SignUp" method="post" name="form1">
-											<h3>Create your account </h3>
+											<h3>创建新的账户</h3>
 											<input type="text" value="Email" name="Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Email';}" required="">	
 											<input type="password" value="Password" name="Password" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Password';}" required="">	
-											<input type="radio" value="normal" name="Usertype">User
-											<input type="radio" value="holder" name="Usertype">Holder
+											<input type="radio" value="normal" name="Usertype">普通用户
+											<input type="radio" value="holder" name="Usertype">主办方
 											<input type="submit" value="CREATE ACCOUNT">
 										</form>
 									</div>
@@ -170,8 +170,8 @@ SELECT * from activity;
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav cl-effect-8">
-								<li><a href="Home0.jsp">Home </a></li>
-								<li><a href="ViewAll0.jsp" class="active">ViewAll</a></li>
+								<li><a href="Home0.jsp">主页 </a></li>
+								<li><a href="ViewAll0.jsp" class="active">查看全部</a></li>
 							
 							</ul>
 						</div><!-- /.navbar-collapse -->
@@ -183,36 +183,22 @@ SELECT * from activity;
 		</div> 
 </div> 
 
-<div class="test">
 		<div class="container">
-			<div  class=" test-grid-1" >
-				<!-- begin of iterator -->
-				<div class="col-md-6 test-wrapper" style="margin-bottom:10px">
-					<div class="test-grid">
-					<div class="test-gr">
-						<c:forEach var="row" items="${result.rows}">
-  							<p style="margin-bottom:5px">
-  								<a href="ToDetail0?ID=${row.ID}&Email=test">
-  									<c:out value="${row.Title}"/>
-  								</a>
-  							</p>
-  						
-
-						</c:forEach>
-						
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<!--  end of iterator -->
-				
-				<div class="clearfix"> </div>
-			</div>
-			
-				
-			<div class="clearfix"> </div>
+			<div  class="page" >
+			  <ul class="nav nav-pills" role="tablist">
+				<c:forEach var="row" items="${result.rows}">
+					<li role="presentation" class = "active">
+					<br>
+						<a href="ToDetail0?ID=${row.ID}">
+						<font size = 5>
+  							<c:out value="${row.Title}"/>
+  						</font>
+  						</a>
+					</li>
+				</c:forEach>
+			</ul>
 			</div>
 		</div>
-	</div>
 
 </body>
 </html>

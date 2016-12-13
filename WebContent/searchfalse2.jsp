@@ -4,10 +4,17 @@
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>搜索结果</title>
+
+<title>SeachFalse</title>
+<% String url=request.getHeader("Referer"); 
+System.out.println(url);
+%>
+<META HTTP-EQUIV="Refresh" CONTENT="5; URL=http://localhost:8080/ActivityManagement/Search2.jsp ">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -44,18 +51,14 @@ if (cookies != null) {
         }
         if ("ACTITLE".equals(c.getName())){
         	title=c.getValue();
-        	title = java.net.URLDecoder.decode(title, "utf-8");
         }
     }  
-}  
+}
 %>  
-<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-     url="jdbc:mysql://cqcstizsnftm.mysql.sae.sina.com.cn:10404/activitymanage"
-     user="root"  password="fuyilei96"/>
 
-<sql:query dataSource="${snapshot}" var="result">
-select * from activity where Title like "%<%= title%>%";
-</sql:query>
+
+
+
  <div class="header head1">
 	<div class="container">
 		<div class="head-top">
@@ -66,7 +69,7 @@ select * from activity where Title like "%<%= title%>%";
 				<ul class="nav-login">
 					<li><a href="#" data-toggle="modal" data-target="#myModal3">帮助</a></li>
 					<li><a href="#" data-toggle="modal" data-target="#myModal4">联系我们</a></li>
-					<li style="color:white;"><%= email %>您好！</li>
+					<li style="color:white;">您好!<%= email %></li>
 					<li><a href="Home0.jsp">登出</a></li>
 				</ul>
 			</div>
@@ -139,7 +142,7 @@ select * from activity where Title like "%<%= title%>%";
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav cl-effect-8">
 								
-								<li ><a href="Search2.jsp">返回</a></li>
+								<li><a href="javascript:history.back(-1)">返回</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 					</div>
@@ -156,22 +159,30 @@ select * from activity where Title like "%<%= title%>%";
 		</div> 
 </div> 
 
-		<div class="container">
-			<div  class="page" >
-			  <ul class="nav nav-pills" role="tablist">
-				<c:forEach var="row" items="${result.rows}">
-					<li role="presentation" class = "active">
-					<br>
-  						<a href="ToDetail2?ID=${row.ID}&Email=<%=email %>">
-						<font size = 5>
-  							<c:out value="${row.Title}"/>
-  						</font>
-  						</a>
-					</li>
-				</c:forEach>
-			</ul>
-			</div>
-		</div>
+
+
+<table align=center border=0 >
+    <tr>
+      <td style="FILTER: glow(strength=4)mask(color=#E1E4EC)" height=109 align="center" valign="middle"><font face="Verdana" color="#8C96B5" 
+
+size="5">
+      <b><i>并没有符合查询条件的结果</i></b></font></td>
+    </tr>
+ </table>
+
+
+
+
+<table >
+    <tr>
+      <td style="FILTER: glow(strength=4)mask(color=#E1E4EC)" height=109 align="center" valign="middle"><font face="Verdana" color="#8C96B5" 
+
+size="4">
+      <b><i>5秒后自动返回上衣用户界面或手动点击Back按键.........</i></b></font></td>
+    </tr>
+ </table>
+
+
 
 </body>
 </html>

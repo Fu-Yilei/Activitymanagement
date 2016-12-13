@@ -1,5 +1,7 @@
 package AM_action;
 
+import java.io.File;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,7 +15,42 @@ public class DetailsAction implements Action {
 
 	int ID;
 	String Email;
-	
+	String ActivityName;
+	String Date;
+	String PicturePath;
+
+
+
+
+	public String getActivityName() {
+		return ActivityName;
+	}
+
+
+	public void setActivityName(String activityName) {
+		ActivityName = activityName;
+	}
+
+
+	public String getDate() {
+		return Date;
+	}
+
+
+	public void setDate(String date) {
+		Date = date;
+	}
+
+
+	public String getPicturePath() {
+		return PicturePath;
+	}
+
+
+	public void setPicturePath(String picturePath) {
+		PicturePath = picturePath;
+	}
+
 	
 	public String getEmail() {
 		return Email;
@@ -53,6 +90,22 @@ public class DetailsAction implements Action {
 		id.setMaxAge(60*60);
 		response.addCookie(id);
 		
+		
+		String TgtPath = ServletActionContext.getServletContext().getRealPath("/images/PosterOutput");
+		TgtPath = TgtPath.replaceAll("\\\\","/");
+		System.out.println(TgtPath);
+		File file = new File(TgtPath);
+		String[] filelist = file.list();
+//		File[] tempList = file.listFiles();
+//		System.out.println("该目录下对象个数："+tempList.length);
+		System.out.println(filelist.length);
+		for(int i = 0; i < filelist.length; i++) {
+//			System.out.println(TgtPath + filelist[i]);
+			if(filelist[i].equals(ID+".jpg")) {
+				String Path = TgtPath + "/" + filelist[i];
+				return SUCCESS;
+			}
+		}
 		return SUCCESS;
 	}
 

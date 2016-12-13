@@ -1,8 +1,12 @@
 <%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Home</title>
+<title>首页</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -19,6 +23,13 @@
 
 </head>
 <body>
+<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
+     url="jdbc:mysql://cqcstizsnftm.mysql.sae.sina.com.cn:10404/activitymanage"
+     user="root"  password="fuyilei96"/>
+<sql:query dataSource="${snapshot}" var="result0">
+	SELECT  * from picturesave limit 5;
+</sql:query>
+
  <div class="header">
 	<div class="container">
 		<div class="head-top">
@@ -27,10 +38,10 @@
 			</div>
 			<div class="login">
 				<ul class="nav-login">
-					<li><a href="#" data-toggle="modal" data-target="#myModal3">Help</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal4">Contact us</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal1">Login</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal2">Signup</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal3">帮助</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal4">联系我们</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal1">登录</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal2">注册</a></li>
 				</ul>
 			</div>
 			<div class="clearfix"></div>
@@ -93,7 +104,7 @@
 							
 									<div class="login-right">
 										<form action="SignIn" method="post">
-											<h3>Signin with your account </h3>
+											<h3>登录您的账户 </h3>
 											<input type="text" value="Enter your Email" name="Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Enter your Email';}" required="">	
 											<input type="password" value="Password" name="Password" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Password';}" required="">	
 											<input type="submit" value="SIGNIN" >
@@ -139,11 +150,11 @@
 											}
 										</script>
 										<form action="SignUp" method="post" name="form1" onsubmit="return check(this)">
-											<h3>Create your account </h3>
+											<h3>创建新账户</h3>
 											<input type="text" value="Email" name="Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Email';}">	
 											<input type="password" value="Password" name="Password" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Password';}">	
-											<input type="radio" value="normal" name="Usertype">User
-											<input type="radio" value="holder" name="Usertype">Holder
+											<input type="radio" value="normal" name="Usertype">普通用户
+											<input type="radio" value="holder" name="Usertype">主办方
 											<input type="submit" value="CREATE ACCOUNT">
 										</form>
 									</div>
@@ -181,8 +192,8 @@
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav cl-effect-8">
-								<li ><a class="active" href="Home0.jsp">Home </a></li>
-								<li><a href="ViewAll0.jsp">ViewAll</a></li>
+								<li ><a class="active" href="Home0.jsp">主页 </a></li>
+								<li><a href="ViewAll0.jsp">查看全部</a></li>
 							
 							</ul>
 						</div><!-- /.navbar-collapse -->
@@ -199,63 +210,23 @@
 
 
 <!---->
+
+
 <div class="content-bottom">
 	<h1>Gallery</h1>
+	<c:forEach var="r" items="${result0.rows}">
 		<div class="content-in">
             <div class="port effect-1">
                 <div class="image-box">
-                   <img src="images/P1.png" alt="" class="img-responsive">
+                   <img src="${r.PicturePath}" alt="" class="img-responsive">
                </div>
                 <div class="text-desc">
-					<h6>Activity</h6>
-					<p>Title</p>   
+					<h6>${r.Title}</h6>
+					<p>${r.Date}</p>   
                 </div>
            </div>
          </div>
-		<div class="content-in">
-            <div class="port effect-1">
-                <div class="image-box">
-                    <img src="images/P2.png" alt="" class="img-responsive">
-                </div>
-				<div class="text-desc">
-					<h6>Activity</h6>
-					<p>Title</p>   
-                </div>
-            </div>
-        </div>
-		<div class="content-in">
-            <div class="port effect-1">
-                <div class="image-box">
-                    <img src="images/P3.png" alt="" class="img-responsive">
-                </div>
-				<div class="text-desc">
-					<h6>Activity</h6>
-					<p>Title</p>   	
-				</div>
-			</div>
-        </div>
-		<div class="content-in">
-            <div class="port effect-1">
-                <div class="image-box">
-                    <img src="images/P4.png" alt="" class="img-responsive">
-                </div>
-                <div class="text-desc">
-					<h6>Activity</h6>
-					<p>Title</p>   
-                </div>
-            </div>
-        </div>
-		<div class="content-in">
-            <div class="port effect-1">
-                <div class="image-box">
-                    <img src="images/P5.png" alt="" class="img-responsive">
-                </div>
-                <div class="text-desc">
-					<h6>Activity</h6>
-					<p>Title</p>   
-                </div>
-            </div>
-        </div>
+		</c:forEach>
         <div class="clearfix"> </div>
 </div>
 

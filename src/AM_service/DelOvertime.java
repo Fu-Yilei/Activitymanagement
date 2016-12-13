@@ -9,9 +9,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DelOvertime{
-	static final String dburl = "jdbc:mysql://localhost:3306/activitymanagement";
+	static final String dburl = "jdbc:mysql://cqcstizsnftm.mysql.sae.sina.com.cn:10404/activitymanage";
 	static final String dbuser = "root";
-	static final String dbpwd = "fuyilei@96";
+	static final String dbpwd = "fuyilei96";
 	public void Do(){
 		
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");

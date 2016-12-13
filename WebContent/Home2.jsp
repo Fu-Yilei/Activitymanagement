@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Home</title>
+<title>主办方主页</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -37,8 +37,8 @@ if (cookies != null) {
 }  
 %>  
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-     url="jdbc:mysql://localhost:3306/activitymanagement"
-     user="root"  password="fuyilei@96"/>
+     url="jdbc:mysql://cqcstizsnftm.mysql.sae.sina.com.cn:10404/activitymanage"
+     user="root"  password="fuyilei96"/>
 
 <sql:query dataSource="${snapshot}" var="result">
 SELECT * 
@@ -52,10 +52,10 @@ from activity where ID in (select ActivityID from holderhold where Email = "<%=e
 			</div>
 			<div class="login">
 				<ul class="nav-login">
-					<li><a href="#" data-toggle="modal" data-target="#myModal3">Help</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal4">Contact us</a></li>
-					<li style="color:white;">Hello!<%= email %></li>
-					<li><a href="Home0.jsp">Logout</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal3">帮助</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal4">联系我们</a></li>
+					<li style="color:white;">您好!<%= email %></li>
+					<li><a href="Home0.jsp">登出</a></li>
 					
 				</ul>
 			</div>
@@ -152,10 +152,10 @@ from activity where ID in (select ActivityID from holderhold where Email = "<%=e
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav cl-effect-8">
-								<li><a class="active" href="Home2.jsp">Home </a></li>
-								<li><a href="ViewAll2.jsp">ViewAll</a></li>
-								<li><a href="New.jsp">New</a></li>
-								<li ><a href="Search2.jsp">Search</a></li>
+								<li><a class="active" href="Home2.jsp">主页 </a></li>
+								<li><a href="ViewAll2.jsp">查看全部</a></li>
+								<li><a href="New.jsp">新建活动</a></li>
+								<li ><a href="Search2.jsp">搜索</a></li>
 							
 							</ul>
 						</div><!-- /.navbar-collapse -->

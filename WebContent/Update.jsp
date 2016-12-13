@@ -45,8 +45,8 @@ java.util.Date currentTime = new java.util.Date();
 String str = formatter.format(currentTime);  
 %>
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-     url="jdbc:mysql://localhost:3306/activitymanagement"
-     user="root"  password="fuyilei@96"/>
+     url="jdbc:mysql://cqcstizsnftm.mysql.sae.sina.com.cn:10404/activitymanage"
+     user="root"  password="fuyilei96"/>
  
 <sql:query dataSource="${snapshot}" var="result">
 SELECT * from activity where ID = <%= id %>;
@@ -59,10 +59,10 @@ SELECT * from activity where ID = <%= id %>;
 			</div>
 			<div class="login">
 				<ul class="nav-login">
-					<li><a href="#" data-toggle="modal" data-target="#myModal3">Help</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal4">Contact us</a></li>
-					<li style="color:white;">Hello!<%= email %></li>
-					<li><a href="Home0.jsp">Logout</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal3">帮助</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal4">联系我们</a></li>
+					<li style="color:white;">您好!<%= email %></li>
+					<li><a href="Home0.jsp">登出</a></li>
 				</ul>
 			</div>
 			<div class="clearfix"></div>
@@ -133,7 +133,7 @@ SELECT * from activity where ID = <%= id %>;
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav cl-effect-8">
-								<li ><a class="active" href="Home2.jsp">Back </a></li>
+								<li ><a class="active" href="Home2.jsp">返回 </a></li>
 								
 							
 							</ul>
@@ -172,14 +172,14 @@ SELECT * from activity where ID = <%= id %>;
 	<div class="login-grids">
 		<div class="login-right">
 			<form action="UpdateAC" method="post" onsubmit="return check(this)">
-			<h3>Update a activity </h3>
+			<h3>更新活动</h3>
 			<c:forEach var="row" items="${result.rows}">
-			<h3>TITLE</h3>
+			<h3>标题</h3>
 			<input type="text" placeholder="title" name="title" value=${row.Title}>
-			<h3>DATE AND TIME</h3>
+			<h3>日期和时间</h3>
 			<p><input type="date" name="date" required min=<%= str %> value=${row.Date}>
 			<p><input type="text" placeholder="time" name="time" value=${row.Time}>
-			<h3>TAG OF THE ACTIVITY</h3>
+			<h3>活动标签</h3>
 			<h3>请重新选择标签，至少选择一个</h3>
 			<input type="checkbox" name="tag" value="1"/>思想品德教育
 			<input type="checkbox" name="tag" value="2"/>文化艺术
@@ -188,9 +188,9 @@ SELECT * from activity where ID = <%= id %>;
 			<input type="checkbox" name="tag" value="5"/>社会实践
 			<input type="checkbox" name="tag" value="6"/>创业
 			<input type="checkbox" name="tag" value="7"/>志愿活动
-			<h3>SITE</h3>
+			<h3>地点</h3>
 			<input type="text" placeholder="site" name="site" value=${row.Site}>
-			<h3>DETAILS</h3>
+			<h3>细节</h3>
 			<input type="text" placeholder="Details" name="Details" value=${row.Details}>
 			<input type="hidden" name="activityID" value=${row.ID}>
 			<p><input type="reset" value="reset">

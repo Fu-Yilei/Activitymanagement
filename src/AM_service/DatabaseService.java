@@ -1,6 +1,7 @@
 package AM_service;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,9 +16,9 @@ import AM_entity.User;
 
 public class DatabaseService {
 
-	static final String dburl = "jdbc:mysql://localhost:3306/activitymanagement";
+	static final String dburl = "jdbc:mysql://cqcstizsnftm.mysql.sae.sina.com.cn:10404/activitymanage";
 	static final String dbuser = "root";
-	static final String dbpwd = "fuyilei@96";
+	static final String dbpwd = "fuyilei96";
 	public boolean NewAccount(User u) {
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
@@ -209,6 +210,7 @@ public class DatabaseService {
 			stmt1.executeUpdate("delete from userlike where ActivityID = '"+delID+"' ");
 			stmt1.executeUpdate("delete from holderhold where ActivityID = '"+delID+"' ");
 			stmt1.executeUpdate("delete from activity where ID = '"+delID+"' ");
+			stmt1.executeUpdate("delete from picturesave where ID = '" + delID + "'");
 			return ;
 		}catch (Exception e){
 			System.out.println(e);
@@ -386,5 +388,102 @@ public class DatabaseService {
 			return ;
 		}
 	}
+	public int SearchforID(String Title) {
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+		}
+		catch (Exception e){
+			System.out.println(e);
+			return -1;
+		}
+		
+		try{
+			Connection connect = DriverManager.getConnection(
+					dburl,dbuser,dbpwd);
+			Statement stmt = connect.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * from activity where Title = '"+Title+"'");
+			while (rs.next()) {
+				return rs.getInt("ID");
+			}
+		}catch (Exception e){
+			System.out.println(e);
+			return -1;
+		}
+		return -1;
+	}
 	
+	public int[] SearchActivityByTitle(String title){
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+		}
+		catch (Exception e){
+			return null;
+		}
+		try{
+			Connection connect = DriverManager.getConnection(
+					dburl,dbuser,dbpwd);
+			ArrayList<Activity> aclist=new ArrayList<Activity>();
+			Statement stmt = connect.createStatement();
+			int[] id=new int[100];
+			for (int j=0;j<100;j++){
+				id[j]=-1;
+			}
+			int i=0;
+			ResultSet rs = stmt.executeQuery("select * from activity where Title like '%"+title+"%' ");
+			while (rs.next()) {
+				Activity ac  = new Activity();
+				ac.setTitle(rs.getString("Title"));
+				ac.setDate(rs.getDate("Date"));
+				ac.setDetails(rs.getString("Details"));
+				ac.setHolder(rs.getString("Holder"));
+				ac.setSite(rs.getString("Site"));
+				ac.setTime(rs.getTime("Time"));
+			
+				aclist.add(ac);
+				id[i]=rs.getInt("ID");
+				i++;
+			}
+			
+			return id;
+			
+		}catch(Exception e){
+			return null;
+		}
+		
+	}
+
+
+
+
+
+
+
+	public void SavePicturePath(int ID, String Path, String Title, Date date) {
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+		}
+		catch (Exception e){
+			System.out.println(e);
+			return ;
+		}
+		
+
+		try{
+			Connection connect = DriverManager.getConnection(
+					dburl,dbuser,dbpwd);
+			
+			try{
+				PreparedStatement Statement=connect.prepareStatement("insert into picturesave values (?,?,?,?)");
+				Statement.setInt(1, ID);
+				Statement.setString(2, Path);
+				Statement.setString(3, Title);
+				Statement.setDate(4, date);
+				Statement.executeUpdate();
+			}catch(Exception e){
+				return ;
+			}
+		}catch(Exception e){
+			return ;
+		}
+	}
 }

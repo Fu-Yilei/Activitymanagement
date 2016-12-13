@@ -45,8 +45,8 @@ if (cookies != null) {
 }  
 %>  
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-     url="jdbc:mysql://localhost:3306/activitymanagement"
-     user="root"  password="fuyilei@96"/>
+     url="jdbc:mysql://cqcstizsnftm.mysql.sae.sina.com.cn:10404/activitymanage"
+     user="root"  password="fuyilei96"/>
 
 <sql:query dataSource="${snapshot}" var="result">
 SELECT * from activity;
@@ -59,10 +59,10 @@ SELECT * from activity;
 			</div>
 			<div class="login">
 				<ul class="nav-login">
-					<li><a href="#" data-toggle="modal" data-target="#myModal3">Help</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal4">Contact us</a></li>
-					<li style="color:white;">Hello!<%= email %></li>
-					<li><a href="Home0.jsp">Logout</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal3">帮助</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal4">联系我们</a></li>
+					<li style="color:white;">您好!<%= email %></li>
+					<li><a href="Home0.jsp">登出</a></li>
 				</ul>
 			</div>
 			<div class="clearfix"></div>
@@ -133,10 +133,10 @@ SELECT * from activity;
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav cl-effect-8">
-								<li ><a href="Home2.jsp">Home</a></li>
-								<li><a class="active" href="ViewAll2.jsp">ViewAll</a></li>
-								<li><a href="New.jsp">New</a></li>
-								<li ><a href="Search1.jsp">Search</a></li>
+								<li ><a href="Home2.jsp">主页</a></li>
+								<li><a class="active" href="ViewAll2.jsp">查看全部</a></li>
+								<li><a href="New.jsp">新建</a></li>
+								<li ><a href="Search1.jsp">查询</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 					</div>
@@ -146,35 +146,22 @@ SELECT * from activity;
 		</div> 
 </div> 
 
-<div class="test">
 		<div class="container">
-			<div  class=" test-grid-1" >
-				<!-- begin of iterator -->
-				<div class="col-md-6 test-wrapper" style="margin-bottom:10px">
-					<div class="test-grid">
-					<div class="test-gr">
-						<c:forEach var="row" items="${result.rows}">
-  							<p style="margin-bottom:5px">
-  								<a href="ToDetail2?ID=${row.ID}&Email=<%=email %>">
-  									<c:out value="${row.Title}"/>
-  								</a>
-  							</p>					
-
-						</c:forEach>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<!--  end of iterator -->
-				
-				<div class="clearfix"> </div>
-			</div>
-			
-				
-			<div class="clearfix"> </div>
+			<div  class="page" >
+			  <ul class="nav nav-pills" role="tablist">
+				<c:forEach var="row" items="${result.rows}">
+					<li role="presentation" class = "active">
+					<br>
+						<a href="ToDetail2?ID=${row.ID}">
+						<font size = 5>
+  							<c:out value="${row.Title}"/>
+  						</font>
+  						</a>
+					</li>
+				</c:forEach>
+			</ul>
 			</div>
 		</div>
-	</div>
-
 
 </body>
 </html>

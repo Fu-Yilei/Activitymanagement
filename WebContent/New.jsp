@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Home</title>
+<title>新建</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -44,10 +44,10 @@ String str = formatter.format(currentTime);
 			</div>
 			<div class="login">
 				<ul class="nav-login">
-					<li><a href="#" data-toggle="modal" data-target="#myModal3">Help</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal4">Contact us</a></li>
-					<li style="color:white;">Hello!<%= email %></li>
-					<li><a href="Home0.jsp">Logout</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal3">帮助</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal4">联系我们</a></li>
+					<li style="color:white;"><%= email %>您好！</li>
+					<li><a href="Home0.jsp">登出</a></li>
 				</ul>
 			</div>
 			<div class="clearfix"></div>
@@ -118,7 +118,7 @@ String str = formatter.format(currentTime);
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav cl-effect-8">
-								<li ><a class="active" href="Home2.jsp">Back </a></li>
+								<li ><a class="active" href="Home2.jsp">返回 </a></li>
 								
 							
 							</ul>
@@ -158,16 +158,19 @@ String str = formatter.format(currentTime);
 	<div class="modal-dialog" role="document">
 	<div class="login-grids">
 		<div class="login-right">
-			<form action="CreateActivity" method="post" onsubmit="return check(this)">
-			<h2>CREATE A NEW ACTIVITY</h2>
-			<h3>TITLE OF THE ACTIVITY</h3>
+		<div class="alert alert-success" role="alert">
+        	<strong name="AlertStr">${AlertStr}</strong>
+      	</div>
+			<form action="CreateActivity" method="post" onsubmit="return check(this)" enctype="multipart/form-data">
+			<h2>创建活动</h2>
+			<br><br><br><br><br><br>
+			<h3>活动标题</h3>
 			<input type="text" placeholder="title" name="title">
-			<h3>DATE AND TIME OF THE ACTIVITY</h3>
+			<h3>活动日期和时间</h3>
 			<input type="date" name="date" required min=<%= str %>>
-			<input type="text" placeholder="time" name="time">(Time type: HH:MM)
-			
-			<h3>TAG OF THE ACTIVITY</h3>
-			<h3>请至少选择一个标签</h3>
+			<input type="text" placeholder="time" name="time">(输入格式: HH:MM)
+			<br><br>
+			<h3>活动种类</h3>
 			<input type="checkbox" name="tag" value="1"/>思想品德教育
 			<input type="checkbox" name="tag" value="2"/>文化艺术
 			<input type="checkbox" name="tag" value="3"/>课外学术科技
@@ -175,11 +178,14 @@ String str = formatter.format(currentTime);
 			<input type="checkbox" name="tag" value="5"/>社会实践
 			<input type="checkbox" name="tag" value="6"/>创业
 			<input type="checkbox" name="tag" value="7"/>志愿活动
-			
-			<h3>SITE OF THE ACTIVITY</h3>
-			<input type="text" placeholder="site" name="site">
-			<h3>DETAILS OF THE ACTIVITY</h3>
-			<textarea name = "Details" rows="8" cols="95"></textarea>
+			<br>请至少选择一个标签
+			<br>
+			<h3>活动地点</h3>
+			<input type="text" placeholder="site" name="site"><br><br>
+			<h3>活动细节</h3>
+			<textarea name = "Details" rows="8" cols="95"></textarea><br><br>
+			<h3>如果您有自己的海报，请上传</h3>
+			<input type ="file" name = "file"style="border:1px white;color:white; background:white;height:40px;width:600px" ><br>只支持.jpg格式<br>
 			<!-- input type="text" placeholder="Details" name="Details"-->
 			<input type="hidden" name="holder" value=<%=email %>>
 			<p><p><input type="reset" value="RESET">

@@ -7,7 +7,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Details</title>
+<title>详细内容</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -37,11 +37,14 @@ if (cookies != null) {
 }  
 %>  
 <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-     url="jdbc:mysql://localhost:3306/activitymanagement"
-     user="root"  password="fuyilei@96"/>
+     url="jdbc:mysql://cqcstizsnftm.mysql.sae.sina.com.cn:10404/activitymanage"
+     user="root"  password="fuyilei96"/>
  
 <sql:query dataSource="${snapshot}" var="result">
 SELECT * from activity where ID = <%= id %>;
+</sql:query>
+<sql:query dataSource="${snapshot}" var="result0">
+SELECT * from picturesave where ID = <%= id %>;
 </sql:query>
  <div class="header head1">
 	<div class="container">
@@ -51,10 +54,10 @@ SELECT * from activity where ID = <%= id %>;
 			</div>
 			<div class="login">
 				<ul class="nav-login">
-					<li><a href="#" data-toggle="modal" data-target="#myModal3">Help</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal4">Contact us</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal1">Login</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal2">Signup</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal3">帮助</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal4">联系我们</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal1">登录</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal2">注册</a></li>
 				</ul>
 			</div>
 			<div class="clearfix"></div>
@@ -118,7 +121,7 @@ SELECT * from activity where ID = <%= id %>;
 							
 									<div class="login-right">
 										<form action="SignIn" method="post">
-											<h3>Signin with your account </h3>
+											<h3>登陆您的账户</h3>
 											<input type="text" value="Enter your Email" name="Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Enter your Email';}" required="">	
 											<input type="password" value="Password" name="Password" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Password';}" required="">	
 											<input type="submit" value="SIGNIN" >
@@ -144,11 +147,11 @@ SELECT * from activity where ID = <%= id %>;
 							
 									<div class="login-right">
 										<form action="SignUp" method="post" name="form1">
-											<h3>Create your account </h3>
+											<h3>创建一个新账户 </h3>
 											<input type="text" value="Email" name="Email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Email';}" required="">	
 											<input type="password" value="Password" name="Password" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Password';}" required="">	
-											<input type="radio" value="normal" name="Usertype">User
-											<input type="radio" value="holder" name="Usertype">Holder
+											<input type="radio" value="normal" name="Usertype">普通用户
+											<input type="radio" value="holder" name="Usertype">主办方
 											<input type="submit" value="CREATE ACCOUNT">
 										</form>
 									</div>
@@ -178,8 +181,8 @@ SELECT * from activity where ID = <%= id %>;
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav cl-effect-8">
-								<li><a class="active" href="Home0.jsp">Home </a></li>
-								<li><a href="ViewAll0.jsp">ViewAll</a></li>
+								<li><a class="active" href="Home0.jsp">主页 </a></li>
+								<li><a href="ViewAll0.jsp">查看全部</a></li>
 							
 							</ul>
 						</div><!-- /.navbar-collapse -->
@@ -194,22 +197,21 @@ SELECT * from activity where ID = <%= id %>;
 <!-- about -->
 <div class="about">
 			<c:forEach var="row" items="${result.rows}">
-				<div class="container">
+			<div class="container">
 				<div class="about-head">
 					<h2><c:out value="${row.Title}"/>的详细信息</h2>
-				
 				</div>
 					<div class="about-grids">
 					<div class="col-md-5 about-grid1">
-						
-							
 							<div class="about-img">
-								<img src="images/aa.jpg" class="img-responsive" alt="">
+							<c:forEach var="row0" items="${result0.rows}">
+								<img src= "${row0.PicturePath}" class="img-responsive" alt="">
+							</c:forEach>
 							</div>							
 						</div>
 						<div class="col-md-7 about-grid">
 							<h3></h3>
-							<h5>活动地点。</h5>
+							<h5>活动地点。 </h5>
 							<p><c:out value="${row.Site}"/></p>
 							<div class="about-top">
 								<div class="col-md-6 about-left">
@@ -239,7 +241,7 @@ SELECT * from activity where ID = <%= id %>;
 				<div class="page-header ">
 					<ul class="nav nav-pills" role="tablist">
 						<li role="presentation" class="active">
-							<a href="javascript:history.back(-1)">返回上一页</a>
+							<a href="Home0.jsp">返回</a>
 						</li>
 					</ul>
 				</div>
@@ -247,93 +249,7 @@ SELECT * from activity where ID = <%= id %>;
 		</div>
 		</c:forEach>
 </div>
-<div class="content-bottom">
-	<h1>Gallery</h1>
-		<div class="content-in">
-            <div class="port effect-1">
-                <div class="image-box">
-                   <img src="images/P1.png" alt="" class="img-responsive">
-               </div>
-                <div class="text-desc">
-					<h6>随机活动</h6>
-					<p>随机活动的标题</p>   
-                </div>
-           </div>
-         </div>
-		<div class="content-in">
-            <div class="port effect-1">
-                <div class="image-box">
-                    <img src="images/P2.png" alt="" class="img-responsive">
-                </div>
-				<div class="text-desc">
-					<h6>随机活动</h6>
-					<p>随机活动的标题</p>   
-                </div>
-            </div>
-        </div>
-		<div class="content-in">
-            <div class="port effect-1">
-                <div class="image-box">
-                    <img src="images/P3.png" alt="" class="img-responsive">
-                </div>
-				<div class="text-desc">
-					<h6>随机活动</h6>
-					<p>随机活动的标题</p>   	
-				</div>
-			</div>
-        </div>
-		<div class="content-in">
-            <div class="port effect-1">
-                <div class="image-box">
-                    <img src="images/P4.png" alt="" class="img-responsive">
-                </div>
-                <div class="text-desc">
-					<h6>随机活动</h6>
-					<p>随机活动的标题</p>   
-                </div>
-            </div>
-        </div>
-		<div class="content-in">
-            <div class="port effect-1">
-                <div class="image-box">
-                    <img src="images/P5.png" alt="" class="img-responsive">
-                </div>
-                <div class="text-desc">
-					<h6>随机活动</h6>
-					<p>随机活动的标题</p>   
-                </div>
-            </div>
-        </div>
-        <div class="clearfix"> </div>
-</div>
-<!---->
-<!--footer-->
-<div class="footer">
-	<div class="container">
-		<div class="col-md-6 footer-left">
-			<h3>Information</h3>
-			<p class="para">At vero eos et accusamus et iusto odio dignissimos
-			ducimus qui blanditiis praesentium voluptatum deleniti at
-			que corrupti quos dolores et quas molestias excepturi sint
-			occaecati cupiditate non provident, similique sunt.</p>
-			<h3>Newsletter<label></label></h3>
-			<form action="#" method="post">
-				<input type="text" value="Name" name="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-				<input type="email" value="Email" name="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-				<input type="submit" value="Submit">
-			</form>
-		</div>
-		<div class="col-md-6 footer-right">
-			<h3>Contact Us</h3>
-			<ul class="con-icons">
-				<li><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>+123 456 7890</li>
-				<li><a href="mailto:info@example.com"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>info@example.com</a></li>
-			</ul>
-			<p class="copy-right">Copyright &copy; 2016.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
-		</div>
-		<div class="clearfix"></div>
-	</div>
-</div>
+
 <!--//footer-->
 </body>
 </html>

@@ -140,19 +140,15 @@ public class RecommendService {
 					inttmp[cnt++] = rs.getInt("ActivityID");
 					if (cnt >= 5){
 						AddTmpTable(email,inttmp,cnt);
-						return ;
+						return;
 					}
 				}
-				
 			}
 			AddTmpTable(email,inttmp,cnt);
-			return;
+			return ;
 		}catch(Exception e){
 			System.out.println("Exception in RS 145 ->" + e);
 			return ;
 		}
-		
-		
 	}
-
 }
